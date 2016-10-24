@@ -1,0 +1,81 @@
+\documentclass[catalan,parskip=half*,oneside,hidelinks]{scrreprt}
+
+% encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{babel}
+
+% formatting and fixes
+\frenchspacing
+\usepackage[style=spanish]{csquotes}
+\MakeAutoQuote{«}{»}
+\usepackage{bookmark}
+
+% ADD ANY SPECIFIC PACKAGES HERE
+% (CHEMISTRY, CODE, PUBLISHING)
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{automata}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{circuits.logic.US,circuits.logic.IEC}
+\usepackage{tikz-timing}
+%\usepackage{karnaugh}
+\usepackage{minted}
+\usepackage{xcolor}
+
+% hyperlink setup / metadata
+\usepackage{hyperref}
+\AfterPreamble{\hypersetup{
+  pdfauthor={Àlex Moreno; Xavier Mendez},
+  pdftitle={Memòria pràctica 1},
+  pdfsubject={DGD},
+  linkcolor={red!50!black},
+  citecolor={blue!50!black},
+  urlcolor={blue!80!black}
+}}
+
+% custom commands: BDF schematic
+\newcommand{\nodenamebit}[1]{\text{#1}}
+\newcommand{\nodenamesingle}[2]{\text{#1}_{#2}}
+\newcommand{\nodenamerange}[3]{\text{#1}_{#2..#3}}
+
+\newcommand{\bdfschematic}[1]{
+\begin{tikzpicture}[
+  circuit ee IEC, circuit logic US,
+  input pin/.style={},
+  output pin/.style={},
+  symbol/.style={},
+  symbol type/.style={font=\sffamily\scriptsize, gray},
+  node line/.style={},
+  bus line/.style={ultra thick},
+  line name/.style={font=\small, inner sep=0pt},
+  pin name/.style={font=\small, inner sep=7pt},
+  port name/.style={font=\scriptsize, inner sep=0pt},
+  junction/.style={},
+  pin bounds/.style={draw=none},
+  symbol bounds/.style={draw=gray, dotted},
+]
+\input{../assets/schematics/#1.tex}
+\end{tikzpicture}
+}
+
+
+
+\begin{document}
+
+\title{Memòria pràctica 1}
+\date{24 d'octubre de 2016}
+\author{Àlex Moreno; Xavier Mendez}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\input{../practica1a.tex}
+\input{../practica1b.tex}
+
+\end{document}
