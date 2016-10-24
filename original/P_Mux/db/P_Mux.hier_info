@@ -1,0 +1,277 @@
+|P_Mux
+HEX0[0] <= BCD7seg:inst2.HEX[0]
+HEX0[1] <= BCD7seg:inst2.HEX[1]
+HEX0[2] <= BCD7seg:inst2.HEX[2]
+HEX0[3] <= BCD7seg:inst2.HEX[3]
+HEX0[4] <= BCD7seg:inst2.HEX[4]
+HEX0[5] <= BCD7seg:inst2.HEX[5]
+HEX0[6] <= BCD7seg:inst2.HEX[6]
+SW[0] => MUX_2B4_to_1B4:inst.sel
+SW[17] => MUX_2B4_to_1B4:inst.a[3]
+SW[17] => BCD7seg:inst1.num[3]
+SW[16] => MUX_2B4_to_1B4:inst.a[2]
+SW[16] => BCD7seg:inst1.num[2]
+SW[15] => MUX_2B4_to_1B4:inst.a[1]
+SW[15] => BCD7seg:inst1.num[1]
+SW[14] => MUX_2B4_to_1B4:inst.a[0]
+SW[14] => BCD7seg:inst1.num[0]
+SW[13] => MUX_2B4_to_1B4:inst.b[3]
+SW[13] => BCD7seg:inst3.num[3]
+SW[12] => MUX_2B4_to_1B4:inst.b[2]
+SW[12] => BCD7seg:inst3.num[2]
+SW[11] => MUX_2B4_to_1B4:inst.b[1]
+SW[11] => BCD7seg:inst3.num[1]
+SW[10] => MUX_2B4_to_1B4:inst.b[0]
+SW[10] => BCD7seg:inst3.num[0]
+HEX1[0] <= <VCC>
+HEX1[1] <= <VCC>
+HEX1[2] <= <VCC>
+HEX1[3] <= <VCC>
+HEX1[4] <= <VCC>
+HEX1[5] <= <VCC>
+HEX1[6] <= <VCC>
+HEX2[0] <= <VCC>
+HEX2[1] <= <VCC>
+HEX2[2] <= <VCC>
+HEX2[3] <= <VCC>
+HEX2[4] <= <VCC>
+HEX2[5] <= <VCC>
+HEX2[6] <= <VCC>
+HEX3[0] <= <VCC>
+HEX3[1] <= <VCC>
+HEX3[2] <= <VCC>
+HEX3[3] <= <VCC>
+HEX3[4] <= <VCC>
+HEX3[5] <= <VCC>
+HEX3[6] <= <VCC>
+HEX4[0] <= BCD7seg:inst3.HEX[0]
+HEX4[1] <= BCD7seg:inst3.HEX[1]
+HEX4[2] <= BCD7seg:inst3.HEX[2]
+HEX4[3] <= BCD7seg:inst3.HEX[3]
+HEX4[4] <= BCD7seg:inst3.HEX[4]
+HEX4[5] <= BCD7seg:inst3.HEX[5]
+HEX4[6] <= BCD7seg:inst3.HEX[6]
+HEX5[0] <= <VCC>
+HEX5[1] <= <VCC>
+HEX5[2] <= <VCC>
+HEX5[3] <= <VCC>
+HEX5[4] <= <VCC>
+HEX5[5] <= <VCC>
+HEX5[6] <= <VCC>
+HEX6[0] <= BCD7seg:inst1.HEX[0]
+HEX6[1] <= BCD7seg:inst1.HEX[1]
+HEX6[2] <= BCD7seg:inst1.HEX[2]
+HEX6[3] <= BCD7seg:inst1.HEX[3]
+HEX6[4] <= BCD7seg:inst1.HEX[4]
+HEX6[5] <= BCD7seg:inst1.HEX[5]
+HEX6[6] <= BCD7seg:inst1.HEX[6]
+HEX7[0] <= <VCC>
+HEX7[1] <= <VCC>
+HEX7[2] <= <VCC>
+HEX7[3] <= <VCC>
+HEX7[4] <= <VCC>
+HEX7[5] <= <VCC>
+HEX7[6] <= <VCC>
+
+
+|P_Mux|BCD7seg:inst2
+num[0] => Equal0.IN3
+num[0] => Equal1.IN2
+num[0] => Equal2.IN3
+num[0] => Equal3.IN1
+num[0] => Equal4.IN3
+num[0] => Equal5.IN2
+num[0] => Equal6.IN3
+num[0] => Equal7.IN2
+num[0] => Equal8.IN3
+num[0] => Equal9.IN3
+num[1] => Equal0.IN1
+num[1] => Equal1.IN1
+num[1] => Equal2.IN2
+num[1] => Equal3.IN3
+num[1] => Equal4.IN1
+num[1] => Equal5.IN1
+num[1] => Equal6.IN2
+num[1] => Equal7.IN3
+num[1] => Equal8.IN2
+num[1] => Equal9.IN2
+num[2] => Equal0.IN0
+num[2] => Equal1.IN0
+num[2] => Equal2.IN1
+num[2] => Equal3.IN2
+num[2] => Equal4.IN2
+num[2] => Equal5.IN3
+num[2] => Equal6.IN1
+num[2] => Equal7.IN1
+num[2] => Equal8.IN1
+num[2] => Equal9.IN1
+num[3] => Equal0.IN2
+num[3] => Equal1.IN3
+num[3] => Equal2.IN0
+num[3] => Equal3.IN0
+num[3] => Equal4.IN0
+num[3] => Equal5.IN0
+num[3] => Equal6.IN0
+num[3] => Equal7.IN0
+num[3] => Equal8.IN0
+num[3] => Equal9.IN0
+HEX[0] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[1] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[2] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[3] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[4] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[5] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[6] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P_Mux|MUX_2B4_to_1B4:inst
+z[0] <= MUX_2_to_1:inst.z
+z[1] <= MUX_2_to_1:inst1.z
+z[2] <= MUX_2_to_1:inst2.z
+z[3] <= MUX_2_to_1:inst3.z
+a[0] => MUX_2_to_1:inst.a
+a[1] => MUX_2_to_1:inst1.a
+a[2] => MUX_2_to_1:inst2.a
+a[3] => MUX_2_to_1:inst3.a
+b[0] => MUX_2_to_1:inst.b
+b[1] => MUX_2_to_1:inst1.b
+b[2] => MUX_2_to_1:inst2.b
+b[3] => MUX_2_to_1:inst3.b
+sel => MUX_2_to_1:inst1.sel
+sel => MUX_2_to_1:inst.sel
+sel => MUX_2_to_1:inst2.sel
+sel => MUX_2_to_1:inst3.sel
+
+
+|P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst1
+z <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+b => inst1.IN0
+sel => inst7.IN0
+sel => inst.IN1
+a => inst.IN0
+
+
+|P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst
+z <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+b => inst1.IN0
+sel => inst7.IN0
+sel => inst.IN1
+a => inst.IN0
+
+
+|P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst2
+z <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+b => inst1.IN0
+sel => inst7.IN0
+sel => inst.IN1
+a => inst.IN0
+
+
+|P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst3
+z <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+b => inst1.IN0
+sel => inst7.IN0
+sel => inst.IN1
+a => inst.IN0
+
+
+|P_Mux|BCD7seg:inst3
+num[0] => Equal0.IN3
+num[0] => Equal1.IN2
+num[0] => Equal2.IN3
+num[0] => Equal3.IN1
+num[0] => Equal4.IN3
+num[0] => Equal5.IN2
+num[0] => Equal6.IN3
+num[0] => Equal7.IN2
+num[0] => Equal8.IN3
+num[0] => Equal9.IN3
+num[1] => Equal0.IN1
+num[1] => Equal1.IN1
+num[1] => Equal2.IN2
+num[1] => Equal3.IN3
+num[1] => Equal4.IN1
+num[1] => Equal5.IN1
+num[1] => Equal6.IN2
+num[1] => Equal7.IN3
+num[1] => Equal8.IN2
+num[1] => Equal9.IN2
+num[2] => Equal0.IN0
+num[2] => Equal1.IN0
+num[2] => Equal2.IN1
+num[2] => Equal3.IN2
+num[2] => Equal4.IN2
+num[2] => Equal5.IN3
+num[2] => Equal6.IN1
+num[2] => Equal7.IN1
+num[2] => Equal8.IN1
+num[2] => Equal9.IN1
+num[3] => Equal0.IN2
+num[3] => Equal1.IN3
+num[3] => Equal2.IN0
+num[3] => Equal3.IN0
+num[3] => Equal4.IN0
+num[3] => Equal5.IN0
+num[3] => Equal6.IN0
+num[3] => Equal7.IN0
+num[3] => Equal8.IN0
+num[3] => Equal9.IN0
+HEX[0] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[1] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[2] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[3] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[4] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[5] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[6] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|P_Mux|BCD7seg:inst1
+num[0] => Equal0.IN3
+num[0] => Equal1.IN2
+num[0] => Equal2.IN3
+num[0] => Equal3.IN1
+num[0] => Equal4.IN3
+num[0] => Equal5.IN2
+num[0] => Equal6.IN3
+num[0] => Equal7.IN2
+num[0] => Equal8.IN3
+num[0] => Equal9.IN3
+num[1] => Equal0.IN1
+num[1] => Equal1.IN1
+num[1] => Equal2.IN2
+num[1] => Equal3.IN3
+num[1] => Equal4.IN1
+num[1] => Equal5.IN1
+num[1] => Equal6.IN2
+num[1] => Equal7.IN3
+num[1] => Equal8.IN2
+num[1] => Equal9.IN2
+num[2] => Equal0.IN0
+num[2] => Equal1.IN0
+num[2] => Equal2.IN1
+num[2] => Equal3.IN2
+num[2] => Equal4.IN2
+num[2] => Equal5.IN3
+num[2] => Equal6.IN1
+num[2] => Equal7.IN1
+num[2] => Equal8.IN1
+num[2] => Equal9.IN1
+num[3] => Equal0.IN2
+num[3] => Equal1.IN3
+num[3] => Equal2.IN0
+num[3] => Equal3.IN0
+num[3] => Equal4.IN0
+num[3] => Equal5.IN0
+num[3] => Equal6.IN0
+num[3] => Equal7.IN0
+num[3] => Equal8.IN0
+num[3] => Equal9.IN0
+HEX[0] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[1] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[2] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[3] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[4] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[5] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+HEX[6] <= HEX.DB_MAX_OUTPUT_PORT_TYPE
+
+

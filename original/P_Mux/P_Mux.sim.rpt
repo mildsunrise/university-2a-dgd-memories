@@ -1,0 +1,238 @@
+Simulator report for P_Mux
+Tue Oct 04 15:33:08 2016
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 63 nodes     ;
+; Simulation Coverage         ;      61.90 % ;
+; Total Number of Transitions ; 362          ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C35F672C6 ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Vector input source                                                                        ; P_Mux.vwf  ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; On         ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      61.90 % ;
+; Total nodes checked                                 ; 63           ;
+; Total output ports checked                          ; 63           ;
+; Total output ports with complete 1/0-value coverage ; 39           ;
+; Total output ports with no 1/0-value coverage       ; 10           ;
+; Total output ports with no 1-value coverage         ; 19           ;
+; Total output ports with no 0-value coverage         ; 15           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                  ;
++-----------------------------------------------------+-----------------------------------------------------+------------------+
+; Node Name                                           ; Output Port Name                                    ; Output Port Type ;
++-----------------------------------------------------+-----------------------------------------------------+------------------+
+; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst3|inst2~0 ; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst3|inst2~0 ; combout          ;
+; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst2|inst2~0 ; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst2|inst2~0 ; combout          ;
+; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst|inst2~0  ; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst|inst2~0  ; combout          ;
+; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst1|inst2~0 ; |P_Mux|MUX_2B4_to_1B4:inst|MUX_2_to_1:inst1|inst2~0 ; combout          ;
+; |P_Mux|BCD7seg:inst2|Equal9~0                       ; |P_Mux|BCD7seg:inst2|Equal9~0                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|Equal9~1                       ; |P_Mux|BCD7seg:inst2|Equal9~1                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[6]~0                       ; |P_Mux|BCD7seg:inst2|HEX[6]~0                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[5]~1                       ; |P_Mux|BCD7seg:inst2|HEX[5]~1                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[6]~2                       ; |P_Mux|BCD7seg:inst2|HEX[6]~2                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[5]~3                       ; |P_Mux|BCD7seg:inst2|HEX[5]~3                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[4]~4                       ; |P_Mux|BCD7seg:inst2|HEX[4]~4                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[4]~5                       ; |P_Mux|BCD7seg:inst2|HEX[4]~5                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[3]~6                       ; |P_Mux|BCD7seg:inst2|HEX[3]~6                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[0]~7                       ; |P_Mux|BCD7seg:inst2|HEX[0]~7                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[2]~8                       ; |P_Mux|BCD7seg:inst2|HEX[2]~8                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[2]~9                       ; |P_Mux|BCD7seg:inst2|HEX[2]~9                       ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[1]~10                      ; |P_Mux|BCD7seg:inst2|HEX[1]~10                      ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[0]~11                      ; |P_Mux|BCD7seg:inst2|HEX[0]~11                      ; combout          ;
+; |P_Mux|BCD7seg:inst2|HEX[0]~12                      ; |P_Mux|BCD7seg:inst2|HEX[0]~12                      ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[4]~23                      ; |P_Mux|BCD7seg:inst3|HEX[4]~23                      ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[6]~24                      ; |P_Mux|BCD7seg:inst3|HEX[6]~24                      ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[5]~25                      ; |P_Mux|BCD7seg:inst3|HEX[5]~25                      ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[2]~26                      ; |P_Mux|BCD7seg:inst3|HEX[2]~26                      ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[6]~24                      ; |P_Mux|BCD7seg:inst1|HEX[6]~24                      ; combout          ;
+; |P_Mux|HEX0[6]                                      ; |P_Mux|HEX0[6]                                      ; padio            ;
+; |P_Mux|HEX0[5]                                      ; |P_Mux|HEX0[5]                                      ; padio            ;
+; |P_Mux|HEX0[4]                                      ; |P_Mux|HEX0[4]                                      ; padio            ;
+; |P_Mux|HEX0[3]                                      ; |P_Mux|HEX0[3]                                      ; padio            ;
+; |P_Mux|HEX0[2]                                      ; |P_Mux|HEX0[2]                                      ; padio            ;
+; |P_Mux|HEX0[1]                                      ; |P_Mux|HEX0[1]                                      ; padio            ;
+; |P_Mux|HEX0[0]                                      ; |P_Mux|HEX0[0]                                      ; padio            ;
+; |P_Mux|HEX4[6]                                      ; |P_Mux|HEX4[6]                                      ; padio            ;
+; |P_Mux|HEX4[5]                                      ; |P_Mux|HEX4[5]                                      ; padio            ;
+; |P_Mux|HEX4[4]                                      ; |P_Mux|HEX4[4]                                      ; padio            ;
+; |P_Mux|HEX4[2]                                      ; |P_Mux|HEX4[2]                                      ; padio            ;
+; |P_Mux|HEX6[6]                                      ; |P_Mux|HEX6[6]                                      ; padio            ;
+; |P_Mux|SW[17]                                       ; |P_Mux|SW[17]~corein                                ; combout          ;
+; |P_Mux|SW[0]                                        ; |P_Mux|SW[0]~corein                                 ; combout          ;
+; |P_Mux|SW[10]                                       ; |P_Mux|SW[10]~corein                                ; combout          ;
++-----------------------------------------------------+-----------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                           ;
++--------------------------------+--------------------------------+------------------+
+; Node Name                      ; Output Port Name               ; Output Port Type ;
++--------------------------------+--------------------------------+------------------+
+; |P_Mux|BCD7seg:inst3|HEX[3]~21 ; |P_Mux|BCD7seg:inst3|HEX[3]~21 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[3]~21 ; |P_Mux|BCD7seg:inst1|HEX[3]~21 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[1]~22 ; |P_Mux|BCD7seg:inst1|HEX[1]~22 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[4]~23 ; |P_Mux|BCD7seg:inst1|HEX[4]~23 ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[0]~27 ; |P_Mux|BCD7seg:inst3|HEX[0]~27 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[2]~26 ; |P_Mux|BCD7seg:inst1|HEX[2]~26 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[0]~27 ; |P_Mux|BCD7seg:inst1|HEX[0]~27 ; combout          ;
+; |P_Mux|HEX4[3]                 ; |P_Mux|HEX4[3]                 ; padio            ;
+; |P_Mux|HEX4[0]                 ; |P_Mux|HEX4[0]                 ; padio            ;
+; |P_Mux|HEX6[5]                 ; |P_Mux|HEX6[5]                 ; padio            ;
+; |P_Mux|HEX6[4]                 ; |P_Mux|HEX6[4]                 ; padio            ;
+; |P_Mux|HEX6[3]                 ; |P_Mux|HEX6[3]                 ; padio            ;
+; |P_Mux|HEX6[2]                 ; |P_Mux|HEX6[2]                 ; padio            ;
+; |P_Mux|HEX6[1]                 ; |P_Mux|HEX6[1]                 ; padio            ;
+; |P_Mux|HEX6[0]                 ; |P_Mux|HEX6[0]                 ; padio            ;
+; |P_Mux|SW[13]                  ; |P_Mux|SW[13]~corein           ; combout          ;
+; |P_Mux|SW[16]                  ; |P_Mux|SW[16]~corein           ; combout          ;
+; |P_Mux|SW[14]                  ; |P_Mux|SW[14]~corein           ; combout          ;
+; |P_Mux|SW[15]                  ; |P_Mux|SW[15]~corein           ; combout          ;
++--------------------------------+--------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                           ;
++--------------------------------+--------------------------------+------------------+
+; Node Name                      ; Output Port Name               ; Output Port Type ;
++--------------------------------+--------------------------------+------------------+
+; |P_Mux|BCD7seg:inst3|HEX[3]~21 ; |P_Mux|BCD7seg:inst3|HEX[3]~21 ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[1]~22 ; |P_Mux|BCD7seg:inst3|HEX[1]~22 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[1]~22 ; |P_Mux|BCD7seg:inst1|HEX[1]~22 ; combout          ;
+; |P_Mux|BCD7seg:inst3|HEX[0]~27 ; |P_Mux|BCD7seg:inst3|HEX[0]~27 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[5]~25 ; |P_Mux|BCD7seg:inst1|HEX[5]~25 ; combout          ;
+; |P_Mux|BCD7seg:inst1|HEX[2]~26 ; |P_Mux|BCD7seg:inst1|HEX[2]~26 ; combout          ;
+; |P_Mux|HEX4[3]                 ; |P_Mux|HEX4[3]                 ; padio            ;
+; |P_Mux|HEX4[1]                 ; |P_Mux|HEX4[1]                 ; padio            ;
+; |P_Mux|HEX4[0]                 ; |P_Mux|HEX4[0]                 ; padio            ;
+; |P_Mux|HEX6[2]                 ; |P_Mux|HEX6[2]                 ; padio            ;
+; |P_Mux|HEX6[1]                 ; |P_Mux|HEX6[1]                 ; padio            ;
+; |P_Mux|SW[16]                  ; |P_Mux|SW[16]~corein           ; combout          ;
+; |P_Mux|SW[12]                  ; |P_Mux|SW[12]~corein           ; combout          ;
+; |P_Mux|SW[15]                  ; |P_Mux|SW[15]~corein           ; combout          ;
+; |P_Mux|SW[11]                  ; |P_Mux|SW[11]~corein           ; combout          ;
++--------------------------------+--------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue Oct 04 15:33:07 2016
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off P_Mux -c P_Mux
+Info: Using vector source file "L:/DGD/Lab1/P_Mux/P_Mux.vwf"
+Info: Overwriting simulation input file with simulation results
+    Info: A backup of P_Mux.vwf called P_Mux.sim_ori.vwf has been created in the db folder
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      61.90 %
+Info: Number of transitions in simulation is 362
+Info: Vector file P_Mux.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 152 megabytes
+    Info: Processing ended: Tue Oct 04 15:33:08 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

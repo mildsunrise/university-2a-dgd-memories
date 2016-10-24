@@ -1,0 +1,84 @@
+GED
+
+	Undo Commands
+	     1.	Move
+	     2.	Move
+	     3.	Properties
+	     4.	Delete
+	     5.	Properties
+	     6.	Resize
+	     7.	Insert Node
+	     8.	Insert Node
+	     9.	Insert Symbol
+	    10.	Move
+	    11.	Move
+	    12.	Move
+	    13.	Move
+	    14.	Move
+	    15.	Properties
+	    16.	Insert Node
+	    17.	Properties
+	    18.	Insert Node
+	    19.	Delete
+	    20.	Delete
+	    21.	Delete
+	    22.	Delete
+	    23.	Delete
+	    24.	Delete
+	    25.	Move
+	    26.	Move
+	    27.	Insert Node
+	    28.	Insert Node
+	    29.	Insert Node
+	    30.	Insert Node
+	    31.	Insert Node
+	    32.	Resize
+	    33.	Resize
+	    34.	Insert Node
+	    35.	Insert Node
+	    36.	Resize
+	    37.	Insert Node
+	    38.	Delete
+	    39.	Delete
+	    40.	Node Line Style
+	    41.	Insert Node
+	    42.	Insert Node
+	    43.	Properties
+	    44.	Properties
+	    45.	Properties
+	    46.	Properties
+	    47.	Insert Symbol
+	    48.	Move
+	    49.	Move
+	    50.	Insert Symbol
+	    51.	Insert Symbol
+	    52.	Insert Symbol
+	    53.	Insert Symbol
+	    54.	Move
+	    55.	Insert Symbol
+	    56.	Insert Symbol
+	    57.	Insert Symbol
+
+
+WED
+
+	Undo Commands
+	     1.	Clock
+	     2.	Clock
+	     3.	Clock
+	     4.	Edit Waveform
+	     5.	Paste Waveform Interval
+			 ***  ***  *** 
+	     6.	Edit Waveform
+	     7.	Edit Waveform
+	     8.	Edit Waveform
+	     9.	Edit Waveform
+	    10.	Edit Waveform
+	    11.	Move Time Bar
+			 ***  *** 
+	    12.	Edit Waveform
+	    13.	Insert Node or Bus
+	    14.	Grid Size
+	    15.	End Time
+
+

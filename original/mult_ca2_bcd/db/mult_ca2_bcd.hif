@@ -1,0 +1,430 @@
+Quartus II
+Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+11
+1000
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+SUM_8B
+# storage
+db|mult_ca2_bcd.(2).cnf
+db|mult_ca2_bcd.(2).cnf
+# case_insensitive
+# source_file
+sum_8b.bdf
+ba836211ef95414e54b366ac1acdcc77
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9
+}
+# macro_sequence
+
+# end
+# entity
+SUM_1B
+# storage
+db|mult_ca2_bcd.(3).cnf
+db|mult_ca2_bcd.(3).cnf
+# case_insensitive
+# source_file
+sum_1b.bdf
+933f0393d509c0a076ef33da82d30
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst4|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst5|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst6|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst7|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst8|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst9|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst10|SUM_8B:inst9|SUM_1B:inst8
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst2
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst3
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst4
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst5
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst6
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst7
+MULT_8x8:inst2|MULT_ACC:inst11|SUM_8B:inst9|SUM_1B:inst8
+CA2_SS_4B:inst4|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst5
+CA2_SS_4B:inst4|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst6
+CA2_SS_4B:inst4|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst7
+CA2_SS_4B:inst4|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst8
+CA2_SS_4B:inst3|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst5
+CA2_SS_4B:inst3|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst6
+CA2_SS_4B:inst3|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst7
+CA2_SS_4B:inst3|CA2_BCD_4B:inst5|SUM_4B:inst1|SUM_1B:inst8
+}
+# macro_sequence
+
+# end
+# entity
+MULT_8x1
+# storage
+db|mult_ca2_bcd.(4).cnf
+db|mult_ca2_bcd.(4).cnf
+# case_insensitive
+# source_file
+mult_8x1.bdf
+2d1ed24eab41f214705143be7c89d59c
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+MULT_8x8:inst2|MULT_ACC:inst4|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst5|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst6|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst7|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst8|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst9|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst10|MULT_8x1:inst
+MULT_8x8:inst2|MULT_ACC:inst11|MULT_8x1:inst
+}
+# macro_sequence
+
+# end
+# entity
+MULT_ACC
+# storage
+db|mult_ca2_bcd.(1).cnf
+db|mult_ca2_bcd.(1).cnf
+# case_insensitive
+# source_file
+mult_acc.bdf
+437cb6b18977d50d267f65e9c10384e
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+MULT_8x8:inst2|MULT_ACC:inst4
+MULT_8x8:inst2|MULT_ACC:inst5
+MULT_8x8:inst2|MULT_ACC:inst6
+MULT_8x8:inst2|MULT_ACC:inst7
+MULT_8x8:inst2|MULT_ACC:inst8
+MULT_8x8:inst2|MULT_ACC:inst9
+MULT_8x8:inst2|MULT_ACC:inst10
+MULT_8x8:inst2|MULT_ACC:inst11
+}
+# macro_sequence
+
+# end
+# entity
+MULT_8x8
+# storage
+db|mult_ca2_bcd.(5).cnf
+db|mult_ca2_bcd.(5).cnf
+# case_insensitive
+# source_file
+mult_8x8.bdf
+48841adda26698ca7e83864b2d6b44d
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+MULT_8x8:inst2
+}
+# macro_sequence
+
+# end
+# entity
+BCD7seg
+# storage
+db|mult_ca2_bcd.(6).cnf
+db|mult_ca2_bcd.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+bcd7seg.vhd
+208f43888b04e6339e97f908a5ce632
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+CA2_SS_8B:inst5|BCD7seg:inst
+CA2_SS_8B:inst5|BCD7seg:inst3
+CA2_SS_4B:inst4|BCD7seg:inst
+CA2_SS_4B:inst3|BCD7seg:inst
+}
+# lmf
+c:|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+CA2_BCD_8B
+# storage
+db|mult_ca2_bcd.(7).cnf
+db|mult_ca2_bcd.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+ca2_bcd_8b.vhd
+51e2c9331078e58d3925adaf6af35023
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+CA2_SS_8B:inst5|CA2_BCD_8B:inst2
+}
+# lmf
+c:|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+CA2_4A8
+# storage
+db|mult_ca2_bcd.(8).cnf
+db|mult_ca2_bcd.(8).cnf
+# case_insensitive
+# source_file
+ca2_4a8.bdf
+f73d548dc88b78640ff3320877d3674
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+CA2_4A8:inst
+CA2_4A8:inst1
+}
+# macro_sequence
+
+# end
+# entity
+CA2_SIG_SS
+# storage
+db|mult_ca2_bcd.(9).cnf
+db|mult_ca2_bcd.(9).cnf
+# case_insensitive
+# source_file
+ca2_sig_ss.bdf
+1c19783995bb668b7198ae69e38fb4
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+CA2_SS_8B:inst5|CA2_SIG_SS:inst1
+CA2_SS_4B:inst4|CA2_SIG_SS:inst1
+CA2_SS_4B:inst3|CA2_SIG_SS:inst1
+}
+# macro_sequence
+
+# end
+# entity
+CA2_BCD_4B
+# storage
+db|mult_ca2_bcd.(10).cnf
+db|mult_ca2_bcd.(10).cnf
+# case_insensitive
+# source_file
+ca2_bcd_4b.bdf
+bd7d3647826f4d329417c1840b36a9
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+CA2_SS_4B:inst4|CA2_BCD_4B:inst5
+CA2_SS_4B:inst3|CA2_BCD_4B:inst5
+}
+# macro_sequence
+
+# end
+# entity
+SUM_4B
+# storage
+db|mult_ca2_bcd.(11).cnf
+db|mult_ca2_bcd.(11).cnf
+# case_insensitive
+# source_file
+sum_4b.bdf
+20bfb6e84fdf806f6532895aefe8b0
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+CA2_SS_4B:inst4|CA2_BCD_4B:inst5|SUM_4B:inst1
+CA2_SS_4B:inst3|CA2_BCD_4B:inst5|SUM_4B:inst1
+}
+# macro_sequence
+
+# end
+# entity
+CA2_SS_8B
+# storage
+db|mult_ca2_bcd.(12).cnf
+db|mult_ca2_bcd.(12).cnf
+# case_insensitive
+# source_file
+ca2_ss_8b.bdf
+c82ba4713c3ae93f9fb56ddf9817cfc
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+CA2_SS_8B:inst5
+}
+# macro_sequence
+
+# end
+# entity
+CA2_SS_4B
+# storage
+db|mult_ca2_bcd.(13).cnf
+db|mult_ca2_bcd.(13).cnf
+# case_insensitive
+# source_file
+ca2_ss_4b.bdf
+0700b15fe9b6693ad4537ecfd28
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+CA2_SS_4B:inst4
+CA2_SS_4B:inst3
+}
+# macro_sequence
+
+# end
+# entity
+MULT_CA2_BCD
+# storage
+db|mult_ca2_bcd.(0).cnf
+db|mult_ca2_bcd.(0).cnf
+# case_insensitive
+# source_file
+mult_ca2_bcd.bdf
+7e8f859697bb46e06e1488f7c39aa4
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+
