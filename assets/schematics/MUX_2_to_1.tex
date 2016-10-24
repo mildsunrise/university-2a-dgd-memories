@@ -1,0 +1,57 @@
+  % Pin (INPUT) named a
+  \draw[input pin] (1.7143,-2.8571) -- (2.4286,-2.8571) -- (2.5429,-2.7429) -- (2.4286,-2.6286) -- (1.7143,-2.6286) -- cycle;
+  \draw[pin name] (1.7143,-2.7429) node[anchor=east] {$\nodenamebit{a}$};
+
+  % Pin (INPUT) named b
+  \draw[input pin] (1.7143,-4.4571) -- (2.4286,-4.4571) -- (2.5429,-4.3429) -- (2.4286,-4.2286) -- (1.7143,-4.2286) -- cycle;
+  \draw[pin name] (1.7143,-4.3429) node[anchor=east] {$\nodenamebit{b}$};
+
+  % Pin (INPUT) named sel
+  \draw[input pin] (1.7143,-6.7429) -- (2.4286,-6.7429) -- (2.5429,-6.6286) -- (2.4286,-6.5143) -- (1.7143,-6.5143) -- cycle;
+  \draw[pin name] (1.7143,-6.6286) node[anchor=east] {$\nodenamebit{sel}$};
+
+  % Pin (OUTPUT) named z
+  \draw[output pin] (12.6857,-3.7714) -- (13.4286,-3.7714) -- (13.5429,-3.8857) -- (13.4286,-4.0000) -- (12.6857,-4.0000) -- cycle;
+  \draw[pin name] (13.5429,-3.8857) node[anchor=west] {$\nodenamebit{z}$};
+
+  % Symbol (AND2) named inst
+  \draw[symbol bounds] (5.9429,-2.2857) rectangle (7.7714,-3.6571);
+  \draw[symbol] (6.3429,-2.6286) -- (6.8000,-2.6286);
+  \draw[symbol] (6.3429,-3.3429) -- (6.8286,-3.3429);
+  \draw[symbol] (6.3429,-2.6286) -- (6.3429,-3.3429);
+  \draw[symbol] (6.8286,-3.3426) arc[x radius=0.3571, y radius=0.3571, start angle=-87.7, end angle=92.3];
+
+  % Symbol (AND2) named inst1
+  \draw[symbol bounds] (5.9429,-3.8857) rectangle (7.7714,-5.2571);
+  \draw[symbol] (6.3429,-4.2286) -- (6.8000,-4.2286);
+  \draw[symbol] (6.3429,-4.9429) -- (6.8286,-4.9429);
+  \draw[symbol] (6.3429,-4.2286) -- (6.3429,-4.9429);
+  \draw[symbol] (6.8286,-4.9426) arc[x radius=0.3571, y radius=0.3571, start angle=-87.7, end angle=92.3];
+
+  % Symbol (OR2) named inst2
+  \draw[symbol bounds] (8.2286,-3.2000) rectangle (10.0571,-4.5714);
+  \draw[symbol] (8.6286,-4.2286) -- (8.9429,-4.2286);
+  \draw[symbol] (8.6286,-3.5714) -- (8.9429,-3.5714);
+  \draw[symbol] (8.6334,-4.2334) arc[x radius=0.4714, y radius=0.4714, start angle=-45.0, end angle=50.7];
+  \draw[symbol] (9.6354,-3.8798) arc[x radius=0.9000, y radius=0.9000, start angle=41.1, end angle=90.9];
+  \draw[symbol] (8.9424,-4.2285) arc[x radius=0.9000, y radius=0.9000, start angle=-90.9, end angle=-39.7];
+
+  % Symbol (NOT) named inst7
+  \draw[symbol bounds] (4.3429,-6.1714) rectangle (5.7143,-7.0857);
+  \draw[symbol] (4.7143,-6.8857) -- (4.7143,-6.3714);
+  \draw[symbol] (4.7143,-6.3714) -- (5.2286,-6.6286);
+  \draw[symbol] (4.7143,-6.8857) -- (5.2286,-6.6286);
+  \draw[symbol] (5.3429,-6.6286) circle[x radius=0.1143, y radius=0.1143];
+
+  \draw[node line] (6.3429,-4.3429) -- (5.9429,-4.3429) -- (3.8857,-4.3429) -- (2.5286,-4.3429);
+  \draw[node line] (6.8571,-6.6286) -- (5.7143,-6.6286) -- (5.4571,-6.6286);
+  \draw[node line] (4.7143,-6.6286) -- (4.3429,-6.6286) -- (3.8857,-6.6286) -- (2.5286,-6.6286);
+  \draw[node line] (4.8000,-4.8000) -- (5.9429,-4.8000) -- (6.3429,-4.8000);
+  \draw[node line] (5.2571,-3.2000) -- (5.9429,-3.2000) -- (6.3429,-3.2000);
+  \draw[node line] (12.6857,-3.8857) -- (11.2000,-3.8857) -- (10.0571,-3.8857) -- (9.6000,-3.8857);
+  \draw[node line] (8.6571,-3.6571) -- (8.2286,-3.6571) -- (8.2286,-2.9714) -- (7.7714,-2.9714) -- (7.1429,-2.9714);
+  \draw[node line] (8.6571,-4.1143) -- (8.2286,-4.1143) -- (8.2286,-4.5714) -- (7.7714,-4.5714) -- (7.1429,-4.5714);
+  \draw[node line] (6.3429,-2.7429) -- (5.9429,-2.7429) -- (3.8857,-2.7429) -- (2.5286,-2.7429);
+  \draw[line name] (5.4857,-3.0857) node[anchor=south west] {$\nodenamebit{sel}$};
+  \draw[line name] (5.0286,-4.6857) node[anchor=south west] {$\nodenamebit{nosel}$};
+  \draw[line name] (6.9143,-6.5143) node[anchor=south east] {$\nodenamebit{nosel}$};

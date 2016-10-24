@@ -1,0 +1,92 @@
+  % Pin (INPUT) named a
+  \draw[input pin] (6.0571,-2.8571) -- (6.7714,-2.8571) -- (6.8857,-2.7429) -- (6.7714,-2.6286) -- (6.0571,-2.6286) -- cycle;
+  \draw[pin name] (6.0571,-2.7429) node[anchor=east] {$\nodenamebit{a}$};
+
+  % Pin (INPUT) named b
+  \draw[input pin] (6.0571,-4.2286) -- (6.7714,-4.2286) -- (6.8857,-4.1143) -- (6.7714,-4.0000) -- (6.0571,-4.0000) -- cycle;
+  \draw[pin name] (6.0571,-4.1143) node[anchor=east] {$\nodenamebit{b}$};
+
+  % Pin (INPUT) named ci
+  \draw[input pin] (6.0571,-5.6000) -- (6.7714,-5.6000) -- (6.8857,-5.4857) -- (6.7714,-5.3714) -- (6.0571,-5.3714) -- cycle;
+  \draw[pin name] (6.0571,-5.4857) node[anchor=east] {$\nodenamebit{ci}$};
+
+  % Pin (OUTPUT) named s
+  \draw[output pin] (15.4286,-2.6286) -- (16.1714,-2.6286) -- (16.2857,-2.7429) -- (16.1714,-2.8571) -- (15.4286,-2.8571) -- cycle;
+  \draw[pin name] (16.2857,-2.7429) node[anchor=west] {$\nodenamebit{s}$};
+
+  % Pin (OUTPUT) named co
+  \draw[output pin] (15.4286,-5.3714) -- (16.1714,-5.3714) -- (16.2857,-5.4857) -- (16.1714,-5.6000) -- (15.4286,-5.6000) -- cycle;
+  \draw[pin name] (16.2857,-5.4857) node[anchor=west] {$\nodenamebit{co}$};
+
+  % Symbol (XOR) named inst2
+  \draw[symbol bounds] (11.8857,-2.0571) rectangle (13.7143,-3.4286);
+  \draw[symbol] (12.2857,-2.4286) -- (12.6000,-2.4286);
+  \draw[symbol] (12.2857,-3.0857) -- (12.6000,-3.0857);
+  \draw[symbol] (12.2905,-3.0905) arc[x radius=0.4714, y radius=0.4714, start angle=-45.0, end angle=50.7];
+  \draw[symbol] (13.2925,-2.7369) arc[x radius=0.9000, y radius=0.9000, start angle=41.1, end angle=90.9];
+  \draw[symbol] (12.5995,-3.0856) arc[x radius=0.9000, y radius=0.9000, start angle=-90.9, end angle=-39.7];
+  \draw[symbol] (12.1393,-3.1107) arc[x radius=0.5000, y radius=0.5000, start angle=-45.0, end angle=47.4];
+
+  % Symbol (XOR) named inst3
+  \draw[symbol bounds] (9.6000,-1.3714) rectangle (11.4286,-2.7429);
+  \draw[symbol] (10.0000,-1.7429) -- (10.3143,-1.7429);
+  \draw[symbol] (10.0000,-2.4000) -- (10.3143,-2.4000);
+  \draw[symbol] (10.0048,-2.4048) arc[x radius=0.4714, y radius=0.4714, start angle=-45.0, end angle=50.7];
+  \draw[symbol] (11.0068,-2.0512) arc[x radius=0.9000, y radius=0.9000, start angle=41.1, end angle=90.9];
+  \draw[symbol] (10.3138,-2.3999) arc[x radius=0.9000, y radius=0.9000, start angle=-90.9, end angle=-39.7];
+  \draw[symbol] (9.8536,-2.4250) arc[x radius=0.5000, y radius=0.5000, start angle=-45.0, end angle=47.4];
+
+  % Symbol (AND2) named inst6
+  \draw[symbol bounds] (9.6000,-6.4000) rectangle (11.4286,-7.7714);
+  \draw[symbol] (10.0000,-6.7429) -- (10.4571,-6.7429);
+  \draw[symbol] (10.0000,-7.4571) -- (10.4857,-7.4571);
+  \draw[symbol] (10.0000,-6.7429) -- (10.0000,-7.4571);
+  \draw[symbol] (10.4857,-7.4569) arc[x radius=0.3571, y radius=0.3571, start angle=-87.7, end angle=92.3];
+
+  % Symbol (AND2) named inst7
+  \draw[symbol bounds] (9.6000,-4.8000) rectangle (11.4286,-6.1714);
+  \draw[symbol] (10.0000,-5.1429) -- (10.4571,-5.1429);
+  \draw[symbol] (10.0000,-5.8571) -- (10.4857,-5.8571);
+  \draw[symbol] (10.0000,-5.1429) -- (10.0000,-5.8571);
+  \draw[symbol] (10.4857,-5.8569) arc[x radius=0.3571, y radius=0.3571, start angle=-87.7, end angle=92.3];
+
+  % Symbol (AND2) named inst8
+  \draw[symbol bounds] (9.6000,-3.2000) rectangle (11.4286,-4.5714);
+  \draw[symbol] (10.0000,-3.5429) -- (10.4571,-3.5429);
+  \draw[symbol] (10.0000,-4.2571) -- (10.4857,-4.2571);
+  \draw[symbol] (10.0000,-3.5429) -- (10.0000,-4.2571);
+  \draw[symbol] (10.4857,-4.2569) arc[x radius=0.3571, y radius=0.3571, start angle=-87.7, end angle=92.3];
+
+  % Symbol (OR3) named inst
+  \draw[symbol bounds] (11.8857,-4.8000) rectangle (13.7143,-6.1714);
+  \draw[symbol] (12.2857,-5.1714) -- (12.6000,-5.1714);
+  \draw[symbol] (12.2857,-5.8286) -- (12.6000,-5.8286);
+  \draw[symbol] (12.2905,-5.8334) arc[x radius=0.4714, y radius=0.4714, start angle=-45.0, end angle=50.7];
+  \draw[symbol] (13.2925,-5.4798) arc[x radius=0.9000, y radius=0.9000, start angle=41.1, end angle=90.9];
+  \draw[symbol] (12.5995,-5.8285) arc[x radius=0.9000, y radius=0.9000, start angle=-90.9, end angle=-39.7];
+
+  \draw[node line] (10.0000,-4.1143) -- (9.6000,-4.1143) -- (8.9143,-4.1143);
+  \draw[node line] (8.9143,-4.1143) -- (8.9143,-2.2857) -- (9.6000,-2.2857) -- (9.9143,-2.2857);
+  \draw[node line] (8.9143,-4.1143) -- (8.9143,-6.8571) -- (9.6000,-6.8571) -- (10.0000,-6.8571);
+  \draw[node line] (8.9143,-4.1143) -- (8.2286,-4.1143) -- (6.8714,-4.1143);
+  \draw[node line] (8.6857,-3.6571) -- (8.6857,-2.7429);
+  \draw[node line] (8.6857,-3.6571) -- (8.6857,-5.2571) -- (9.6000,-5.2571) -- (10.0000,-5.2571);
+  \draw[node line] (8.6857,-3.6571) -- (9.6000,-3.6571) -- (10.0000,-3.6571);
+  \draw[node line] (8.6857,-2.7429) -- (8.2286,-2.7429) -- (6.8714,-2.7429);
+  \draw[node line] (8.6857,-2.7429) -- (8.6857,-1.8286) -- (9.6000,-1.8286) -- (9.9143,-1.8286);
+  \draw[node line] (9.1429,-5.7143) -- (9.1429,-5.4857);
+  \draw[node line] (9.1429,-5.7143) -- (9.6000,-5.7143) -- (10.0000,-5.7143);
+  \draw[node line] (9.1429,-5.7143) -- (9.1429,-7.3143) -- (9.6000,-7.3143) -- (10.0000,-7.3143);
+  \draw[node line] (9.1429,-5.4857) -- (8.2286,-5.4857) -- (6.8714,-5.4857);
+  \draw[node line] (9.1429,-5.4857) -- (9.1429,-2.9714) -- (11.8857,-2.9714) -- (12.2000,-2.9714);
+  \draw[node line] (15.4286,-2.7429) -- (13.9429,-2.7429) -- (13.7143,-2.7429) -- (13.2857,-2.7429);
+  \draw[node line] (12.2000,-2.5143) -- (11.8857,-2.5143) -- (11.6571,-2.5143) -- (11.6571,-2.0571) -- (11.4286,-2.0571) -- (11.0000,-2.0571);
+  \draw[node line] (13.2857,-5.4857) -- (13.7143,-5.4857) -- (13.9429,-5.4857) -- (15.4286,-5.4857);
+  \draw[node line] (10.8000,-7.0857) -- (11.4286,-7.0857) -- (11.6571,-7.0857) -- (11.6571,-5.7143) -- (11.8857,-5.7143) -- (12.3429,-5.7143);
+  \draw[node line] (10.8000,-3.8857) -- (11.4286,-3.8857) -- (11.6571,-3.8857) -- (11.6571,-5.2571) -- (11.8857,-5.2571) -- (12.3429,-5.2571);
+  \draw[node line] (10.8000,-5.4857) -- (11.4286,-5.4857) -- (11.8857,-5.4857) -- (12.4000,-5.4857);
+  \draw[junction] (8.6857,-3.6571) node[contact] {};
+  \draw[junction] (8.9143,-4.1143) node[contact] {};
+  \draw[junction] (9.1429,-5.7143) node[contact] {};
+  \draw[junction] (9.1429,-5.4857) node[contact] {};
+  \draw[junction] (8.6857,-2.7429) node[contact] {};

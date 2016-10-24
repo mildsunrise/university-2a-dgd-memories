@@ -1,0 +1,39 @@
+  % Pin (INPUT) named x[3..0]
+  \draw[input pin] (3.3143,-0.5714) -- (4.0286,-0.5714) -- (4.1429,-0.4571) -- (4.0286,-0.3429) -- (3.3143,-0.3429) -- cycle;
+  \draw[pin name] (3.3143,-0.4571) node[anchor=east] {$\nodenamerange{x}{3}{0}$};
+
+  % Pin (OUTPUT) named hex1[6..0]
+  \draw[output pin] (17.4857,-0.3429) -- (18.2286,-0.3429) -- (18.3429,-0.4571) -- (18.2286,-0.5714) -- (17.4857,-0.5714) -- cycle;
+  \draw[pin name] (18.3429,-0.4571) node[anchor=west] {$\nodenamerange{hex1}{6}{0}$};
+
+  % Pin (OUTPUT) named hex0[6..0]
+  \draw[output pin] (17.4857,2.8571) -- (18.2286,2.8571) -- (18.3429,2.7429) -- (18.2286,2.6286) -- (17.4857,2.6286) -- cycle;
+  \draw[pin name] (18.3429,2.7429) node[anchor=west] {$\nodenamerange{hex0}{6}{0}$};
+
+  % Symbol (CA2_BCD_4B) named inst5
+  \draw[symbol bounds] (6.8571,0.9143) rectangle (10.7429,-1.8286);
+  \draw[symbol type] (8.1286,0.7143) node[] {CA2\_BCD\_4B};
+  \draw[symbol] (7.3143,0.4571) rectangle (10.2857,-1.3714);
+  \draw[port name] (7.4571,-0.5143) node[anchor=west] {$\nodenamerange{x}{3}{0}$};
+  \draw[port name] (10.1429,-0.5143) node[anchor=east] {$\nodenamerange{bcd}{3}{0}$};
+
+  % Symbol (BCD7seg) named inst
+  \draw[symbol bounds] (11.6571,0.9143) rectangle (16.0000,-1.8286);
+  \draw[symbol type] (12.4714,0.7429) node[] {BCD7seg};
+  \draw[symbol] (12.1143,0.4571) rectangle (15.5429,-1.3714);
+  \draw[port name] (12.2571,-0.4857) node[anchor=west] {$\nodenamerange{num}{3}{0}$};
+  \draw[port name] (15.4000,-0.4857) node[anchor=east] {$\nodenamerange{HEX}{6}{0}$};
+
+  % Symbol (CA2_SIG_SS) named inst1
+  \draw[symbol bounds] (11.6571,4.1143) rectangle (14.8571,1.3714);
+  \draw[symbol type] (12.8714,3.9143) node[] {CA2\_SIG\_SS};
+  \draw[symbol] (12.1143,3.6571) rectangle (14.4000,1.8286);
+  \draw[port name] (12.2571,2.6857) node[anchor=west] {$\nodenamebit{sig}$};
+  \draw[port name] (14.2571,2.6857) node[anchor=east] {$\nodenamerange{ss}{6}{0}$};
+
+  \draw[bus line] (14.4000,2.7429) -- (14.8571,2.7429) -- (16.0000,2.7429) -- (17.4857,2.7429);
+  \draw[node line] (10.2857,2.7429) -- (11.6571,2.7429) -- (12.1143,2.7429);
+  \draw[bus line] (12.1143,-0.4571) -- (11.6571,-0.4571) -- (10.7429,-0.4571) -- (10.2857,-0.4571);
+  \draw[bus line] (7.3143,-0.4571) -- (6.8571,-0.4571) -- (5.4857,-0.4571) -- (4.1286,-0.4571);
+  \draw[bus line] (15.5429,-0.4571) -- (16.0000,-0.4571) -- (17.4857,-0.4571);
+  \draw[line name] (10.5143,2.8571) node[anchor=south west] {$\nodenamesingle{x}{3}$};
