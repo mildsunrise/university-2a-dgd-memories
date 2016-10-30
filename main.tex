@@ -15,6 +15,7 @@
 
 % ADD ANY SPECIFIC PACKAGES HERE
 % (CHEMISTRY, CODE, PUBLISHING)
+\usepackage{tcolorbox}
 \usepackage{siunitx}
 \usepackage{mathtools}
 \usepackage{circuitikz}
@@ -68,7 +69,7 @@
 
 \newcommand{\bsfsymbol}[1]{
 \begin{tikzpicture}[
-  circuit ee IEC, circuit logic US, scale=1.3
+  circuit ee IEC, circuit logic US, scale=1.3,
   input pin/.style={},
   output pin/.style={},
   symbol/.style={},
@@ -87,12 +88,19 @@
 \end{tikzpicture}
 }
 
-% custom commands: VHDL listing
+% custom commands: VHD listing
 
-\newcommand{\vhdllisting}[1]{
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\newcommand{\vhdlisting}[1]{
 \inputminted[
-  tabsize=4,
+  tabsize=4, breaklines=true, framesep=10pt, frame=single,
 ]{vhdl}{../\projectname/assets/vhdl/#1.vhd}
+}
+
+% custom commands: whole block Tex file
+
+\newcommand{\inputblock}[1]{
+\input{../\projectname/blocks/#1.tex}
 }
 
 
@@ -109,6 +117,7 @@
 \clearpage
 
 
+\newcommand{\projectname}{}
 \newcommand{\inputproject}[1]{
   \renewcommand{\projectname}{#1}
   \input{../#1/main.tex}
