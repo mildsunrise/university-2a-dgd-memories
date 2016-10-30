@@ -11,6 +11,7 @@
 \usepackage[style=spanish]{csquotes}
 \MakeAutoQuote{«}{»}
 \usepackage{bookmark}
+\usepackage{scrhack}
 
 % ADD ANY SPECIFIC PACKAGES HERE
 % (CHEMISTRY, CODE, PUBLISHING)
@@ -21,6 +22,7 @@
 \usetikzlibrary{automata}
 \usetikzlibrary{circuits.ee.IEC}
 \usetikzlibrary{circuits.logic.US,circuits.logic.IEC}
+\usetikzlibrary{arrows.meta}
 \usepackage{tikz-timing}
 %\usepackage{karnaugh}
 \usepackage{minted}
@@ -34,7 +36,8 @@
   pdfsubject={DGD},
   linkcolor={red!50!black},
   citecolor={blue!50!black},
-  urlcolor={blue!80!black}
+  urlcolor={blue!80!black},
+  bookmarksopen=true,
 }}
 
 % custom commands: BDF schematic
@@ -43,23 +46,32 @@
 \newcommand{\nodenamerange}[3]{\text{#1}_{#2..#3}}
 
 \newcommand{\bdfschematic}[1]{
+\begin{center}
 \begin{tikzpicture}[
   circuit ee IEC, circuit logic US,
   input pin/.style={},
   output pin/.style={},
   symbol/.style={},
+  primitive/.style={symbol},
   symbol type/.style={font=\sffamily\scriptsize, gray},
-  node line/.style={},
-  bus line/.style={ultra thick},
+  node line/.style={>={Latex[length=3pt, width=3pt]}},
+  bus line/.style={>={Latex[length=4pt, width=5pt]}, line width=1.4pt},
   line name/.style={font=\small, inner sep=0pt},
   pin name/.style={font=\small, inner sep=7pt},
   port name/.style={font=\scriptsize, inner sep=0pt},
   junction/.style={},
-  pin bounds/.style={draw=none},
+  pin bounds/.style={symbol bounds},
   symbol bounds/.style={draw=gray, dotted},
 ]
-\input{../assets/schematics/#1.tex}
+\input{../\projectname/assets/schematics/#1.tex}
 \end{tikzpicture}
+\end{center}
+}
+
+% custom commands: VHDL listing
+
+\newcommand{\vhdllisting}[1]{
+\inputminted{vhdl}{../\projectname/assets/vhdl/#1.vhd}
 }
 
 
@@ -67,7 +79,7 @@
 \begin{document}
 
 \title{Memòria pràctica 1}
-\date{24 d'octubre de 2016}
+\date{27 d'octubre de 2016}
 \author{Àlex Moreno; Xavier Mendez}
 
 \maketitle
@@ -75,7 +87,15 @@
 \tableofcontents
 \clearpage
 
-\input{../practica1a.tex}
-\input{../practica1b.tex}
+
+\newcommand{\inputproject}[1]{
+  \renewcommand{\projectname}{#1}
+  \input{../#1/main.tex}
+}
+\inputproject{1A}
+\inputproject{1B}
+\inputproject{1A-extra1}
+\inputproject{1B-extra1}
+\inputproject{1B-extra2}
 
 \end{document}
