@@ -4,3 +4,15 @@
 [submodule "1A/project"]
 	path = 1A/project
 	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "1A-extra1/project"]
+	path = 1A-extra1/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "1B/project"]
+	path = 1B/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "1B-extra1/project"]
+	path = 1B-extra1/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "1B-extra2/project"]
+	path = 1B-extra2/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
