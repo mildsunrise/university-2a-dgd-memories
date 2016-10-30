@@ -1,0 +1,96 @@
+  % Pin (INPUT) named sel
+  \draw[input pin] (1.2381,-6.9524) -- (1.8333,-6.9524) -- (1.9286,-6.8571) -- (1.8333,-6.7619) -- (1.2381,-6.7619) -- cycle;
+  \draw[pin name] (1.2381,-6.8571) node[anchor=east] {$\nodenamebit{sel}$};
+
+  % Pin (INPUT) named b[3..0]
+  \draw[input pin] (1.2381,-5.8095) -- (1.8333,-5.8095) -- (1.9286,-5.7143) -- (1.8333,-5.6190) -- (1.2381,-5.6190) -- cycle;
+  \draw[pin name] (1.2381,-5.7143) node[anchor=east] {$\nodenamerange{b}{3}{0}$};
+
+  % Pin (INPUT) named a[3..0]
+  \draw[input pin] (1.2381,-5.2381) -- (1.8333,-5.2381) -- (1.9286,-5.1429) -- (1.8333,-5.0476) -- (1.2381,-5.0476) -- cycle;
+  \draw[pin name] (1.2381,-5.1429) node[anchor=east] {$\nodenamerange{a}{3}{0}$};
+
+  % Pin (OUTPUT) named z[3..0]
+  \draw[output pin] (11.5238,-5.2381) -- (12.1429,-5.2381) -- (12.2381,-5.3333) -- (12.1429,-5.4286) -- (11.5238,-5.4286) -- cycle;
+  \draw[pin name] (12.2381,-5.3333) node[anchor=west] {$\nodenamerange{z}{3}{0}$};
+
+  % Symbol (MUX_2_to_1) named inst
+  \draw[symbol bounds] (5.5238,0.3810) rectangle (7.8095,-1.9048);
+  \draw[symbol type] (6.4881,0.2143) node[] {MUX\_2\_to\_1};
+  \draw[symbol] (5.9048,-1.5238) -- (7.4286,-1.1429);
+  \draw[symbol] (5.9048,0.0000) -- (7.4286,-0.3810);
+  \draw[symbol] (5.9048,0.0000) rectangle (7.4286,-1.5238);
+  \draw[port name] (6.0000,-0.3810) node[anchor=west] {$\nodenamebit{a}$};
+  \draw[port name] (6.0000,-1.1429) node[anchor=west] {$\nodenamebit{b}$};
+  \draw[port name] (6.6667,-1.4286) node[anchor=west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[port name] (7.3333,-0.7619) node[anchor=east] {$\nodenamebit{z}$};
+
+  % Symbol (MUX_2_to_1) named inst1
+  \draw[symbol bounds] (5.5238,-2.6667) rectangle (7.8095,-4.9524);
+  \draw[symbol type] (6.4881,-2.8333) node[] {MUX\_2\_to\_1};
+  \draw[symbol] (5.9048,-4.5714) -- (7.4286,-4.1905);
+  \draw[symbol] (5.9048,-3.0476) -- (7.4286,-3.4286);
+  \draw[symbol] (5.9048,-3.0476) rectangle (7.4286,-4.5714);
+  \draw[port name] (6.0000,-3.4286) node[anchor=west] {$\nodenamebit{a}$};
+  \draw[port name] (6.0000,-4.1905) node[anchor=west] {$\nodenamebit{b}$};
+  \draw[port name] (6.6667,-4.4762) node[anchor=west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[port name] (7.3333,-3.8095) node[anchor=east] {$\nodenamebit{z}$};
+
+  % Symbol (MUX_2_to_1) named inst2
+  \draw[symbol bounds] (5.5238,-5.7143) rectangle (7.8095,-8.0000);
+  \draw[symbol type] (6.4881,-5.8810) node[] {MUX\_2\_to\_1};
+  \draw[symbol] (5.9048,-7.6190) -- (7.4286,-7.2381);
+  \draw[symbol] (5.9048,-6.0952) -- (7.4286,-6.4762);
+  \draw[symbol] (5.9048,-6.0952) rectangle (7.4286,-7.6190);
+  \draw[port name] (6.0000,-6.4762) node[anchor=west] {$\nodenamebit{a}$};
+  \draw[port name] (6.0000,-7.2381) node[anchor=west] {$\nodenamebit{b}$};
+  \draw[port name] (6.6667,-7.5238) node[anchor=west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[port name] (7.3333,-6.8571) node[anchor=east] {$\nodenamebit{z}$};
+
+  % Symbol (MUX_2_to_1) named inst3
+  \draw[symbol bounds] (5.5238,-8.7619) rectangle (7.8095,-11.0476);
+  \draw[symbol type] (6.4881,-8.9286) node[] {MUX\_2\_to\_1};
+  \draw[symbol] (5.9048,-10.6667) -- (7.4286,-10.2857);
+  \draw[symbol] (5.9048,-9.1429) -- (7.4286,-9.5238);
+  \draw[symbol] (5.9048,-9.1429) rectangle (7.4286,-10.6667);
+  \draw[port name] (6.0000,-9.5238) node[anchor=west] {$\nodenamebit{a}$};
+  \draw[port name] (6.0000,-10.2857) node[anchor=west] {$\nodenamebit{b}$};
+  \draw[port name] (6.6667,-10.5714) node[anchor=west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[port name] (7.3333,-9.9048) node[anchor=east] {$\nodenamebit{z}$};
+
+  \draw[node line, ->] (6.6667,-2.2857) -- (6.6667,-1.9048) -- (6.6667,-1.5238);
+  \draw[node line, ->] (6.6667,-5.3333) -- (6.6667,-4.9524) -- (6.6667,-4.5714);
+  \draw[node line, ->] (6.6667,-8.3810) -- (6.6667,-8.0000) -- (6.6667,-7.6190);
+  \draw[node line, ->] (6.6667,-11.4286) -- (6.6667,-11.0476) -- (6.6667,-10.6667);
+  \draw[node line, ->] (4.3810,-10.2857) -- (5.5238,-10.2857) -- (5.9048,-10.2857);
+  \draw[node line, ->] (4.3810,-9.5238) -- (5.5238,-9.5238) -- (5.9048,-9.5238);
+  \draw[node line, ->] (4.3810,-7.2381) -- (5.5238,-7.2381) -- (5.9048,-7.2381);
+  \draw[node line, ->] (4.3810,-6.4762) -- (5.5238,-6.4762) -- (5.9048,-6.4762);
+  \draw[node line, ->] (4.3810,-4.1905) -- (5.5238,-4.1905) -- (5.9048,-4.1905);
+  \draw[node line, ->] (4.3810,-3.4286) -- (5.5238,-3.4286) -- (5.9048,-3.4286);
+  \draw[node line, ->] (4.3810,-1.1429) -- (5.5238,-1.1429) -- (5.9048,-1.1429);
+  \draw[node line, ->] (4.3810,-0.3810) -- (5.5238,-0.3810) -- (5.9048,-0.3810);
+  \draw[node line] (8.9524,-9.9048) -- (7.8095,-9.9048) -- (7.4286,-9.9048);
+  \draw[node line] (8.9524,-6.8571) -- (7.8095,-6.8571) -- (7.4286,-6.8571);
+  \draw[node line] (8.9524,-0.7619) -- (7.8095,-0.7619) -- (7.4286,-0.7619);
+  \draw[node line] (8.9524,-3.8095) -- (7.8095,-3.8095) -- (7.4286,-3.8095);
+  \draw[bus line] (10.2857,-5.3333) -- (11.5238,-5.3333);
+  \draw[bus line] (3.0476,-5.1429) -- (1.9167,-5.1429);
+  \draw[bus line] (3.0476,-5.7143) -- (1.9167,-5.7143);
+  \draw[node line] (3.0476,-6.8571) -- (1.9167,-6.8571);
+  \draw[line name] (8.4048,-3.7143) node[anchor=south east] {$\nodenamesingle{z}{1}$};
+  \draw[line name] (8.4048,-0.6667) node[anchor=south east] {$\nodenamesingle{z}{0}$};
+  \draw[line name] (8.4048,-6.7619) node[anchor=south east] {$\nodenamesingle{z}{2}$};
+  \draw[line name] (8.4048,-9.8095) node[anchor=south east] {$\nodenamesingle{z}{3}$};
+  \draw[line name] (4.5714,-0.2857) node[anchor=south west] {$\nodenamesingle{a}{0}$};
+  \draw[line name] (4.5714,-1.0476) node[anchor=south west] {$\nodenamesingle{b}{0}$};
+  \draw[line name] (4.5714,-3.3333) node[anchor=south west] {$\nodenamesingle{a}{1}$};
+  \draw[line name] (4.5714,-4.0952) node[anchor=south west] {$\nodenamesingle{b}{1}$};
+  \draw[line name] (4.5714,-6.3810) node[anchor=south west] {$\nodenamesingle{a}{2}$};
+  \draw[line name] (4.5714,-7.1429) node[anchor=south west] {$\nodenamesingle{b}{2}$};
+  \draw[line name] (4.5714,-9.4286) node[anchor=south west] {$\nodenamesingle{a}{3}$};
+  \draw[line name] (4.5714,-10.1905) node[anchor=south west] {$\nodenamesingle{b}{3}$};
+  \draw[line name] (6.5714,-11.4762) node[anchor=south west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[line name] (6.5714,-8.4286) node[anchor=south west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[line name] (6.5714,-5.3810) node[anchor=south west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[line name] (6.5714,-2.3333) node[anchor=south west, rotate=90] {$\nodenamebit{sel}$};

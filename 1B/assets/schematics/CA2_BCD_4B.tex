@@ -1,0 +1,40 @@
+  % Pin (INPUT) named x[3..0]
+  \draw[input pin] (2.5714,-1.2381) -- (3.1667,-1.2381) -- (3.2619,-1.1429) -- (3.1667,-1.0476) -- (2.5714,-1.0476) -- cycle;
+  \draw[pin name] (2.5714,-1.1429) node[anchor=east] {$\nodenamerange{x}{3}{0}$};
+
+  % Pin (OUTPUT) named bcd[3..0]
+  \draw[output pin] (9.6190,-4.8571) -- (10.2381,-4.8571) -- (10.3333,-4.9524) -- (10.2381,-5.0476) -- (9.6190,-5.0476) -- cycle;
+  \draw[pin name] (10.3333,-4.9524) node[anchor=west] {$\nodenamerange{bcd}{3}{0}$};
+
+  % Symbol (XOR) named inst
+  \draw[primitive] (5.6667,-1.0714) -- (5.9286,-1.0714);
+  \draw[primitive] (5.6667,-1.6190) -- (5.9286,-1.6190);
+  \draw[primitive] (5.6706,-1.6230) arc[x radius=0.3929, y radius=0.3929, start angle=-45.0, end angle=50.7];
+  \draw[primitive] (6.5057,-1.3284) arc[x radius=0.7500, y radius=0.7500, start angle=41.1, end angle=90.9];
+  \draw[primitive] (5.9282,-1.6189) arc[x radius=0.7500, y radius=0.7500, start angle=-90.9, end angle=-39.7];
+  \draw[primitive] (5.5446,-1.6399) arc[x radius=0.4167, y radius=0.4167, start angle=-45.0, end angle=47.4];
+
+  % Symbol (SUM_4B) named inst1
+  \draw[symbol bounds] (6.2857,-2.0952) rectangle (9.3333,-4.3810);
+  \draw[symbol type] (6.9762,-2.2619) node[] {SUM\_4B};
+  \draw[symbol] (6.6667,-2.4762) rectangle (8.9524,-4.0000);
+  \draw[port name] (7.4286,-2.5714) node[anchor=east, rotate=90] {$\nodenamerange{A}{3}{0}$};
+  \draw[port name] (8.1905,-2.5714) node[anchor=east, rotate=90] {$\nodenamerange{B}{3}{0}$};
+  \draw[port name] (8.8571,-3.2381) node[anchor=east] {$\nodenamebit{CI}$};
+  \draw[port name] (7.8095,-3.9048) node[anchor=west, rotate=90] {$\nodenamerange{S}{3}{0}$};
+  \draw[port name] (6.7619,-3.2381) node[anchor=west] {$\nodenamebit{CO}$};
+
+  % Symbol (GND) named inst2
+  \draw[primitive] (8.7619,-1.5238) -- (8.9524,-1.7143);
+  \draw[primitive] (8.9524,-1.7143) -- (9.1429,-1.5238);
+  \draw[primitive] (8.7619,-1.5238) -- (9.1429,-1.5238);
+
+  \draw[bus line] (9.6190,-4.9524) -- (8.3810,-4.9524) -- (7.8095,-4.9524) -- (7.8095,-4.3810) -- (7.8095,-4.0000);
+  \draw[node line, ->] (10.0952,-3.2381) -- (9.3333,-3.2381) -- (8.9524,-3.2381);
+  \draw[bus line, ->] (8.9524,-1.5238) -- (8.9524,-1.3333) -- (8.1905,-1.3333) -- (8.1905,-2.0952) -- (8.1905,-2.4762);
+  \draw[bus line, ->] (6.5000,-1.3333) -- (6.8571,-1.3333) -- (7.4286,-1.3333) -- (7.4286,-2.0952) -- (7.4286,-2.4762);
+  \draw[node line] (4.3810,-1.5238) -- (5.3333,-1.5238) -- (5.5952,-1.5238);
+  \draw[bus line] (5.5952,-1.1429) -- (5.3333,-1.1429) -- (4.3810,-1.1429) -- (3.2500,-1.1429);
+  \draw[node line] (6.6667,-3.2381) -- (6.2857,-3.2381);
+  \draw[line name] (4.5714,-1.4286) node[anchor=south west] {$\nodenamesingle{x}{3}$};
+  \draw[line name] (9.9524,-3.1429) node[anchor=south east] {$\nodenamesingle{x}{3}$};

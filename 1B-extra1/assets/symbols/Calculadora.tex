@@ -1,0 +1,15 @@
+  % Symbol (Calculadora) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (4.9524,-3.8095);
+  \draw[symbol type] (2.3214,-1.6667) node[] {Calculadora};
+  \draw[symbol] (1.9048,-1.9048) rectangle (4.5714,-3.4286);
+  \draw[port name] (2.0000,-2.2857) node[anchor=west] {$\nodenamerange{A}{3}{0}$};
+  \draw[port name] (2.0000,-3.0476) node[anchor=west] {$\nodenamerange{B}{3}{0}$};
+  \draw[port name] (3.2381,-3.3333) node[anchor=west, rotate=90] {$\nodenamerange{selop}{1}{0}$};
+  \draw[port name] (4.4762,-2.6667) node[anchor=east] {$\nodenamerange{Z}{7}{0}$};
+  \draw[port name] (4.4762,-3.0476) node[anchor=east] {$\nodenamebit{r}$};
+
+  \draw[node line] (4.5714,-3.0476) -- (4.9524,-3.0476);
+  \draw[bus line] (4.5714,-2.6667) -- (4.9524,-2.6667);
+  \draw[bus line, ->] (3.2381,-3.8095) -- (3.2381,-3.4286);
+  \draw[bus line, ->] (1.5238,-3.0476) -- (1.9048,-3.0476);
+  \draw[bus line, ->] (1.5238,-2.2857) -- (1.9048,-2.2857);

@@ -1,0 +1,56 @@
+  % Pin (INPUT) named x[7..0]
+  \draw[input pin] (2.3810,-6.0000) -- (2.9762,-6.0000) -- (3.0714,-5.9048) -- (2.9762,-5.8095) -- (2.3810,-5.8095) -- cycle;
+  \draw[pin name] (2.3810,-5.9048) node[anchor=east] {$\nodenamerange{x}{7}{0}$};
+
+  % Pin (OUTPUT) named hex1[6..0]
+  \draw[output pin] (8.2857,-11.9048) -- (8.9048,-11.9048) -- (9.0000,-12.0000) -- (8.9048,-12.0952) -- (8.2857,-12.0952) -- cycle;
+  \draw[pin name] (9.0000,-12.0000) node[anchor=west] {$\nodenamerange{hex1}{6}{0}$};
+
+  % Pin (OUTPUT) named hex0[6..0]
+  \draw[output pin] (8.2857,-9.2381) -- (8.9048,-9.2381) -- (9.0000,-9.3333) -- (8.9048,-9.4286) -- (8.2857,-9.4286) -- cycle;
+  \draw[pin name] (9.0000,-9.3333) node[anchor=west] {$\nodenamerange{hex0}{6}{0}$};
+
+  % Pin (OUTPUT) named hex2[6..0]
+  \draw[output pin] (8.2857,-14.5714) -- (8.9048,-14.5714) -- (9.0000,-14.6667) -- (8.9048,-14.7619) -- (8.2857,-14.7619) -- cycle;
+  \draw[pin name] (9.0000,-14.6667) node[anchor=west] {$\nodenamerange{hex2}{6}{0}$};
+
+  % Symbol (BCD7seg) named inst
+  \draw[symbol bounds] (3.4286,-10.8571) rectangle (7.0476,-13.1429);
+  \draw[symbol type] (4.1071,-11.0000) node[] {BCD7seg};
+  \draw[symbol] (3.8095,-11.2381) rectangle (6.6667,-12.7619);
+  \draw[port name] (3.9048,-12.0000) node[anchor=west] {$\nodenamerange{num}{3}{0}$};
+  \draw[port name] (6.5714,-12.0000) node[anchor=east] {$\nodenamerange{HEX}{6}{0}$};
+
+  % Symbol (CA2_SIG_SS) named inst1
+  \draw[symbol bounds] (4.3810,-8.1905) rectangle (7.0476,-10.4762);
+  \draw[symbol type] (5.3929,-8.3571) node[] {CA2\_SIG\_SS};
+  \draw[symbol] (4.7619,-8.5714) rectangle (6.6667,-10.0952);
+  \draw[port name] (4.8571,-9.3333) node[anchor=west] {$\nodenamebit{sig}$};
+  \draw[port name] (6.5714,-9.3333) node[anchor=east] {$\nodenamerange{ss}{6}{0}$};
+
+  % Symbol (CA2_BCD_8B) named inst2
+  \draw[symbol bounds] (4.5714,-4.7619) rectangle (7.6190,-7.0476);
+  \draw[symbol type] (5.9643,-4.9048) node[] {CA2\_BCD\_8B};
+  \draw[symbol] (4.9524,-5.1429) rectangle (7.2381,-6.6667);
+  \draw[port name] (5.0476,-5.9048) node[anchor=west] {$\nodenamerange{CA2}{7}{0}$};
+  \draw[port name] (7.1429,-5.9048) node[anchor=east] {$\nodenamerange{BCD}{7}{0}$};
+
+  % Symbol (BCD7seg) named inst3
+  \draw[symbol bounds] (3.4286,-13.5238) rectangle (7.0476,-15.8095);
+  \draw[symbol type] (4.1071,-13.6667) node[] {BCD7seg};
+  \draw[symbol] (3.8095,-13.9048) rectangle (6.6667,-15.4286);
+  \draw[port name] (3.9048,-14.6667) node[anchor=west] {$\nodenamerange{num}{3}{0}$};
+  \draw[port name] (6.5714,-14.6667) node[anchor=east] {$\nodenamerange{HEX}{6}{0}$};
+
+  \draw[node line, ->] (3.2381,-9.3333) -- (4.3810,-9.3333) -- (4.7619,-9.3333);
+  \draw[bus line, ->] (2.4762,-14.6667) -- (3.4286,-14.6667) -- (3.8095,-14.6667);
+  \draw[bus line, ->] (2.4762,-12.0000) -- (3.4286,-12.0000) -- (3.8095,-12.0000);
+  \draw[bus line] (8.3810,-5.9048) -- (7.6190,-5.9048) -- (7.2381,-5.9048);
+  \draw[bus line, ->] (3.0595,-5.9048) -- (4.1905,-5.9048) -- (4.5714,-5.9048) -- (4.9524,-5.9048);
+  \draw[bus line] (6.6667,-14.6667) -- (7.0476,-14.6667) -- (8.2857,-14.6667);
+  \draw[bus line] (6.6667,-9.3333) -- (7.0476,-9.3333) -- (8.2857,-9.3333);
+  \draw[bus line] (6.6667,-12.0000) -- (7.0476,-12.0000) -- (8.2857,-12.0000);
+  \draw[line name] (8.3214,-5.8095) node[anchor=south] {$\nodenamerange{bcd}{7}{0}$};
+  \draw[line name] (2.4762,-11.9048) node[anchor=south west] {$\nodenamerange{bcd}{7}{4}$};
+  \draw[line name] (2.4762,-14.5714) node[anchor=south west] {$\nodenamerange{bcd}{3}{0}$};
+  \draw[line name] (3.8571,-9.2381) node[anchor=south east] {$\nodenamesingle{x}{7}$};

@@ -1,0 +1,15 @@
+  % Symbol (MUX_2B4_to_1B4) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (4.5714,-3.8095);
+  \draw[symbol type] (2.8571,-1.6905) node[] {MUX\_2B4\_to\_1B4};
+  \draw[symbol] (1.9048,-3.4286) -- (4.1905,-3.0476);
+  \draw[symbol] (1.9048,-1.9048) -- (4.1905,-2.2857);
+  \draw[symbol] (1.9048,-1.9048) rectangle (4.1905,-3.4286);
+  \draw[port name] (2.0000,-2.2857) node[anchor=west] {$\nodenamerange{a}{3}{0}$};
+  \draw[port name] (2.0000,-3.0476) node[anchor=west] {$\nodenamerange{b}{3}{0}$};
+  \draw[port name] (3.0476,-3.3333) node[anchor=west, rotate=90] {$\nodenamebit{sel}$};
+  \draw[port name] (4.0952,-2.6667) node[anchor=east] {$\nodenamerange{z}{3}{0}$};
+
+  \draw[bus line] (4.1905,-2.6667) -- (4.5714,-2.6667);
+  \draw[node line, ->] (3.0476,-3.8095) -- (3.0476,-3.4286);
+  \draw[bus line, ->] (1.5238,-3.0476) -- (1.9048,-3.0476);
+  \draw[bus line, ->] (1.5238,-2.2857) -- (1.9048,-2.2857);
