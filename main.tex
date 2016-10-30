@@ -90,7 +90,9 @@
 % custom commands: VHDL listing
 
 \newcommand{\vhdllisting}[1]{
-\inputminted{vhdl}{../\projectname/assets/vhdl/#1.vhd}
+\inputminted[
+  tabsize=4,
+]{vhdl}{../\projectname/assets/vhdl/#1.vhd}
 }
 
 
