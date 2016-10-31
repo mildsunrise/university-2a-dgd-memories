@@ -94,14 +94,14 @@ def render_block(name, block):
   if bdf_exists:
     ref = u"fig:\\projectname-%s" % name
     put(ur'''
-\begin{figure}[b]
+\begin{contendfig}
   \begin{center}
     \adjustbox{max width=\textwidth, max height=\textheight}{
       \bdfschematic{%s}
     }
   \end{center}
   \caption{\label{%s} Esquemàtic per al bloc \textsf{%s}}
-\end{figure}
+\end{contendfig}
 
     ''', name, ref, escape(name))
     intro_text += u"L'esquemàtic del bloc es pot veure a la figura~\\ref{%s} (pàgina~\\pageref{%s}). " % (ref, ref)

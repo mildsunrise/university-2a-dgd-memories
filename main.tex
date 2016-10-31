@@ -1,4 +1,4 @@
-\documentclass[catalan,parskip=half*,oneside,DIV=12,hidelinks]{scrreprt}
+\documentclass[catalan,parskip=half*,oneside,DIV=11,hidelinks]{scrreprt}
 
 % encoding
 \usepackage[utf8]{inputenc}
@@ -15,6 +15,7 @@
 
 % ADD ANY SPECIFIC PACKAGES HERE
 % (CHEMISTRY, CODE, PUBLISHING)
+\usepackage{environ}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
@@ -114,6 +115,18 @@
                         leftmargin=!,align=myright,font=\normalfont}
 
 
+% custom commands: controlled figure placement
+\gdef\accumcontent{}
+\newcommand{\accumfig}[1]{%
+  \begin{figure}[p]#1\end{figure}%
+}
+\newcommand{\dumpaccum}{\accumcontent \gdef\accumcontent{}}
+\NewEnviron{contendfig}{%
+  \expandafter\expandafter\expandafter\def\expandafter\expandafter\expandafter\accu \expandafter\expandafter\expandafter{\expandafter\accumcontent\expandafter\accumfig\expandafter{\BODY}} %
+  \global\let\accumcontent\accu %
+}
+
+
 
 \begin{document}
 
@@ -130,11 +143,13 @@
 \newcommand{\cclearpage}{}
 \newcommand{\projectname}{}
 \newcommand{\inputproject}[1]{
+  \dumpaccum
   \renewcommand{\projectname}{#1}
   \input{../#1/main.tex}
 }
 \inputproject{1A}
 \inputproject{1B}
+\dumpaccum
 \appendix
 \inputproject{1A-extra1}
 \inputproject{1B-extra1}
