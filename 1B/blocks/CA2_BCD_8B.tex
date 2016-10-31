@@ -1,0 +1,34 @@
+\subsection{\label{sub:\projectname-CA2_BCD_8B} \textsf{CA2\_BCD\_8B}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{CA2_BCD_8B} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{CA2}{7}{0}] Entrada (Ca2)
+\item[\nodenamerange{BCD}{7}{0}] Mòdul (BCD)
+\end{where}
+
+\paragraph{Funció}
+
+Extractor de mòdul de Ca2 de 8~bits.
+
+Calcula el valor absolut de l'entrada, \emph{que ha d'estar en el rang
+$\left[-56, 64\right]$}, i el retorna al bus de sortida en BCD de dues xifres.
+
+\paragraph{Inespecificacions}
+
+
+La sortida no està definida si $CA2$ està fora del rang $\left[-56, 64\right]$.
+
+
+\paragraph{Implementació}
+
+\vhdlisting{CA2_BCD_8B}
+
+
+
+Implementat mitjançant la taula de veritat.
+
+\vspace{1cm}

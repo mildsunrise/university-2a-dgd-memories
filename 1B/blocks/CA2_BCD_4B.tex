@@ -1,0 +1,48 @@
+\subsection{\label{sub:\projectname-CA2_BCD_4B} \textsf{CA2\_BCD\_4B}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{CA2_BCD_4B} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{x}{3}{0}] Entrada (Ca2)
+\item[\nodenamerange{bcd}{3}{0}] Mòdul (binari natural)
+\end{where}
+
+\paragraph{Funció}
+
+Extractor de mòdul de Ca2 de 4~bits.
+
+Calcula el valor absolut de l'entrada i el retorna al
+bus de sortida en binari natural (o en BCD, perquè la sortida és de 4~bits i
+mai serà major que 9).
+
+Nota: La sortida es diu $bcd$ per consistència amb el bloc \textsf{CA2\_BCD\_8B}.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{CA2_BCD_4B}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-CA2_BCD_4B} Esquemàtic per al bloc \textsf{CA2\_BCD\_4B}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-CA2_BCD_4B} (pàgina~\pageref{fig:\projectname-CA2_BCD_4B}).
+
+Si $x_3 = 0$, l'entrada és positiva i per tant no cal fer cap operació, es
+retorna directament.
+
+Per contra, si $x_3 = 1$ llavors s'ha de convertir en positiva negant bit a bit
+i sumant 1 al resultat. La primera part es pot fer amb una \textsf{XOR}, la segona
+es pot fer entrant el resultat a un sumador, amb l'altra entrada nula i carry
+d'entrada $x_3$. La sortida d'aquest sumador és el mòdul que busquem.
+
+\vspace{1cm}

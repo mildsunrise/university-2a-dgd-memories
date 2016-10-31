@@ -1,0 +1,42 @@
+\subsection{\label{sub:\projectname-MUX_2B4_to_1B4} \textsf{MUX\_2B4\_to\_1B4}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{MUX_2B4_to_1B4} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{a}{3}{0}] Bus d'entrada 1
+\item[\nodenamerange{b}{3}{0}] Bus d'entrada 0
+\item[\nodenamebit{sel}] Bit de selecció
+\item[\nodenamerange{z}{3}{0}] Bus de sortida
+\end{where}
+
+\paragraph{Funció}
+
+Multiplexor de 2 entrades per busos de 4~bits.
+
+Estableix el bus de sortida $z$ al bus d'entrada $b$ si $sel = 0$,
+o al bus de sortida $a$ si $sel = 1$.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{MUX_2B4_to_1B4}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-MUX_2B4_to_1B4} Esquemàtic per al bloc \textsf{MUX\_2B4\_to\_1B4}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-MUX_2B4_to_1B4} (pàgina~\pageref{fig:\projectname-MUX_2B4_to_1B4}).
+
+Implementació feta fent servir quatre multiplexors 2:1 d'un bit,
+un per a cada un dels quatre bits del bus.
+
+\vspace{1cm}

@@ -1,0 +1,42 @@
+\subsection{\label{sub:\projectname-SUM_1B} \textsf{SUM\_1B}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{SUM_1B} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{a}] Entrada 1
+\item[\nodenamebit{b}] Entrada 0
+\item[\nodenamebit{s}] Sortida
+\item[\nodenamebit{ci}] Carry d'entrada
+\item[\nodenamebit{co}] Carry de sortida
+\end{where}
+
+\paragraph{Funció}
+
+Sumador de 1~bit amb carry.
+
+Suma $a + b + ci$ i retorna el bit de menys pes a la sortida $s$, i el bit restant
+al carry de sortida $co$.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{SUM_1B}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-SUM_1B} Esquemàtic per al bloc \textsf{SUM\_1B}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-SUM_1B} (pàgina~\pageref{fig:\projectname-SUM_1B}).
+
+
+
+\vspace{1cm}

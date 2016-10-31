@@ -1,0 +1,46 @@
+\subsection{\label{sub:\projectname-P_Mux} \textsf{P\_Mux}}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{SW}{17}{14}] Switches on s'introdueix la segona xifra BCD
+\item[\nodenamerange{SW}{13}{10}] Switches on s'introdueix la primera xifra BCD
+\item[\nodenamesingle{SW}{0}] Switch on s'introdueix el bit de selecció
+\item[\nodenamerange{HEX6}{6}{0}] Display set-segments 6
+\item[\nodenamerange{HEX4}{6}{0}] Display set-segments 4
+\item[\nodenamerange{HEX0}{6}{0}] Display set-segments 0
+\end{where}
+
+\paragraph{Funció}
+
+Disseny a carregar a la placa FPGA.
+
+Visualitza la primera entrada i la segona entrada (en BCD) als displays~4 i 6,
+respectivament. Si $SW_0$ està desactivat, visualitza la primera entrada al
+display~0; si està activat, visualitza la segona entrada al display~0.
+
+\paragraph{Inespecificacions}
+
+
+La sortida està inespecificada si $SW_{17..4}$ o bé $SW_{13..10}$ no tenen valors
+vàlids en BCD.
+
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{P_Mux}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-P_Mux} Esquemàtic per al bloc \textsf{P\_Mux}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-P_Mux} (pàgina~\pageref{fig:\projectname-P_Mux}).
+
+La primera entrada es porta cap al primer conversor BCD a set-segments, i cap a l'entrada 0 d'un multiplexor 2:1. La segona entrada es porta a un segon conversor set-segments, i a l'entrada 1 del multiplexor.
+
+Finalment, la sortida del multiplexor es porta a un tercer conversor BCD a set-segments. Les sortides dels tres conversors es porten als displays 4, 6 i 0 respectivament.
+
+\vspace{1cm}

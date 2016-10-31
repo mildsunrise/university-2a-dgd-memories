@@ -1,0 +1,43 @@
+\subsection{\label{sub:\projectname-SUM_8B} \textsf{SUM\_8B}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{SUM_8B} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{A}{7}{0}] Bus d'entrada 1
+\item[\nodenamerange{B}{7}{0}] Bus d'entrada 0
+\item[\nodenamerange{S}{7}{0}] Bus de sortida
+\item[\nodenamebit{CI}] Carry d'entrada
+\item[\nodenamebit{CO}] Carry de sortida
+\end{where}
+
+\paragraph{Funció}
+
+Sumador de 8~bits amb carry.
+
+Suma els busos $A$ i $B$ amb el carry d'entrada $CI$ i retorna els 8 bits de menys
+pes al bus de sortida $S$, i el bit restant al carry de sortida $CO$.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{SUM_8B}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-SUM_8B} Esquemàtic per al bloc \textsf{SUM\_8B}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-SUM_8B} (pàgina~\pageref{fig:\projectname-SUM_8B}).
+
+S'implementa mitjançant 8~sumadors de 1~bit (\textsf{SUM\_1B}) encadenant carry,
+cadascun suma $A_i$ amb $B_i$ i es retorna la sortida en $S_i$.
+
+\vspace{1cm}

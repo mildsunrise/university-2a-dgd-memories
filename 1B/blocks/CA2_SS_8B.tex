@@ -1,0 +1,50 @@
+\subsection{\label{sub:\projectname-CA2_SS_8B} \textsf{CA2\_SS\_8B}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{CA2_SS_8B} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{x}{7}{0}] Entrada (Ca2)
+\item[\nodenamerange{hex0}{6}{0}] Primer display en ordre lèxic (set-segments actiu baix, signe)
+\item[\nodenamerange{hex1}{6}{0}] Segon display en ordre lèxic (set-segments actiu baix, desenes)
+\item[\nodenamerange{hex2}{6}{0}] Tercer display en ordre lèxic (set-segments actiu baix, unitats)
+\end{where}
+
+\paragraph{Funció}
+
+Formatejador de Ca2 8~bits en set-segments.
+
+Donat un valor en complement a 2 de 8~bits, el representa en format signe --
+mòdul decimal habitual en 3 displays set-segments $hex0$, $hex1$ i $hex2$.
+
+Nota: Els displays estan numerats en ordre lèxic ($hex0$ és el de l'esquerra).
+
+\paragraph{Inespecificacions}
+
+
+A causa de \textsf{CA2\_BCD\_8B}, les sortides $hex1$ i $hex2$ són indefinides
+quan $x$ està fora del rang $\left[-56, 64\right]$.
+
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{CA2_SS_8B}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-CA2_SS_8B} Esquemàtic per al bloc \textsf{CA2\_SS\_8B}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-CA2_SS_8B} (pàgina~\pageref{fig:\projectname-CA2_SS_8B}).
+
+En primer lloc, el signe $x_3$ es fa entrar al bloc \textsf{CA2\_SIG\_SS} i la
+representació resultant es retorna a $hex0$. Llavors, s'utilitza el bloc
+\textsf{CA2\_BCD\_8B} per a obtenir el mòdul de $x$ en BCD. Cada una de les dues
+xifres del mòdul es converteix a set-segments i es retorna a $hex1$ i $hex2$
+respectivament.
+
+\vspace{1cm}

@@ -1,0 +1,51 @@
+\subsection{\label{sub:\projectname-MULT_CA2_BCD} \textsf{MULT\_CA2\_BCD}}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{SW}{17}{14}] Switches on s'introdueix el primer factor en Ca2
+\item[\nodenamerange{SW}{13}{10}] Switches on s'introdueix el segon factor en Ca2
+\item[\nodenamerange{HEX7}{6}{0}] Display set-segments 7
+\item[\nodenamerange{HEX6}{6}{0}] Display set-segments 6
+\item[\nodenamerange{HEX5}{6}{0}] Display set-segments 5
+\item[\nodenamerange{HEX4}{6}{0}] Display set-segments 4
+\item[\nodenamerange{HEX3}{6}{0}] Display set-segments 3
+\item[\nodenamerange{HEX2}{6}{0}] Display set-segments 2
+\item[\nodenamerange{HEX1}{6}{0}] Display set-segments 1
+\item[\nodenamerange{HEX0}{6}{0}] Display set-segments 0
+\end{where}
+
+\paragraph{Funció}
+
+Disseny a carregar a la placa FPGA.
+
+Visualitza els dos factors en format signe -- modul habitual, en els displays
+7--6 i 5--4 respectivament. Multiplica els dos factors i visualitza el resultat
+amb la mateixa representació, en els displays 2--0. El display restant està
+sempre apagat.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{MULT_CA2_BCD}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-MULT_CA2_BCD} Esquemàtic per al bloc \textsf{MULT\_CA2\_BCD}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-MULT_CA2_BCD} (pàgina~\pageref{fig:\projectname-MULT_CA2_BCD}).
+
+Ambdues entrades es porten cap a blocs \textsf{CA2\_4A8} per a convertir-les a
+Ca2 abans d'operar. Llavors, es fan entrar a un bloc \textsf{MULT\_8x8}.
+
+Finalment, les entrades es porten també a blocs \textsf{CA2\_SS\_4B} i llavors
+als displays corresponents. La sortida es porta a un bloc \textsf{CA2\_SS\_8B}
+i als displays corresponents.
+
+\vspace{1cm}

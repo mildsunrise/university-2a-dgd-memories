@@ -1,0 +1,46 @@
+\subsection{\label{sub:\projectname-MUX_2_to_1} \textsf{MUX\_2\_to\_1}}
+
+\paragraph{Símbol}
+\begin{center} \bsfsymbol{MUX_2_to_1} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{a}] Entrada 1
+\item[\nodenamebit{b}] Entrada 0
+\item[\nodenamebit{sel}] Bit de selecció
+\item[\nodenamebit{z}] Sortida
+\end{where}
+
+\paragraph{Funció}
+
+Multiplexor de 2 entrades.
+
+Estableix la sortida $z$ a l'entrada $b$ si $sel = 0$,
+o a l'entrada $a$ si $sel = 1$.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\begin{figure}[b]
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{MUX_2_to_1}
+    }
+  \end{center}
+  \caption{\label{fig:\projectname-MUX_2_to_1} Esquemàtic per al bloc \textsf{MUX\_2\_to\_1}}
+\end{figure}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:\projectname-MUX_2_to_1} (pàgina~\pageref{fig:\projectname-MUX_2_to_1}).
+
+Implementació feta a partir de la simplificació mínima a 2 nivells en SdP,
+que correspon a l'expressió algebraica:
+
+\begin{equation*}
+  z = a \cdot sel + b \cdot \overline{sel}
+\end{equation*}
+
+\vspace{1cm}
