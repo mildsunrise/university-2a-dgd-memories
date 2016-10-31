@@ -12,7 +12,8 @@ Formatejador de Ca2 4~bits en set-segments.
 Donat un valor en complement a 2 de 4~bits, el representa en format signe --
 mòdul decimal habitual en 2 displays set-segments $hex0$ i $hex1$.
 
-Nota: Els displays estan numerats en ordre lèxic ($hex0$ és el de l'esquerra).
+Nota: Contràriament a la placa, les sortides set-segments estan numerades
+en ordre lèxic ($hex0$ ha d'anar al display de l'esquerra).
 '''
 
 implementation = ur'''

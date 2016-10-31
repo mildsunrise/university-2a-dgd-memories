@@ -11,7 +11,7 @@ ports = [
 description = ur'''
 Multiplicador $8 \times 1$ amb carry.
 
-Multiplica els primer factor de 8~bits pel segon factor d'un bit, amb carry
+Multiplica el primer factor de 8~bits pel segon factor d'un bit, amb carry
 d'entrada $in$ i retorna el bit resultant a la sortida $z$ i el carry de
 sortida en $out$.
 

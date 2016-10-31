@@ -13,12 +13,13 @@ Formatejador de Ca2 8~bits en set-segments.
 Donat un valor en complement a 2 de 8~bits, el representa en format signe --
 mòdul decimal habitual en 3 displays set-segments $hex0$, $hex1$ i $hex2$.
 
-Nota: Els displays estan numerats en ordre lèxic ($hex0$ és el de l'esquerra).
+Nota: Contràriament a la placa, les sortides set-segments estan numerades
+en ordre lèxic ($hex0$ ha d'anar al display de l'esquerra).
 '''
 
 unspecs = ur'''
 A causa de \textsf{CA2\_BCD\_8B}, les sortides $hex1$ i $hex2$ són indefinides
-quan $x$ està fora del rang $\left[-56, 64\right]$.
+quan $x$ no és producte de dos enters en el rang $\left[-8, 7\right]$.
 '''
 
 implementation = ur'''
