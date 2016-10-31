@@ -11,10 +11,15 @@ Formatejador de Ca2 4~bits en set-segments.
 
 Donat un valor en complement a 2 de 4~bits, el representa en format signe --
 mòdul decimal habitual en 2 displays set-segments $hex0$ i $hex1$.
-
-Nota: Contràriament a la placa, les sortides set-segments estan numerades
-en ordre lèxic ($hex0$ ha d'anar al display de l'esquerra).
 '''
+
+notes = [ ur'''
+Contràriament a la placa, les sortides set-segments estan numerades
+en ordre lèxic ($hex0$ ha d'anar al display de l'esquerra).
+''', ur'''
+No s'ha fet simulació d'aquest bloc perquè forma part de la presentació i
+la sortida costaria de visualitzar, ja que és set-segments.
+''']
 
 implementation = ur'''
 En primer lloc, el signe $x_3$ es fa entrar al bloc \textsf{CA2\_SIG\_SS} i la

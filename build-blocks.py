@@ -74,6 +74,16 @@ def render_block(name, block):
 
   ''', unspecs)
 
+  # Notes
+  notes = get(block, "notes", [])
+  if len(notes):
+    put(ur'''
+\paragraph{Notes}
+
+%s
+
+    ''', u"\n\n".join(map(unicode.strip, notes)))
+
   # Schematic / VHDL and implementation
   put(ur'''
 \paragraph{Implementació}

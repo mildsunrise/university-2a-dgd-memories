@@ -14,10 +14,12 @@ Multiplicador $8 \times 1$ amb carry.
 Multiplica el primer factor de 8~bits pel segon factor d'un bit, amb carry
 d'entrada $in$ i retorna el bit resultant a la sortida $z$ i el carry de
 sortida en $out$.
-
-Nota: Aquest és un bloc auxiliar que s'encadena per a fer
-multiplicadors $8 \times N$.
 '''
+
+notes = [ur'''
+Aquest és un bloc auxiliar que s'encadena per a fer
+multiplicadors $8 \times N$.
+''']
 
 implementation = ur'''
 Al principi es multipliquen els dos factors amb un \textsf{MULT\_8x1}, i el
