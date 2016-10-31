@@ -15,6 +15,32 @@ def get(o, n, d):
   if n in o: return o[n]
   return d
 
+def splitext(n):
+  name, ext = path.splitext(n)
+  return (n, name, ext)
+
+project = argv[1]
+pdir = path.join(path.dirname(__file__), project)
+bdir = path.join(pdir, "blocks")
+adir = path.join(pdir, "assets")
+simulations = map(splitext, listdir(path.join(adir, "vwf")))
+
+def get_simulation_files(name, block):
+  # Search for exact match
+  matches = filter(lambda x: x[1] == name, simulations)
+  if len(matches):
+    if len(matches) >= 2: print "WARNING: Multiple matches: %s" % matches
+    return [matches[0][0]]
+
+  # Search for partial matches
+  def filter_func(n):
+    n, fname, ext = n
+    idx = fname.rfind(".")
+    if idx == -1: return False
+    return name == fname[:idx]
+  matches = filter(filter_func, simulations)
+  return map(lambda x: x[0], matches)
+
 def render_block(name, block):
   output = [unicode()]
   def put(s, *k):
@@ -102,7 +128,7 @@ def render_block(name, block):
     ''', name)
 
   if bdf_exists:
-    ref = u"fig:\\projectname-%s" % name
+    ref = u"fig:sch-\\projectname-%s" % name
     put(ur'''
 \begin{contendfig}
   \begin{center}
@@ -124,7 +150,30 @@ def render_block(name, block):
 
   ''', intro_text.strip(), implementation.strip())
 
-  # TODO: Simulation
+  # Simulation
+  simulation = get(block, "simulation", u"").strip()
+  sim_files = get_simulation_files(name, block)
+  print name, sim_files
+  if len(sim_files) or len(simulation):
+    assert len(sim_files)
+    ref = u"fig:sim-\\projectname-%s" % name
+    render_sim = lambda s: u"\includegraphics[scale=0.55]{../\\projectname/assets/vwf/%s}" % s
+    sim_files = u"\n\n".join(map(render_sim, sim_files))
+    put(ur'''
+\paragraph{Simulació}
+
+\begin{contendfig}
+  \begin{center}
+    %s
+  \end{center}
+  \caption{\label{%s} Simulació per al bloc \textsf{%s}}
+\end{contendfig}
+
+La simulació del bloc es pot veure a la figura~\ref{%s} (pàgina~\pageref{%s}).
+
+%s
+
+  ''', sim_files, ref, escape(name), ref, ref, simulation or "% FIXME")
 
   put(ur'''
 \vspace{1cm}
@@ -132,10 +181,6 @@ def render_block(name, block):
   return output[0]
 
 
-project = argv[1]
-pdir = path.join(path.dirname(__file__), project)
-bdir = path.join(pdir, "blocks")
-adir = path.join(pdir, "assets")
 for block in listdir(bdir):
   name, ext = path.splitext(block)
   if ext != ".py": continue
