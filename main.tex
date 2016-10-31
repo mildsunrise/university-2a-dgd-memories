@@ -1,4 +1,4 @@
-\documentclass[catalan,parskip=half*,oneside,hidelinks]{scrreprt}
+\documentclass[catalan,parskip=half*,oneside,DIV=12,hidelinks]{scrreprt}
 
 % encoding
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,11 @@
 
 % ADD ANY SPECIFIC PACKAGES HERE
 % (CHEMISTRY, CODE, PUBLISHING)
+\usepackage{enumitem}
+\usepackage{xcolor}
 \usepackage{tcolorbox}
+\usepackage{adjustbox}
+
 \usepackage{siunitx}
 \usepackage{mathtools}
 \usepackage{circuitikz}
@@ -27,7 +31,6 @@
 \usepackage{tikz-timing}
 %\usepackage{karnaugh}
 \usepackage{minted}
-\usepackage{xcolor}
 
 % hyperlink setup / metadata
 \usepackage{hyperref}
@@ -40,6 +43,7 @@
   urlcolor={blue!80!black},
   bookmarksopen=true,
 }}
+\setlength{\footskip}{2.0cm}
 
 % custom commands: BDF schematic and BSF symbol
 \newcommand{\nodenamebit}[1]{\text{#1}}
@@ -74,7 +78,7 @@
   output pin/.style={},
   symbol/.style={},
   primitive/.style={symbol},
-  symbol type/.style={font=\sffamily, gray},
+  symbol type/.style={font=\sffamily\small, gray},
   node line/.style={>={Latex[length=3pt, width=3pt]}},
   bus line/.style={>={Latex[length=4pt, width=5pt]}, line width=1.4pt},
   line name/.style={inner sep=0pt},
@@ -93,7 +97,7 @@
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 \newcommand{\vhdlisting}[1]{
 \inputminted[
-  tabsize=4, breaklines=true, framesep=10pt, frame=single,
+  tabsize=4, breaklines=true, framesep=10pt, frame=leftline, breakindent=2em,
 ]{vhdl}{../\projectname/assets/vhdl/#1.vhd}
 }
 
@@ -102,6 +106,12 @@
 \newcommand{\inputblock}[1]{
 \input{../\projectname/blocks/#1.tex}
 }
+
+% custom commands: port list
+\SetLabelAlign{myright}{\hss\llap{$#1$}}
+\newlist{where}{description}{1}
+\setlist[where]{labelwidth=2cm,labelsep=1em,
+                        leftmargin=!,align=myright,font=\normalfont}
 
 
 
@@ -117,6 +127,7 @@
 \clearpage
 
 
+\newcommand{\cclearpage}{}
 \newcommand{\projectname}{}
 \newcommand{\inputproject}[1]{
   \renewcommand{\projectname}{#1}

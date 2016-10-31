@@ -41,12 +41,12 @@ def render_block(name, block):
 
   # Ports
   def render_port(t):
-    name, desc = t
-    name = bdf2tikz.render.render_node_name(name, bdf2tikz.main.default_options)
-    return u"\item[%s] %s" % (name, desc)
+    name, direction, desc = t
+    name = bdf2tikz.render.render_node_name(name, bdf2tikz.main.default_options)[1:-1]
+    return u"\item[%s] %s" % (name, desc.strip())
   ports = map(render_port, get(block, "ports", []))
   if len(ports):
-    ports = u"\\begin{description}[align=right,labelwidth=2.4cm]\n%s\n\\end{description}" % "\n".join(ports)
+    ports = u"\\begin{where}\n%s\n\\end{where}" % "\n".join(ports)
   else:
     ports = "% FIXME\nNo hi ha ports definits."
   put(ur'''
@@ -63,10 +63,10 @@ def render_block(name, block):
 
 %s
 
-  ''', description)
+  ''', description.strip())
 
   # Unspecifications
-  unspecs = get(block, "unspecs", u"El bloc no té cap inespecificació.")
+  unspecs = get(block, "unspecs", u"Cap.")
   put(ur'''
 \paragraph{Inespecificacions}
 
@@ -86,24 +86,19 @@ def render_block(name, block):
   intro_text = unicode()
 
   if vhd_exists:
-    ref = u"fig:\\projectname-%s" % name
     put(ur'''
-\begin{figure}[b]
-  \begin{center} \begin{minipage}{35em}
-    \vhdlisting{%s}
-  \end{minipage} \end{center}
-  \caption{\label{%s} Codi VHDL per al bloc \textsf{%s}}
-\end{figure}
+\vhdlisting{%s}
 
-    ''', name, ref, escape(name))
-    intro_text += u"El codi font del bloc es pot veure a la figura~\\ref{%s} (pàgina~\\pageref{%s}). " % (ref, ref)
+    ''', name)
 
   if bdf_exists:
     ref = u"fig:\\projectname-%s" % name
     put(ur'''
 \begin{figure}[b]
   \begin{center}
-    \bdfschematic{%s}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{%s}
+    }
   \end{center}
   \caption{\label{%s} Esquemàtic per al bloc \textsf{%s}}
 \end{figure}
@@ -117,10 +112,13 @@ def render_block(name, block):
 
 %s
 
-  ''', intro_text, implementation)
+  ''', intro_text.strip(), implementation.strip())
 
   # TODO: Simulation
 
+  put(ur'''
+\vspace{1cm}
+  ''')
   return output[0]
 
 
