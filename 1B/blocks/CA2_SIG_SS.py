@@ -14,3 +14,7 @@ Tots els segments del display estan apagats, excepte el segment del mig, que
 s'ilumina quan $sig = 1$. Per tant, com que son actius baixos, la sortida és
 $(\overline{sig}, 1, 1, 1, 1, 1, 1)$.
 '''
+
+simulation = ur'''
+Comprovem manualment que els dos patrons set-segments són correctes.
+'''

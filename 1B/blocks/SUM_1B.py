@@ -17,3 +17,7 @@ al carry de sortida $co$.
 
 implementation = ur'''
 '''
+
+simulation = ur'''
+Esperem que la sortida $s$ es comporti com una \textsf{XOR} per a $ci = 0$ i com una \textsf{XNOR} per a $Ci = 1$. També que $co$ sigui 1 quan existeixen almenys dos 1 a les entrades $a$, $b$ i $ci$.
+'''

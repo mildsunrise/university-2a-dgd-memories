@@ -17,3 +17,7 @@ Si $b = 0$, sabem que el resultat és $00000000$. Però si $b = 1$, la sortida �
 idèntica a $a$. Per tant, només cal aplicar un producte lògic entre $b$ i
 cada bit de $a$.
 '''
+
+simulation = ur'''
+Per a confirmar que la implementació és correcta, la sortida ha de coincidir amb $a$ si $b=1$ o ser $0$ per a $b=0$.
+'''

@@ -16,3 +16,7 @@ implementation = ur'''
 S'implementa mitjançant 8~blocs \textsf{MULT\_ACC} encadenant carry, cadascun multiplica $a$ per un bit de $b$ i retorna un bit a la sortida. El carry sortint
 es descarta.
 '''
+
+simulation = ur'''
+Esperem que la sortida doni el producte de les entrades. Notar que quan la sortida es surt del rang, dona valors incoherents.
+'''

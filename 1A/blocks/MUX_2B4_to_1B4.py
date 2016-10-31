@@ -18,3 +18,8 @@ implementation = ur'''
 Implementació feta fent servir quatre multiplexors 2:1 d'un bit,
 un per a cada un dels quatre bits del bus.
 '''
+
+simulation = ur'''
+Escollim que les entrades i la sortida siguin \textsf{unsigned\_decimal} ja que visualment es més sencill observar errors. Esperem que la sortida es comporti adecuadament.
+'''
+

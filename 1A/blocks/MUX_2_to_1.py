@@ -22,3 +22,7 @@ que correspon a l'expressió algebraica:
   z = a \cdot sel + b \cdot \overline{sel}
 \end{equation*}
 '''
+
+simulation = ur'''
+Simulem que tots els resultats possibles actuïn seguns el comportament descrit.
+'''

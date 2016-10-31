@@ -27,3 +27,7 @@ resultat es suma amb el carry d'entrada. Dels 9~bits de sortida de la suma (carr
 inclós) el de menys pes es retorna a la sortida $z$ i els altres 8, al carry de
 sortida.
 '''
+
+simulation = ur'''
+En aquest cas es mostra una selecció de la simulació total, ja que aquesta es massa extensa i si l'agafèssim sencera no s'apreciaria res. Per a comprovar el funcionament del mòdul hem escollit les entrades i la sortida en binari. $a$ és un comptador que es mou entre el rang de valors possibles en Ca2, $in$ es un altre comptador que es mou en el rang $\left[-128, 127\right]$ si interpretem el codi en Ca2.
+'''

@@ -26,3 +26,7 @@ i sumant 1 al resultat. La primera part es pot fer amb una \textsf{XOR}, la sego
 es pot fer entrant el resultat a un sumador, amb l'altra entrada nula i carry
 d'entrada $x_3$. La sortida d'aquest sumador és el mòdul que busquem.
 '''
+
+simulation = ur'''
+En aquest cas per a comprovar el funcionament del mòdul hem seleccionat que els formats de l'entrada i la sortida coincideixin amb els del disseny, per això el format de l'entrada és Ca2 i el de la sortida, BCD. Esperem que la sortida ens doni el mòdul de l'entrada.
+'''

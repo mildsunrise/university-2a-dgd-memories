@@ -17,3 +17,7 @@ Només cal fer una extensió de signe; l'entrada es copia directament als 4~bits
 de menys pes de la sortida, i els 4~bits restants s'emplenen amb el signe (o sigui,
 $a_3$).
 '''
+
+simulation = ur'''
+Un cop realitzada la simulació exhaustiva, comprovem que $z$ mantingui el valor de $a$ en Ca2 amb 8~bits.
+'''
