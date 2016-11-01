@@ -35,7 +35,7 @@ def get_simulation_files(name, block):
   # Search for partial matches
   def filter_func(n):
     n, fname, ext = n
-    idx = fname.rfind(".")
+    idx = fname.rfind("--")
     if idx == -1: return False
     return name == fname[:idx]
   matches = filter(filter_func, simulations)
@@ -153,7 +153,6 @@ def render_block(name, block):
   # Simulation
   simulation = get(block, "simulation", u"").strip()
   sim_files = get_simulation_files(name, block)
-  print name, sim_files
   if len(sim_files) or len(simulation):
     assert len(sim_files)
     ref = u"fig:sim-\\projectname-%s" % name
