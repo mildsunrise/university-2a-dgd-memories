@@ -140,6 +140,12 @@
 \end{tikzpicture}}%
 }
 
+% add PDF bookmark for index
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{%
+  \pdfbookmark[1]{\contentsname}{}
+  \myTOC }
+
 
 
 \begin{document}
