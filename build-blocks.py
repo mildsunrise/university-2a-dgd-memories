@@ -23,7 +23,9 @@ project = argv[1]
 pdir = path.join(path.dirname(__file__), project)
 bdir = path.join(pdir, "blocks")
 adir = path.join(pdir, "assets")
-simulations = map(splitext, listdir(path.join(adir, "vwf")))
+simulations = []
+if path.isdir(path.join(adir, "vwf")):
+  simulations = map(splitext, listdir(path.join(adir, "vwf")))
 
 def get_simulation_files(name, block):
   # Search for exact match
@@ -157,7 +159,7 @@ def render_block(name, block):
     assert len(sim_files)
     ref = u"fig:sim-\\projectname-%s" % name
     render_sim = lambda s: u"\includegraphics[scale=0.55]{../\\projectname/assets/vwf/%s}" % s
-    sim_files = u"\n\n".join(map(render_sim, sim_files))
+    sim_files = u"\n\n\\vspace{1em}\n\n".join(map(render_sim, sim_files))
     put(ur'''
 \paragraph{Simulació}
 

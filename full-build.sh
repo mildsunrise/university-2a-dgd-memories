@@ -12,5 +12,6 @@ mkdir build
 cd build
 pdflatex -shell-escape ../main.tex < /dev/null
 pdflatex -shell-escape ../main.tex < /dev/null
+pdflatex -shell-escape ../main.tex < /dev/null
 
 echo "Build completed."

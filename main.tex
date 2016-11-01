@@ -12,7 +12,6 @@
 \MakeAutoQuote{«}{»}
 \usepackage{bookmark}
 \usepackage{scrhack}
-\usepackage[figure]{hypcap}
 
 % ADD ANY SPECIFIC PACKAGES HERE
 % (CHEMISTRY, CODE, PUBLISHING)
@@ -21,6 +20,8 @@
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{adjustbox}
+\usepackage{booktabs}
+\usepackage[figure]{hypcap}
 
 \usepackage{siunitx}
 \usepackage{mathtools}
@@ -33,6 +34,7 @@
 \usepackage{tikz-timing}
 %\usepackage{karnaugh}
 \usepackage{minted}
+\usepackage{../SevenSeg}
 
 % hyperlink setup / metadata
 \usepackage{hyperref}
@@ -125,6 +127,17 @@
 \NewEnviron{contendfig}{%
   \expandafter\expandafter\expandafter\def\expandafter\expandafter\expandafter\accu \expandafter\expandafter\expandafter{\expandafter\accumcontent\expandafter\accumfig\expandafter{\BODY}} %
   \global\let\accumcontent\accu %
+}
+
+% custom commands: inline seven-segments
+\newcommand{\sevenseg}[1]{%
+\marginbox{.1em .2em}{\begin{tikzpicture}[
+  baseline={([yshift=-.5ex]current bounding box.center)},
+  SSGOff/.style={gray!20!white, line width=2pt},
+  SSGOn/.style={SSGOff, black},
+]%
+\SSGNb[.7em]{}{#1}%
+\end{tikzpicture}}%
 }
 
 
