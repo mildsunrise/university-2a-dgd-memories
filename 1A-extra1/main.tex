@@ -1,0 +1,22 @@
+\chapter{Extra 1A: Apagar displays sense ús}
+
+\section{Especificació}
+
+Continunant amb el resultat de la pràctica 1A, es demana apagar tots els
+displays que no s'estiguin fent servir.
+
+\section{Implementació}
+
+Només hem de modificar el disseny del bloc final per a forçar un 1 a tots
+els segments dels altres displays (ja que són actius baixos).
+
+A continuació es descriuen els blocs que s'han afegit o substituït.
+
+  \cclearpage
+\section{Blocs de presentació}
+\inputblock{P_Mux}
+
+\section{Valoració general}
+
+Quan vàrem comprovar el funcionament de la modificació a la placa, els displays que teòricament havien de sortir apagats no ho feien. Això era degut a que aquests eren actiu baix i els haviem conectat a terra, suposant que eren actiu alt. Per solucionar el problema vam passar les conexions dels displays a \textsf{VCC}.
+

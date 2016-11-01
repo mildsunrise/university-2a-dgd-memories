@@ -1,0 +1,61 @@
+\chapter{Extra 1B: Calculadora seleccionable}
+
+\section{Especificació}
+
+Continunant amb el resultat obtingut en la pràctica 1B es demana ara que, segons
+els valors de dos switchos, s'efectui un càlcul diferent amb els dos factors
+introduits (que anomenarem $A$ i $B$ en ordre lèxic):
+
+\begin{description}
+\item[00] Multiplicar $A$ per $B$ (el funcionament és manté igual al de la pràctica 1B)
+\item[01] Multiplicar $A$ per $A$
+\item[10] Multiplicar $B$ per $B$
+\item[11] Multiplicar $2^A$ per $2^B$
+\end{description}
+
+El codi de les entrades, la representació i el rang de la sortida i els switches
+i displays emprats prèviament no canvien.
+
+Adicionalment, es demana que si el resultat és incorrecte (sigui perquè no és
+representable de forma precisa, o perquè ha sortit de rang), s'activi un LED vermell
+de la placa indicant-ho, que anomerarem \emph{LED d'alarma}.
+
+\section{Implementació}
+
+La major part del treball (el càlcul en sí) es delega al bloc \textsf{Calculadora},
+que accepta els dos factors en Ca2 4~bits, i els bits indicant l'operació a realitzar, i retorna el resultat en Ca2 8~bits i el bit d'alarma. Llavors només cal modificar l'esquemàtic del bloc final per a fer servir el bloc esmentat.
+
+Per implementar \textsf{Calculadora}, en el cas de les tres primeres operacions
+només cal portar l'entrada adequada ($A$ o $B$) a cadascun dels dos factors d'un
+\textsf{MULT\_8x8}. En el cas 11, però, seguirem un plantejament diferent.
+
+Per a calcular $2^n$ podem fer servir un descodificador, i en comptes de calcular
+$2^A \cdot 2^B$ podem calcular $2^{A+B}$, que son menys operacions i de molta menys
+complexitat (una suma i un descodificament). Com que tots els valors son enters i estan dins
+el rang, les dues expressions són completament equivalents.
+
+El bit d'alarma no s'activarà mai per a les tres primeres operacions, ja que les
+dues entrades tenen el mateix rang, i en la pràctica 1B ens hem assegurat
+que qualsevol producte de les dos sigui representable a la sortida. Només
+s'activarà en el cas 11, quan $A+B$ no estigui comprés en el rang $\left[0,
+6\right]$ (ja que $2^6$ es la màxima potència de 2 representable). Hem de tenir
+cura que la suma $A+B$ en sí no estigui fora de rang, també.
+
+A continuació es descriuen els blocs que s'han afegit o substituït.
+
+  \cclearpage
+\section{Blocs de codificació}
+\inputblock{DEC_3B}
+
+  \cclearpage
+\section{Blocs de presentació}
+\inputblock{Calculadora}
+  \cclearpage
+\inputblock{MULT_CA2_BCD}
+
+\section{Valoració general}
+
+Segurament el major repte d'aquesta pràctica va ser utilitzar el llenguatge VHDL per a fer la calculadora, ja que per fer-la, haviem d'utilitzar coses de teoria que encara no haviem donat a classe, però vam tirar de diapositives en aquests cassos. El cas es que vàrem requerir de diversos intents per a aconseguir compilar \textsf{Calculadora}. Ens fixàvem en els errors que ens donava el compilador i els anàvem solucionant individualment. Després, a l'hora de implementar la calculadora dins de l'esquemàtic també vam haver de realitzar certes modificacions perquè funcionés correctament.
+
+Per altra banda, quan el disseny sencer ja compilava, vam comprovar els resultats a la placa, i vam veure que el resultat que es mostrava als displays no coincidia amb el resultat teòric. El primer que vam pensar va ser que el bloc \textsf{Calculadora} no funcionava correctament, i vam fer una simulació. Però vam observar que els resultats que sortien del bloc eren els correctes. Llavors, vam observar que el display que donava els decimals era correcte però no el display de les unitats. Vam anar a l'esquemàtic de \textsf{CA2\_SS\_8B} i vam veure on estava l'error: els bits de sortida d'aquell display els haviem escrit ordenats inversament ($0..3$). Ho vam solucionar i ja funcionava correctament, però això va ser una de les coses que ens va fer perdre més temps.
+
