@@ -1,0 +1,21 @@
+  % Symbol (ppal) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (6.4762,-5.7143);
+  \draw[symbol type] (1.9167,-1.6905) node[] {ppal};
+  \draw[symbol] (1.9048,-1.9048) rectangle (6.0952,-5.3333);
+  \draw[port name] (2.0000,-3.0476) node[anchor=west] {$\nodenamebit{nkey}$};
+  \draw[port name] (2.0000,-3.6190) node[anchor=west] {$\nodenamerange{keycode}{3}{0}$};
+  \draw[port name] (3.8095,-2.0000) node[anchor=east, rotate=90] {$\nodenamebit{clk}$};
+  \draw[port name] (4.1905,-2.0000) node[anchor=east, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[port name] (6.0000,-3.6190) node[anchor=east] {$\nodenamebit{show}$};
+  \draw[port name] (3.4286,-5.2381) node[anchor=west, rotate=90] {$\nodenamerange{opA}{3}{0}$};
+  \draw[port name] (4.0000,-5.2381) node[anchor=west, rotate=90] {$\nodenamerange{opB}{3}{0}$};
+  \draw[port name] (4.5714,-5.2381) node[anchor=west, rotate=90] {$\nodenamerange{res}{7}{0}$};
+
+  \draw[bus line] (4.5714,-5.3333) -- (4.5714,-5.7143);
+  \draw[bus line] (4.0000,-5.3333) -- (4.0000,-5.7143);
+  \draw[bus line] (3.4286,-5.3333) -- (3.4286,-5.7143);
+  \draw[node line] (6.0952,-3.6190) -- (6.4762,-3.6190);
+  \draw[node line, ->] (4.1905,-1.5238) -- (4.1905,-1.9048);
+  \draw[node line, ->] (3.8095,-1.5238) -- (3.8095,-1.9048);
+  \draw[bus line, ->] (1.5238,-3.6190) -- (1.9048,-3.6190);
+  \draw[node line, ->] (1.5238,-3.0476) -- (1.9048,-3.0476);

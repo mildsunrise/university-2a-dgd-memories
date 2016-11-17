@@ -1,0 +1,204 @@
+  % Pin (INPUT) named nkey
+  \draw[input pin] (4.8571,-2.0000) -- (5.4524,-2.0000) -- (5.5476,-1.9048) -- (5.4524,-1.8095) -- (4.8571,-1.8095) -- cycle;
+  \draw[pin name] (4.8571,-1.9048) node[anchor=east] {$\nodenamebit{nkey}$};
+
+  % Pin (INPUT) named keycode[3..0]
+  \draw[input pin] (4.8571,-2.7619) -- (5.4524,-2.7619) -- (5.5476,-2.6667) -- (5.4524,-2.5714) -- (4.8571,-2.5714) -- cycle;
+  \draw[pin name] (4.8571,-2.6667) node[anchor=east] {$\nodenamerange{keycode}{3}{0}$};
+
+  % Pin (INPUT) named clk
+  \draw[input pin] (4.8571,-4.6667) -- (5.4524,-4.6667) -- (5.5476,-4.5714) -- (5.4524,-4.4762) -- (4.8571,-4.4762) -- cycle;
+  \draw[pin name] (4.8571,-4.5714) node[anchor=east] {$\nodenamebit{clk}$};
+
+  % Pin (INPUT) named nrst
+  \draw[input pin] (4.8571,-5.2381) -- (5.4524,-5.2381) -- (5.5476,-5.1429) -- (5.4524,-5.0476) -- (4.8571,-5.0476) -- cycle;
+  \draw[pin name] (4.8571,-5.1429) node[anchor=east] {$\nodenamebit{nrst}$};
+
+  % Pin (OUTPUT) named show
+  \draw[output pin] (16.4762,-2.5714) -- (17.0952,-2.5714) -- (17.1905,-2.6667) -- (17.0952,-2.7619) -- (16.4762,-2.7619) -- cycle;
+  \draw[pin name] (17.1905,-2.6667) node[anchor=west] {$\nodenamebit{show}$};
+
+  % Pin (OUTPUT) named opA[3..0]
+  \draw[output pin] (18.0000,-10.3810) -- (18.6190,-10.3810) -- (18.7143,-10.4762) -- (18.6190,-10.5714) -- (18.0000,-10.5714) -- cycle;
+  \draw[pin name] (18.7143,-10.4762) node[anchor=west] {$\nodenamerange{opA}{3}{0}$};
+
+  % Pin (OUTPUT) named opB[3..0]
+  \draw[output pin] (18.0000,-11.5238) -- (18.6190,-11.5238) -- (18.7143,-11.6190) -- (18.6190,-11.7143) -- (18.0000,-11.7143) -- cycle;
+  \draw[pin name] (18.7143,-11.6190) node[anchor=west] {$\nodenamerange{opB}{3}{0}$};
+
+  % Pin (OUTPUT) named res[7..0]
+  \draw[output pin] (18.0000,-12.6667) -- (18.6190,-12.6667) -- (18.7143,-12.7619) -- (18.6190,-12.8571) -- (18.0000,-12.8571) -- cycle;
+  \draw[pin name] (18.7143,-12.7619) node[anchor=west] {$\nodenamerange{res}{7}{0}$};
+
+  % Pin (OUTPUT) named sigA
+  \draw[output pin] (18.0000,-10.0000) -- (18.6190,-10.0000) -- (18.7143,-10.0952) -- (18.6190,-10.1905) -- (18.0000,-10.1905) -- cycle;
+  \draw[pin name] (18.7143,-10.0952) node[anchor=west] {$\nodenamebit{sigA}$};
+
+  % Pin (OUTPUT) named sigB
+  \draw[output pin] (18.0000,-11.1429) -- (18.6190,-11.1429) -- (18.7143,-11.2381) -- (18.6190,-11.3333) -- (18.0000,-11.3333) -- cycle;
+  \draw[pin name] (18.7143,-11.2381) node[anchor=west] {$\nodenamebit{sigB}$};
+
+  % Pin (OUTPUT) named sigRes
+  \draw[output pin] (18.0000,-12.2857) -- (18.6190,-12.2857) -- (18.7143,-12.3810) -- (18.6190,-12.4762) -- (18.0000,-12.4762) -- cycle;
+  \draw[pin name] (18.7143,-12.3810) node[anchor=west] {$\nodenamebit{sigRes}$};
+
+  % Symbol (control) named inst
+  \draw[symbol bounds] (10.2857,-0.3810) rectangle (13.7143,-4.1905);
+  \draw[symbol type] (10.7976,-0.5238) node[] {control};
+  \draw[symbol] (10.6667,-0.7619) rectangle (13.3333,-3.8095);
+  \draw[port name] (11.8095,-3.7143) node[anchor=west, rotate=90] {$\nodenamebit{clk}$};
+  \draw[port name] (12.1905,-3.7143) node[anchor=west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[port name] (10.7619,-1.7143) node[anchor=west] {$\nodenamebit{bcd}$};
+  \draw[port name] (10.7619,-2.0952) node[anchor=west] {$\nodenamebit{neg}$};
+  \draw[port name] (10.7619,-2.4762) node[anchor=west] {$\nodenamebit{ast}$};
+  \draw[port name] (10.7619,-2.8571) node[anchor=west] {$\nodenamebit{coi}$};
+  \draw[port name] (13.2381,-1.9048) node[anchor=east] {$\nodenamebit{intro}$};
+  \draw[port name] (13.2381,-2.2857) node[anchor=east] {$\nodenamebit{negar}$};
+  \draw[port name] (13.2381,-2.6667) node[anchor=east] {$\nodenamebit{show}$};
+
+  % Symbol (regs) named inst5
+  \draw[symbol bounds] (11.4286,-5.5238) rectangle (16.0000,-8.9524);
+  \draw[symbol type] (11.8452,-5.6905) node[] {regs};
+  \draw[symbol] (11.8095,-5.9048) rectangle (15.6190,-8.5714);
+  \draw[port name] (11.9048,-7.2381) node[anchor=west] {$\nodenamerange{keycode}{3}{0}$};
+  \draw[port name] (13.5238,-8.4762) node[anchor=west, rotate=90] {$\nodenamebit{clk}$};
+  \draw[port name] (13.9048,-8.4762) node[anchor=west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[port name] (13.9048,-6.0000) node[anchor=east, rotate=90] {$\nodenamebit{intro}$};
+  \draw[port name] (13.5238,-6.0000) node[anchor=east, rotate=90] {$\nodenamebit{negar}$};
+  \draw[port name] (15.5238,-6.8571) node[anchor=east] {$\nodenamerange{opA}{3}{0}$};
+  \draw[port name] (15.5238,-8.0000) node[anchor=east] {$\nodenamerange{opB}{3}{0}$};
+  \draw[port name] (15.5238,-6.4762) node[anchor=east] {$\nodenamebit{sigA}$};
+  \draw[port name] (15.5238,-7.6190) node[anchor=east] {$\nodenamebit{sigB}$};
+
+  % Symbol (AperB) named inst9
+  \draw[symbol bounds] (7.2381,-11.0476) rectangle (10.6667,-14.0952);
+  \draw[symbol type] (7.7857,-11.2143) node[] {AperB};
+  \draw[symbol] (7.6190,-11.4286) rectangle (10.2857,-13.7143);
+  \draw[port name] (7.7143,-11.8095) node[anchor=west] {$\nodenamebit{sigA}$};
+  \draw[port name] (7.7143,-12.9524) node[anchor=west] {$\nodenamebit{sigB}$};
+  \draw[port name] (7.7143,-12.1905) node[anchor=west] {$\nodenamerange{A}{3}{0}$};
+  \draw[port name] (7.7143,-13.3333) node[anchor=west] {$\nodenamerange{B}{3}{0}$};
+  \draw[port name] (10.1905,-12.3810) node[anchor=east] {$\nodenamebit{sigAxB}$};
+  \draw[port name] (10.1905,-12.7619) node[anchor=east] {$\nodenamerange{AxB}{7}{0}$};
+
+  % Symbol (sel) named inst10
+  \draw[symbol bounds] (10.6667,-11.4286) rectangle (14.0952,-13.7143);
+  \draw[symbol type] (10.9524,-11.5714) node[] {sel};
+  \draw[symbol] (11.0476,-11.8095) rectangle (13.7143,-13.3333);
+  \draw[port name] (11.1429,-12.3810) node[anchor=west] {$\nodenamebit{sig}$};
+  \draw[port name] (11.1429,-12.7619) node[anchor=west] {$\nodenamerange{res}{7}{0}$};
+  \draw[port name] (12.3810,-11.9048) node[anchor=east, rotate=90] {$\nodenamebit{show}$};
+  \draw[port name] (13.6190,-12.3810) node[anchor=east] {$\nodenamebit{selSig}$};
+  \draw[port name] (13.6190,-12.7619) node[anchor=east] {$\nodenamerange{sel}{7}{0}$};
+
+  % Symbol (keygroup) named inst1
+  \draw[symbol bounds] (7.8095,-0.7619) rectangle (10.2857,-3.8095);
+  \draw[symbol type] (8.4762,-0.9048) node[] {keygroup};
+  \draw[symbol] (8.1905,-1.1429) rectangle (9.9048,-3.4286);
+  \draw[port name] (8.2857,-2.6667) node[anchor=west] {$\nodenamerange{x}{3}{0}$};
+  \draw[port name] (8.2857,-1.9048) node[anchor=west] {$\nodenamebit{nkey}$};
+  \draw[port name] (9.8095,-1.7143) node[anchor=east] {$\nodenamebit{bcd}$};
+  \draw[port name] (9.8095,-2.0952) node[anchor=east] {$\nodenamebit{neg}$};
+  \draw[port name] (9.8095,-2.4762) node[anchor=east] {$\nodenamebit{ast}$};
+  \draw[port name] (9.8095,-2.8571) node[anchor=east] {$\nodenamebit{coi}$};
+
+  % Symbol (DFF) named inst8
+  \draw[symbol bounds] (14.8571,-10.4762) rectangle (16.3810,-12.3810);
+  \draw[symbol type] (15.0952,-10.5952) node[] {DFF};
+  \draw[symbol] (15.1429,-10.7619) -- (16.0952,-10.7619);
+  \draw[symbol] (15.1429,-12.0952) -- (16.0952,-12.0952);
+  \draw[symbol] (16.0952,-12.0952) -- (16.0952,-10.7619);
+  \draw[symbol] (15.1429,-12.0952) -- (15.1429,-10.7619);
+  \draw[symbol] (15.3095,-11.4286) -- (15.1429,-11.5952);
+  \draw[symbol] (15.1429,-11.2381) -- (15.3333,-11.4286);
+  \draw[symbol] (15.6190,-10.6667) circle[x radius=0.0952, y radius=0.0952];
+  \draw[symbol] (15.6190,-12.1905) circle[x radius=0.0952, y radius=0.0952];
+  \draw[port name] (15.6310,-12.1429) node[anchor=south] {\textsf{$\nodenamebit{CLRN}$}};
+  \draw[port name] (15.2381,-11.0476) node[anchor=west] {\textsf{$\nodenamebit{D}$}};
+  \draw[port name] (15.6310,-10.7381) node[anchor=north] {\textsf{$\nodenamebit{PRN}$}};
+  \draw[port name] (16.0000,-11.0476) node[anchor=east] {\textsf{$\nodenamebit{Q}$}};
+
+  % Symbol (DFF) named inst11
+  \draw[symbol bounds] (14.8571,-13.3333) rectangle (16.3810,-15.2381);
+  \draw[symbol type] (15.0952,-13.4524) node[] {DFF};
+  \draw[symbol] (15.1429,-13.6190) -- (16.0952,-13.6190);
+  \draw[symbol] (15.1429,-14.9524) -- (16.0952,-14.9524);
+  \draw[symbol] (16.0952,-14.9524) -- (16.0952,-13.6190);
+  \draw[symbol] (15.1429,-14.9524) -- (15.1429,-13.6190);
+  \draw[symbol] (15.3095,-14.2857) -- (15.1429,-14.4524);
+  \draw[symbol] (15.1429,-14.0952) -- (15.3333,-14.2857);
+  \draw[symbol] (15.6190,-13.5238) circle[x radius=0.0952, y radius=0.0952];
+  \draw[symbol] (15.6190,-15.0476) circle[x radius=0.0952, y radius=0.0952];
+  \draw[port name] (15.6310,-15.0000) node[anchor=south] {\textsf{$\nodenamebit{CLRN}$}};
+  \draw[port name] (15.2381,-13.9048) node[anchor=west] {\textsf{$\nodenamebit{D}$}};
+  \draw[port name] (15.6310,-13.5952) node[anchor=north] {\textsf{$\nodenamebit{PRN}$}};
+  \draw[port name] (16.0000,-13.9048) node[anchor=east] {\textsf{$\nodenamebit{Q}$}};
+
+  \draw[node line, ->] (15.6190,-12.9524) -- (15.6190,-12.3810) -- (15.6190,-12.2857);
+  \draw[node line, ->] (15.6190,-15.8095) -- (15.6190,-15.2381) -- (15.6190,-15.1429);
+  \draw[node line] (16.0952,-13.9048) -- (16.3810,-13.9048) -- (16.3810,-12.7619) -- (16.7619,-12.7619) -- (18.0000,-12.7619);
+  \draw[node line, ->] (14.2857,-14.2857) -- (14.8571,-14.2857) -- (15.1429,-14.2857);
+  \draw[node line, ->] (13.7143,-12.7619) -- (14.0952,-12.7619) -- (14.0952,-13.9048) -- (14.8571,-13.9048) -- (15.1429,-13.9048);
+  \draw[node line, ->] (14.2857,-11.4286) -- (14.8571,-11.4286) -- (15.1429,-11.4286);
+  \draw[node line, ->] (13.7143,-12.3810) -- (14.0952,-12.3810) -- (14.0952,-11.0476) -- (14.8571,-11.0476) -- (15.1429,-11.0476);
+  \draw[node line] (16.0952,-11.0476) -- (16.3810,-11.0476) -- (16.3810,-12.3810) -- (16.7619,-12.3810) -- (18.0000,-12.3810);
+  \draw[node line] (14.4762,-2.2857) -- (13.7143,-2.2857) -- (13.3333,-2.2857);
+  \draw[node line] (14.4762,-1.9048) -- (13.7143,-1.9048) -- (13.3333,-1.9048);
+  \draw[node line] (14.4762,-2.6667) -- (13.7143,-2.6667) -- (13.3333,-2.6667);
+  \draw[node line, ->] (12.1905,-4.7619) -- (12.1905,-4.1905) -- (12.1905,-3.8095);
+  \draw[node line, ->] (11.8095,-4.7619) -- (11.8095,-4.1905) -- (11.8095,-3.8095);
+  \draw[node line, ->] (12.3810,-10.6667) -- (12.3810,-11.4286) -- (12.3810,-11.8095);
+  \draw[node line, ->] (6.2857,-12.9524) -- (7.2381,-12.9524) -- (7.6190,-12.9524);
+  \draw[node line, ->] (6.2857,-11.8095) -- (7.2381,-11.8095) -- (7.6190,-11.8095);
+  \draw[bus line, ->] (6.2857,-13.3333) -- (7.2381,-13.3333) -- (7.6190,-13.3333);
+  \draw[bus line, ->] (6.2857,-12.1905) -- (7.2381,-12.1905) -- (7.6190,-12.1905);
+  \draw[node line] (16.9524,-7.6190) -- (16.0000,-7.6190) -- (15.6190,-7.6190);
+  \draw[bus line] (15.6190,-8.0000) -- (16.0000,-8.0000) -- (16.9524,-8.0000);
+  \draw[node line] (16.9524,-6.4762) -- (16.0000,-6.4762) -- (15.6190,-6.4762);
+  \draw[bus line] (16.9524,-6.8571) -- (16.0000,-6.8571) -- (15.6190,-6.8571);
+  \draw[node line, ->] (13.9048,-9.5238) -- (13.9048,-8.9524) -- (13.9048,-8.5714);
+  \draw[node line, ->] (13.5238,-9.5238) -- (13.5238,-8.9524) -- (13.5238,-8.5714);
+  \draw[node line, ->] (13.9048,-4.9524) -- (13.9048,-5.5238) -- (13.9048,-5.9048);
+  \draw[node line, ->] (13.5238,-4.9524) -- (13.5238,-5.5238) -- (13.5238,-5.9048);
+  \draw[bus line, ->] (7.4286,-2.6667) -- (7.4286,-7.2381) -- (11.4286,-7.2381) -- (11.8095,-7.2381);
+  \draw[bus line, ->] (7.4286,-2.6667) -- (7.8095,-2.6667) -- (8.1905,-2.6667);
+  \draw[bus line] (7.4286,-2.6667) -- (6.6667,-2.6667) -- (5.5357,-2.6667);
+  \draw[node line, ->] (5.5357,-1.9048) -- (6.6667,-1.9048) -- (7.8095,-1.9048) -- (8.1905,-1.9048);
+  \draw[node line, ->] (15.6190,-13.3333) -- (15.6190,-13.4286);
+  \draw[node line, ->] (15.6190,-10.4762) -- (15.6190,-10.5714);
+  \draw[node line, ->] (9.9048,-2.8571) -- (10.2857,-2.8571) -- (10.6667,-2.8571);
+  \draw[node line, ->] (9.9048,-2.4762) -- (10.2857,-2.4762) -- (10.6667,-2.4762);
+  \draw[node line, ->] (9.9048,-2.0952) -- (10.2857,-2.0952) -- (10.6667,-2.0952);
+  \draw[node line, ->] (9.9048,-1.7143) -- (10.2857,-1.7143) -- (10.6667,-1.7143);
+  \draw[bus line, ->] (10.2857,-12.7619) -- (10.6667,-12.7619) -- (11.0476,-12.7619);
+  \draw[node line, ->] (10.2857,-12.3810) -- (10.6667,-12.3810) -- (11.0476,-12.3810);
+  \draw[node line] (16.7619,-11.2381) -- (18.0000,-11.2381);
+  \draw[node line] (16.7619,-10.0952) -- (18.0000,-10.0952);
+  \draw[bus line] (16.7619,-11.6190) -- (18.0000,-11.6190);
+  \draw[bus line] (16.7619,-10.4762) -- (18.0000,-10.4762);
+  \draw[node line] (15.2381,-2.6667) -- (16.4762,-2.6667);
+  \draw[node line] (6.6667,-5.1429) -- (5.5357,-5.1429);
+  \draw[node line] (6.6667,-4.5714) -- (5.5357,-4.5714);
+  \draw[line name] (13.4048,-5.5238) node[anchor=south west, rotate=90] {$\nodenamebit{negar}$};
+  \draw[line name] (13.8095,-4.9048) node[anchor=south east, rotate=90] {$\nodenamebit{intro}$};
+  \draw[line name] (13.4286,-9.5714) node[anchor=south west, rotate=90] {$\nodenamebit{clk}$};
+  \draw[line name] (13.8095,-9.5714) node[anchor=south west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[line name] (16.7143,-6.7619) node[anchor=south] {$\nodenamerange{opA}{3}{0}$};
+  \draw[line name] (16.8214,-6.3810) node[anchor=south] {$\nodenamebit{sigA}$};
+  \draw[line name] (16.1905,-7.9048) node[anchor=south west] {$\nodenamerange{opB}{3}{0}$};
+  \draw[line name] (16.8214,-7.5238) node[anchor=south] {$\nodenamebit{sigB}$};
+  \draw[line name] (6.2619,-12.0952) node[anchor=south west] {$\nodenamerange{opA}{3}{0}$};
+  \draw[line name] (6.2619,-13.2381) node[anchor=south west] {$\nodenamerange{opB}{3}{0}$};
+  \draw[line name] (6.2857,-11.7143) node[anchor=south west] {$\nodenamebit{sigA}$};
+  \draw[line name] (6.2857,-12.8571) node[anchor=south west] {$\nodenamebit{sigB}$};
+  \draw[line name] (12.2857,-10.5476) node[anchor=south east, rotate=90] {$\nodenamebit{show}$};
+  \draw[line name] (11.7143,-4.8095) node[anchor=south west, rotate=90] {$\nodenamebit{clk}$};
+  \draw[line name] (12.0952,-4.8095) node[anchor=south west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[line name] (14.4762,-2.5714) node[anchor=south east] {$\nodenamebit{show}$};
+  \draw[line name] (14.4048,-1.8095) node[anchor=south east] {$\nodenamebit{intro}$};
+  \draw[line name] (14.5476,-2.1905) node[anchor=south east] {$\nodenamebit{negar}$};
+  \draw[line name] (14.4762,-11.3333) node[anchor=south west] {$\nodenamebit{clk}$};
+  \draw[line name] (14.4762,-14.1905) node[anchor=south west] {$\nodenamebit{clk}$};
+  \draw[line name] (15.5238,-15.8571) node[anchor=south west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[line name] (15.5238,-12.9286) node[anchor=south west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[junction] (7.4286,-2.6667) node[contact] {};

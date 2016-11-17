@@ -1,0 +1,19 @@
+  % Symbol (Calculadora) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (4.9524,-4.5714);
+  \draw[symbol type] (2.3214,-1.6667) node[] {Calculadora};
+  \draw[symbol] (1.9048,-1.9048) rectangle (4.5714,-4.1905);
+  \draw[port name] (3.2381,-2.0000) node[anchor=east, rotate=90] {$\nodenamerange{selop}{1}{0}$};
+  \draw[port name] (2.0000,-2.2857) node[anchor=west] {$\nodenamebit{sigA}$};
+  \draw[port name] (2.0000,-3.4286) node[anchor=west] {$\nodenamebit{sigB}$};
+  \draw[port name] (2.0000,-2.6667) node[anchor=west] {$\nodenamerange{A}{3}{0}$};
+  \draw[port name] (2.0000,-3.8095) node[anchor=west] {$\nodenamerange{B}{3}{0}$};
+  \draw[port name] (4.4762,-2.8571) node[anchor=east] {$\nodenamebit{sigRes}$};
+  \draw[port name] (4.4762,-3.2381) node[anchor=east] {$\nodenamerange{res}{7}{0}$};
+
+  \draw[bus line] (4.5714,-3.2381) -- (4.9524,-3.2381);
+  \draw[node line] (4.5714,-2.8571) -- (4.9524,-2.8571);
+  \draw[bus line, ->] (1.5238,-3.8095) -- (1.9048,-3.8095);
+  \draw[bus line, ->] (1.5238,-2.6667) -- (1.9048,-2.6667);
+  \draw[node line, ->] (1.5238,-3.4286) -- (1.9048,-3.4286);
+  \draw[node line, ->] (1.5238,-2.2857) -- (1.9048,-2.2857);
+  \draw[bus line, ->] (3.2381,-1.5238) -- (3.2381,-1.9048);
