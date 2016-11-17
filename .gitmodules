@@ -1,3 +1,18 @@
 [submodule "bdf2tikz"]
 	path = bdf2tikz
 	url = https://github.com/jmendeth/bdf2tikz.git
+[submodule "2/project"]
+	path = 2/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "2-extra1/project"]
+	path = 2-extra1/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "2-extra2/project"]
+	path = 2-extra2/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "2-extra3/project"]
+	path = 2-extra3/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "2-extra4/project"]
+	path = 2-extra4/project
+	url = https://github.com/jmendeth/university-2a-dgd-lab.git
