@@ -1,0 +1,50 @@
+\chapter{Millora: Formateig natural de sortida}
+
+\section{Especificació}
+
+Continunant amb el resultat obtingut en la pràctica 2, i de forma similar a la
+millora implementada en la pràctica 1B, ens proposem obtenir una
+representació més natural (propera al que s'escriu en la realitat) del nombre de
+sortida. Bàsicament ens agradaria eliminar el zero redundant, mantenint el signe
+(si n'hi ha) el més a la dreta possible.
+
+Exemples de valors, amb la seva representació actual i la que ens agradaria
+aconseguir:
+
+\begin{center}
+\begin{tabular}{ccc} \toprule
+Valor & Abans & Després \\ \midrule
+-35 & \sevenseg{-}\sevenseg{3}\sevenseg{5}
+    & \sevenseg{-}\sevenseg{3}\sevenseg{5} \\ \midrule
+-7  & \sevenseg{-}\sevenseg{0}\sevenseg{7}
+    & \sevenseg{ }\sevenseg{-}\sevenseg{7} \\ \midrule
+-1  & \sevenseg{-}\sevenseg{0}\sevenseg{1}
+    & \sevenseg{ }\sevenseg{-}\sevenseg{1} \\ \midrule
+0   & \sevenseg{ }\sevenseg{0}\sevenseg{0}
+    & \sevenseg{ }\sevenseg{ }\sevenseg{0} \\ \midrule
+3   & \sevenseg{ }\sevenseg{0}\sevenseg{3}
+    & \sevenseg{ }\sevenseg{ }\sevenseg{3} \\ \midrule
+10  & \sevenseg{ }\sevenseg{1}\sevenseg{0}
+    & \sevenseg{ }\sevenseg{1}\sevenseg{0} \\ \midrule
+28  & \sevenseg{ }\sevenseg{2}\sevenseg{8}
+    & \sevenseg{ }\sevenseg{2}\sevenseg{8} \\ \bottomrule
+\end{tabular}
+\end{center}
+
+\section{Implementació}
+
+Aquesta millora es pot implementar simplement modificant \textsf{hex\_disps}, el
+bloc responsable del formateig de la sortida. Si $|x| > 9$, el nombre és de dos
+xifres i per tant la representació es la mateixa que l'actual. En cas contrari,
+la xifra de les desenes s'ha de remplaçar pel signe, i el display on anava el signe
+s'ha d'apagar completament.
+
+  \cclearpage
+\section{Blocs d'adaptació a la placa}
+\inputblock{hex_disps}
+
+\section{Valoració general}
+
+Cap problema rellevant. La millora era molt similar a la de l'anterior pràctica,
+i tot i que vam haver d'escriure-la de nou al VHDL de \textsf{hex\_disps}, va
+funcionar sense problemes un cop compilava.
