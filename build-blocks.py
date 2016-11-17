@@ -3,7 +3,7 @@
 # Render the contents for each block section in the specified
 # project directory. Example: ./build-blocks.py 1A
 
-from os import path, listdir, stat
+from os import path, listdir, stat, walk
 from sys import argv
 from runpy import run_path
 import bdf2tikz.main, bdf2tikz.render
@@ -16,7 +16,8 @@ def get(o, n, d):
   return d
 
 def splitext(n):
-  name, ext = path.splitext(n)
+  dirname, basename = path.split(n)
+  name, ext = path.splitext(basename)
   return (n, name, ext)
 
 project = argv[1]
@@ -182,11 +183,15 @@ La simulació del bloc es pot veure a la figura~\ref{%s} (pàgina~\pageref{%s}).
   return output[0]
 
 
-for block in listdir(bdir):
-  name, ext = path.splitext(block)
-  if ext != ".py": continue
-  block = run_path(path.join(bdir, block))
+def process_file(dirname, block):
+  name, ext = path.splitext(basename)
+  if ext != ".py": return
+  block = run_path(path.join(dirname, block))
   output = render_block(name, block)
-  file = open(path.join(bdir, name + ".tex"), "w")
+  file = open(path.join(dirname, name + ".tex"), "w")
   file.write(output.encode("utf-8"))
   file.close()
+
+for dirname, dirnames, basenames in walk(bdir):
+  for basename in basenames:
+    process_file(dirname, basename)
