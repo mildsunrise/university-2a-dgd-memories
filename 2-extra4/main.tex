@@ -34,8 +34,8 @@ Valor & Abans & Després \\ \midrule
 \section{Implementació}
 
 Aquesta millora es pot implementar simplement modificant \textsf{hex\_disps}, el
-bloc responsable del formateig de la sortida. Si $|x| > 9$, el nombre és de dos
-xifres i per tant la representació es la mateixa que l'actual. En cas contrari,
+bloc responsable del formateig de la sortida. Si la segona xifra de $res$ és diferent de 0,
+el nombre és de dos xifres i per tant la representació es la mateixa que l'actual. En cas contrari,
 la xifra de les desenes s'ha de remplaçar pel signe, i el display on anava el signe
 s'ha d'apagar completament.
 
