@@ -6,17 +6,29 @@
 
 \paragraph{Entrades i sortides}
 
-% FIXME
-No hi ha ports definits.
+\begin{where}
+\item[\nodenamebit{bcd}] Senyal que s'activa si s'ha premut una xifra decimal
+\item[\nodenamebit{ast}] Senyal que s'activa si s'ha premut la tecla asterisc
+\item[\nodenamebit{coi}] Senyal que s'activa si s'ha premut la tecla coixinet
+\item[\nodenamebit{intro}] Senyal que s'activa si s'ha d'emmagatzemar una xifra nova
+\item[\nodenamebit{show}] Senyal que s'activa si s'ha de mostrar el resultat
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
 
 \paragraph{Funció}
 
-% FIXME
-Sense descripció.
+Bloc de control d'estat per al multiplicador.
+
+El senyal $show$ indica si el multiplicador està en mode visualització o introducció,
+i el senyal $intro$ s'activa quan el multiplicador està en mode introducció i l'usuari
+prem una xifra decimal.
 
 \paragraph{Inespecificacions}
 
-Cap.
+
+El comportament del bloc no està definit si més d'una entrada està activa a la vegada.
+
 
 \paragraph{Implementació}
 

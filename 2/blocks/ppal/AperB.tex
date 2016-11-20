@@ -6,17 +6,23 @@
 
 \paragraph{Entrades i sortides}
 
-% FIXME
-No hi ha ports definits.
+\begin{where}
+\item[\nodenamerange{A}{3}{0}] Primer factor (BCD)
+\item[\nodenamerange{B}{3}{0}] Segon factor (BCD)
+\item[\nodenamerange{AxB}{7}{0}] Producte (BCD)
+\end{where}
 
 \paragraph{Funció}
 
-% FIXME
-Sense descripció.
+Multiplicador BCD d'una xifra, amb resultat en dues xifres.
+
+Retorna a la sortida $AxB$ el producte de $A$ amb $B$.
 
 \paragraph{Inespecificacions}
 
-Cap.
+
+La sortida no està definida si $A$ o $B$ no pertanyen al seu codi.
+
 
 \paragraph{Implementació}
 
