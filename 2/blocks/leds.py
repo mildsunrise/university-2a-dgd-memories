@@ -10,3 +10,8 @@ description = ur'''
 Mostra el valor del senyal $show$ als LEDs de la placa. S'activen els LEDs
 verds si $show$ està actiu, en cas contrari s'activen els LEDs vermells.
 '''
+
+implementation = ur'''
+Per a cada vector de LEDs, es retorna $0000$ o $1111$ depenent del valor
+de $show$.
+'''

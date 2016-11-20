@@ -19,3 +19,16 @@ que l'usuari ha premut; en el de visualització, es mostra el producte d'aquests
 la sortida. Es pot passar al mode d'introducció prement \texttt{*} i al mode de
 visualització prement \texttt{\#}.
 '''
+
+implementation = ur'''
+En primer lloc, es fa servir \textsf{keygroup} per a detectar el tipus de tecla premuda,
+i les sortides van a la màquina de control (\textsf{control}) d'on resulten els senyals
+$show$ i $intro$.
+
+S'utilitza llavors una instància de \textsf{regs} per emmagatzemar el valor de $keycode$
+als factors, governada per la sortida corresponent de la màquina de control. Els dos
+factors s'assignen a $opA$ i $opB$.
+
+Els factors es retornen i també es porten a \textsf{AperB} per obtenir-ne el producte,
+que es fa passar per \textsf{sel} just abans de retornar-lo a la sortida.
+'''

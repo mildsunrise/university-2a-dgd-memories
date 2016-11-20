@@ -28,3 +28,21 @@ a $HEX1$ i $HEX0$.
 
 El disseny es pot resetejar prement la tecla~0 de la placa.
 '''
+
+implementation = ur'''
+En primer lloc, es fa servir \textsf{f\_div} per a obtenir un rellotge de més
+baixa freqüència, que assignarem a $clk$ i es farà servir en la resta del disseny.
+La tecla~0 de la placa es porta a $nrst$ i també es farà servir com a reset del disseny.
+
+Llavors, es fa servir el bloc \textsf{keytest} per a escanejar el teclat i
+s'obtenen els senyals $nkey$ i $keycode$. 
+
+Es porta tot al bloc \textsf{ppal} que és on s'efectua tot el treball. Aquest bloc
+exposa com a sortides el mode actual en que es troba ($show$), els factors ($opA$ i $opB$)
+i el resultat $res$.
+
+Els LEDs estan controlats per una instància de \textsf{leds} on portem $show$.
+Els displays estan controlats per una instància de \textsf{hex\_disps} on portem els factors
+(entrades 6 i 4 respectivament) i el resultat (entrades 1, 0). La resta d'entrades es
+forcen a 1111 per a apagar els displays.
+'''

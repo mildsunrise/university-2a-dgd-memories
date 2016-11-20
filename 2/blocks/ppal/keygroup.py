@@ -19,3 +19,9 @@ el valor d'aquest dígit en BCD.
 \item $coi$ si és la tecla coixinet (\texttt{\#}).
 \end{itemize}
 '''
+
+implementation = ur'''
+Cada sortida estarà activa només si $nkey$ està actiu i $x$ és el valor adequat.
+Per al cas de $bcd$ no és un valor únic sino un rang, però es pot escriure de
+forma compacta mitjançant una comparació.
+'''

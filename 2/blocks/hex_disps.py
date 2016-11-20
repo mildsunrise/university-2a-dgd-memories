@@ -22,3 +22,8 @@ ports = [
 description = ur'''
 Converteix les xifres d'entrada a set-segments per a cada display de la placa.
 '''
+
+implementation = ur'''
+Es fa servir una instància de \textsf{BCD7seg} per convertir cada $num_i$ a
+set-segments, i es retorna a $HEX_i$.
+'''

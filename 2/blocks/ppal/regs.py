@@ -16,3 +16,8 @@ Emmagatzema les xifres premudes en dos registres per a $opA$ i $opB$.
 Inicialment ambdós son zero; quan $intro$ és actiu, la xifra a l'entrada $keycode$
 s'emmagatzema a $opA$ i el valor anterior de $opA$ s'emmagatzema a $opB$.
 '''
+
+implementation = ur'''
+Dos biestables D amb habilitació de càrrega encadenats, de forma similar a un \emph{shift
+register}. Les sortides dels biestables es retornen en ordre a $opA$ i $opB$.
+'''

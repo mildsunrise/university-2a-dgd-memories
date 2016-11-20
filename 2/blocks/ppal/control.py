@@ -21,3 +21,15 @@ prem una xifra decimal.
 unspecs = ur'''
 El comportament del bloc no està definit si més d'una entrada està activa a la vegada.
 '''
+
+implementation = ur'''
+Es tracta d'una màquina de Mealy amb diagrama d'estats:
+
+% TODO
+
+Quan arriba el flanc de rellotge, es força l'estat \mintinline{vhdl}|st_show| si $ast$ és
+actiu, o l'estat \mintinline{vhdl}|st_intro| si $coi$ és actiu.
+
+La sortida $show$ indica l'estat actual de la màquina, i la sortida $intro$ és activa
+només quan $bcd$ és activa i ens trobem en l'estat \mintinline{vhdl}|st_intro|.
+'''
