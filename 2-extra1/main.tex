@@ -2,8 +2,23 @@
 
 \section{Especificació}
 
+Es demana ampliar el disseny del multiplicador anterior per tal que sigui capaç de treballar amb operands amb signe. L'usuari introduirà manualment els operands a través d'un teclat. Els operands d'entrada es mostraran ara a través de quatre displays set-segments de la placa i la sortida es mostrarà en uns altres tres displays. El funcionament és el següent:
+
+Mentre s'estan introduïnt els factors, l'usuari pot premer \texttt{A} tantes vegades com vulgui, per (des)negar el símbol de l'últim dígit introduït. En introduir-se un nou digit, el signe anterior s'emmagatzema amb el digit anterior i el digit nou s'emmagatzema inicialment amb signe positiu.
+
+Exemple: si es prem \texttt{*}, \texttt{2}, \texttt{3}, \texttt{A}, \texttt{\#} els displays mostraran:
+
+\begin{center}
+\sevenseg{-}\sevenseg{3}\sevenseg{ }\sevenseg{2}\sevenseg{ }\sevenseg{-}\sevenseg{0}\sevenseg{6}
+\end{center}
+
 \section{Implementació}
 
+El tractament del signe es realitzarà de forma paral·lela al tractament de les xifres amb les que operem. Això significa que no haurem de modificar les entrades dels blocs del multiplicador (continuaran en BCD), encara que n'haurem d'afegir de noves que s'encarreguin dels signes. Farem servir signe $1 \Rightarrow \text{positiu}$, com en Ca2, per consistència amb pràctiques anteriors i simplicitat.
+
+Abans d'això, haurem d'implementar l'ordre que indicarà negació dins del bloc keygroup (\texttt{A}, en el nostre cas). \textsf{keygroup} tindrà una nova sortida, que anirà dirigida a \textsf{control}. \textsf{control} també tindrà una nova sortida que anirà a \textsf{regs}. En aquest bloc hi afegirem 2 nous registres per a cada signe, de forma paral·lela als de les xifres. Afegirem a \textsf{regs} dues noves sortides, que indicaran els signes dels operands.
+
+Finalment al bloc que efectua la multiplicació (\textsf{AperB}) hi afegirem les entrades que corresponen als signes dels operands i una sortida que indica el signe del resultat. Com s'ha esmentat abans, el signe es tractarà de forma independent als operands d'entrada, i la sortida d'aquest bloc serà BCD de dues xifres, més un bit addicional que indicarà el signe. Aquestes sortides aniràn a parar a \textsf{sel} que s'encarregarà de mostrar-les quan pertoqui.
 
 \section{Blocs importats}
 
@@ -34,4 +49,5 @@ en aquesta memòria.
 
 \section{Valoració general}
 
+En aquest cas no vam tenir cap problema rellevant més enllà d'alguna incompatibilitat a l'hora d'adaptar el VHDL.
 

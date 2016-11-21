@@ -2,8 +2,31 @@
 
 \section{Especificació}
 
+Es demana dissenyar un multiplicador de dues xifres BCD a la placa FPGA. L'usuari introduirà manualment els operands a través d'un teclat. Els operands d'entrada es mostraran a través dos displays set-segments de la placa i la sortida es mostrarà en uns altres dos. El funcionament ha de ser el següent:
+
+Quan es prem la tecla \texttt{*}, s'apaguen els displays on es mostra el resultat i el sistema espera la introducció de les xifres. A partir d'aquí el sistema emmagatzema les dues darreres xifres que anem introduint al teclat, i les mostra als displays corresponents. Aquestes xifres constituiràn els factors, el producte dels quals es mostrarà als displays de sortida quan polsem la tecla \texttt{\#}.
+
+Addicionalment, mentre sigui possible introduir operands al teclat, es mantidran encesos quatre LEDs verds. Altrament, s'encendran cuatre LEDs vermells.
+
+Exemple: si es prem \texttt{*}, \texttt{8}, \texttt{3}, \texttt{\#} els displays mostraran:
+
+\begin{center}
+\sevenseg{ }\sevenseg{3}\sevenseg{ }\sevenseg{8}\sevenseg{ }\sevenseg{ }\sevenseg{2}\sevenseg{4}
+\end{center}
+
+Es farà servir una placa DE2 on es carregarà el resultat. Es farà servir el Quartus 9.1 SP2 Web Edition per al desenvolupament.
+
 \section{Implementació}
 
+Per tractar la entrada haurem de realitzar el bloc \textsf{keygroup}, que s'encarregarà d'interpretar el tipus de tecla que es prem. Aquest es conectarà a \textsf{control}, que es un bloc donat que coordinarà els diversos blocs que formen el conjunt que hem anomenat \textsf{ppal}, per tal que funcioni tal i com s'ha descrit anteriorment. Les sortides de \textsf{control} aniràn a \textsf{leds}, \textsf{sel} i \textsf{regs}.
+
+Per altra banda el bloc \textsf{regs} anirà guardant en dos registres les dues últimes xifres que l'usuari vagi introduïnt (quan $intro$ estigui activat després de premer \texttt{*}). Les dues sortides d'aquest bloc aniràn al multiplicador \textsf{AperB}.
+
+Per fer el multiplicador reutilitzarem alguns blocs de la pràctica anterior, i els hem d'adaptar per a aquesta implementació. Ara l'entrada es troba en BCD d'una xifra, per tant el rang de les entrades amb els que operarem será $\left[0,9\right]$, mentre que el rang de la sortida serà $\left[0,81\right]$. En l'esquemàtic del multiplicador haurem d'emplenar amb zeros en comptes d'estendre el signe, i afegir els valors que falten al conversor de Ca2 a BCD que es troba a la sortida del multiplicador. 
+
+Per últim s'hauran d'implementar el bloc \textsf{sel}, que mostrarà la sortida només quan $show$ estigui activat.
+
+Tots els blocs esmentats anteriorment pertanyen a un grup que hem anomenat \textsf{ppal}. Perquè aquest bloc pugui funcionar, li haurem d'afegir un clock, i un bloc que mostri la sortida a la placa, així com un altre que s'encarregui dels LEDs d'aquesta.
 
 \section{Blocs importats}
 
@@ -39,4 +62,5 @@ en aquesta memòria.
 
 \section{Valoració general}
 
-
+Cap problema rellevant, excepte una falta a la descripció de \textsf{keygroup} que
+va detectar-se en una última revisió abans de pujar-lo a la placa.
