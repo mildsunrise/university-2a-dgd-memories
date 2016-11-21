@@ -12,7 +12,7 @@ ports = [
 description = ur'''
 Multiplicador BCD d'una xifra amb signe, amb resultat en dues xifres.
 
-Retorna a la sortides $sigAxB$ i $AxB$ el signe i mòdul del producte de $sigA$, $A$ amb $sigB$, $B$.
+Retorna a les sortides $sigAxB$ i $AxB$ el signe i mòdul del producte de $sigA$, $A$ amb $sigB$, $B$.
 '''
 
 unspecs = ur'''
