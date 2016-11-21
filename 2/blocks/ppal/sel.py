@@ -7,7 +7,7 @@ ports = [
 ]
 
 description = ur'''
-Controla la sortida del bloc, que posteriorment serà convertida a set-segments
+Controla la sortida del bloc multiplicador, que posteriorment serà convertida a set-segments
 i es mostrarà als displays del resultat.
 
 Si $show$ és actiu, la sortida $sel$ és directament l'entrada $res$. En cas contrari,

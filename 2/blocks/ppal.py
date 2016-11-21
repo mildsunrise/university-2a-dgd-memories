@@ -4,9 +4,9 @@ ports = [
 ("nkey", "input", ur"Senyal que s'activa si s'ha premut una tecla (actiu baix)"),
 ("keycode[3..0]", "input", ur"Índex de la tecla que s'ha premut"),
 ("show", "output", ur"Senyal que s'activa si s'ha de mostrar el resultat"),
-("A[3..0]", "output", ur"Primer factor (BCD)"),
-("B[3..0]", "output", ur"Segon factor (BCD)"),
-("sel[7..0]", "output", ur"Sortida pels displays (BCD$^\dagger$)"),
+("opA[3..0]", "output", ur"Primer factor (BCD)"),
+("opB[3..0]", "output", ur"Segon factor (BCD)"),
+("res[7..0]", "output", ur"Sortida pels displays (BCD$^\dagger$)"),
 ("clk", "input", ur"Rellotge, flanc de pujada"),
 ("nrst", "input", ur"Reset asíncron, actiu baix"),
 ]
