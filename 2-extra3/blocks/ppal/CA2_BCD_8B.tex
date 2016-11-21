@@ -6,17 +6,24 @@
 
 \paragraph{Entrades i sortides}
 
-% FIXME
-No hi ha ports definits.
+\begin{where}
+\item[\nodenamerange{CA2}{7}{0}] Entrada (Ca2)
+\item[\nodenamerange{BCD}{7}{0}] Mòdul (BCD)
+\end{where}
 
 \paragraph{Funció}
 
-% FIXME
-Sense descripció.
+Extractor de mòdul de Ca2 de 8~bits.
+
+Calcula el valor absolut de l'entrada, i el retorna al bus de sortida en BCD de dues xifres.
 
 \paragraph{Inespecificacions}
 
-Cap.
+
+La sortida no està definida si el valor de l'entrada no és producte de dos
+enters en el rang $\left[0, 9\right]$, o bé suma de dos enters en el rang
+$\left[-9, 9\right]$.
+
 
 \paragraph{Implementació}
 
@@ -24,6 +31,6 @@ Cap.
 
 
 
-% FIXME
+Implementat mitjançant la taula de veritat.
 
 \vspace{1cm}
