@@ -23,9 +23,21 @@ El comportament del bloc no està definit si més d'una entrada està activa a l
 '''
 
 implementation = ur'''
-Es tracta d'una màquina de Mealy amb diagrama d'estats:
+Es tracta d'una màquina de Mealy amb diagrama d'estats (per simplicitat, es
+representarà la sortida dins els nodes d'estat):
 
-% TODO
+\begin{center} \begin{tikzpicture}[shorten >=1pt, node distance=2cm, >=stealth', auto]
+  \node[state with output, initial above, initial text=reset] (st_show) at (0,0) {show \nodepart{lower} $0,1$};
+  \node[state with output]          (st_intro) at (4,0) {intro \nodepart{lower} $bcd,0$};
+
+  \path[->]
+    (st_show) edge [loop left] node {$-,0,-$} (st_show)
+    (st_show) edge [bend left] node {$-,1,-$} (st_intro)
+    
+    (st_intro) edge [loop right] node {$-,-,0$} (st_intro)
+    (st_intro) edge [bend left] node {$-,-,1$} (st_show)
+  ;
+\end{tikzpicture} \end{center}
 
 Quan arriba el flanc de rellotge, es força l'estat \mintinline{vhdl}|st_show| si $ast$ és
 actiu, o l'estat \mintinline{vhdl}|st_intro| si $coi$ és actiu.
