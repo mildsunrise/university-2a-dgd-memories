@@ -6,17 +6,26 @@
 
 \paragraph{Entrades i sortides}
 
-% FIXME
-No hi ha ports definits.
+\begin{where}
+\item[\nodenamebit{sigA}] Signe del primer factor
+\item[\nodenamerange{A}{3}{0}] Mòdul del primer factor (BCD)
+\item[\nodenamebit{sigB}] Signe del segon factor
+\item[\nodenamerange{B}{3}{0}] Mòdul del segon factor (BCD)
+\item[\nodenamebit{sigAxB}] Signe del producte
+\item[\nodenamerange{AxB}{7}{0}] Mòdul del producte (BCD)
+\end{where}
 
 \paragraph{Funció}
 
-% FIXME
-Sense descripció.
+Multiplicador BCD d'una xifra amb signe, amb resultat en dues xifres.
+
+Retorna a les sortides $sigAxB$ i $AxB$ el signe i mòdul del producte de $sigA$, $A$ amb $sigB$, $B$.
 
 \paragraph{Inespecificacions}
 
-Cap.
+
+La sortida no està definida si $A$ o $B$ no pertanyen al seu codi.
+
 
 \paragraph{Implementació}
 
@@ -33,7 +42,13 @@ Cap.
 
 L'esquemàtic del bloc es pot veure a la figura~\ref{fig:sch-\projectname-AperB} (pàgina~\pageref{fig:sch-\projectname-AperB}).
 
-% FIXME
+Es fa servir \textsf{MULT\_8x8} per a dur a terme la multiplicació del mòdul
+(els factors son també binari natural), i el resultat es converteix
+de binari natural a BCD de dues xifres mitjançant \textsf{CA2\_BCD\_8B},
+abans de ser retornat a $AxB$.
+
+Per a calcular el signe del producte es fa servir una \textsf{XOR} entre els
+dos signes d'entrada.
 
 \paragraph{Simulació}
 
