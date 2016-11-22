@@ -2,7 +2,7 @@
 set -e
 cd "$(dirname $0)"
 
-for p in 1A 1B 1A-extra1 1B-extra1 1B-extra2; do
+for p in 2 2-extra1 2-extra2 2-extra3 2-extra4; do
   ./render-assets.sh $p
   ./build-blocks.py $p
 done

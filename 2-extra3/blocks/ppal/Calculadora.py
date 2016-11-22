@@ -5,9 +5,9 @@ ports = [
 ("A[3..0]", "input", ur"Mòdul del primer factor (BCD)"),
 ("sigB", "input", ur"Signe del segon factor"),
 ("B[3..0]", "input", ur"Mòdul del segon factor (BCD)"),
-("selop[1..0]", "input", ur"Índex d'operació a realitzar"),
 ("sigRes", "output", ur"Signe del producte"),
 ("res[7..0]", "output", ur"Mòdul del producte (BCD)"),
+("selop[1..0]", "input", ur"Índex d'operació a realitzar"),
 ]
 
 description = ur'''

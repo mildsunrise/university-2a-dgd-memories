@@ -157,6 +157,8 @@ def render_block(name, block, imported=False):
   # Simulation
   simulation = get(block, "simulation", u"").strip()
   sim_files = get_simulation_files(name, block)
+  if (not imported) and (not get(block, "top_level", False)) and (not len(sim_files)):
+    print "WARNING: block %s not simulated!" % name
   if (not imported) and (len(sim_files) or len(simulation)):
     assert len(sim_files)
     ref = u"fig:sim-\\projectname-%s" % name

@@ -22,6 +22,11 @@ Converteix signe i mòdul dels factors i resultat a set-segments,
 i els enruta als displays adequats de la placa.
 '''
 
+notes = [ ur'''
+No s'ha fet simulació d'aquest bloc perquè forma part de la presentació i
+la sortida costaria de visualitzar, ja que és set-segments.
+''']
+
 implementation = ur'''
 Es fan servir instàncies de \textsf{BCD7seg} per convertir $opA$, $opB$
 i les dues xifres de $res$ a set-segments. També s'utilizen instàncies
