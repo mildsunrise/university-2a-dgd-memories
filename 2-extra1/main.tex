@@ -14,7 +14,7 @@ Exemple: si es prem \texttt{*}, \texttt{2}, \texttt{3}, \texttt{A}, \texttt{\#} 
 
 \section{Implementació}
 
-El tractament del signe es realitzarà de forma paral·lela al tractament de les xifres amb les que operem. Això significa que no haurem de modificar les entrades dels blocs del multiplicador (continuaran en BCD), encara que n'haurem d'afegir de noves que s'encarreguin dels signes. Farem servir signe $1 \Rightarrow \text{positiu}$, com en Ca2, per consistència amb pràctiques anteriors i simplicitat.
+El tractament del signe es realitzarà de forma paral·lela al tractament de les xifres amb les que operem. Això significa que no haurem de modificar les entrades dels blocs del multiplicador (continuaran en BCD), encara que n'haurem d'afegir de noves que s'encarreguin dels signes. Farem servir signe $0 \Rightarrow \text{positiu}$, com en Ca2, per consistència amb pràctiques anteriors i simplicitat.
 
 Abans d'això, haurem d'implementar l'ordre que indicarà negació dins del bloc keygroup (\texttt{A}, en el nostre cas). \textsf{keygroup} tindrà una nova sortida, que anirà dirigida a \textsf{control}. \textsf{control} també tindrà una nova sortida que anirà a \textsf{regs}. En aquest bloc hi afegirem 2 nous registres per a cada signe, de forma paral·lela als de les xifres. Afegirem a \textsf{regs} dues noves sortides, que indicaran els signes dels operands.
 
