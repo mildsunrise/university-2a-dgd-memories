@@ -1,0 +1,13 @@
+  % Symbol (comptador) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (4.5714,-4.1905);
+  \draw[symbol type] (2.2500,-1.6667) node[] {comptador};
+  \draw[symbol] (1.9048,-1.9048) rectangle (4.1905,-3.8095);
+  \draw[port name] (2.0000,-2.8571) node[anchor=west] {$\nodenamebit{ecnt}$};
+  \draw[port name] (2.8571,-3.7143) node[anchor=west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[port name] (3.2381,-3.7143) node[anchor=west, rotate=90] {$\nodenamebit{clk}$};
+  \draw[port name] (4.0952,-2.8571) node[anchor=east] {$\nodenamerange{numx}{7}{0}$};
+
+  \draw[bus line, ->] (4.1905,-2.8571) -- (4.5714,-2.8571);
+  \draw[node line, ->] (3.2381,-4.1905) -- (3.2381,-3.8095);
+  \draw[node line, ->] (2.8571,-4.1905) -- (2.8571,-3.8095);
+  \draw[node line, ->] (1.5238,-2.8571) -- (1.9048,-2.8571);

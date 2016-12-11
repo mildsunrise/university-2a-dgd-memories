@@ -1,0 +1,9 @@
+  % Symbol (leds) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (6.2857,-3.8095);
+  \draw[symbol type] (1.8810,-1.6667) node[] {leds};
+  \draw[symbol] (1.9048,-1.9048) rectangle (5.9048,-3.4286);
+  \draw[port name] (2.0000,-2.6667) node[anchor=west] {$\nodenamerange{comp}{2}{0}$};
+  \draw[port name] (5.8095,-2.6667) node[anchor=east] {$\nodenamerange{LED\_GREEN}{7}{0}$};
+
+  \draw[bus line, ->] (5.9048,-2.6667) -- (6.2857,-2.6667);
+  \draw[bus line, ->] (1.5238,-2.6667) -- (1.9048,-2.6667);

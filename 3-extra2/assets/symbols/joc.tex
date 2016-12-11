@@ -1,0 +1,17 @@
+  % Symbol (joc) named inst
+  \draw[symbol bounds] (1.5238,-1.5238) rectangle (5.7143,-4.9524);
+  \draw[symbol type] (1.8095,-1.6667) node[] {joc};
+  \draw[symbol] (1.9048,-1.9048) rectangle (5.3333,-4.5714);
+  \draw[port name] (3.8095,-4.4762) node[anchor=west, rotate=90] {$\nodenamebit{clk}$};
+  \draw[port name] (3.4286,-4.4762) node[anchor=west, rotate=90] {$\nodenamebit{nrst}$};
+  \draw[port name] (2.0000,-2.8571) node[anchor=west] {$\nodenamebit{nkey}$};
+  \draw[port name] (2.0000,-3.6190) node[anchor=west] {$\nodenamerange{keycode}{3}{0}$};
+  \draw[port name] (5.2381,-2.8571) node[anchor=east] {$\nodenamerange{comp}{2}{0}$};
+  \draw[port name] (5.2381,-3.6190) node[anchor=east] {$\nodenamerange{num}{11}{0}$};
+
+  \draw[bus line, ->] (5.3333,-3.6190) -- (5.7143,-3.6190);
+  \draw[bus line, ->] (5.3333,-2.8571) -- (5.7143,-2.8571);
+  \draw[bus line, ->] (1.5238,-3.6190) -- (1.9048,-3.6190);
+  \draw[node line, ->] (1.5238,-2.8571) -- (1.9048,-2.8571);
+  \draw[node line, ->] (3.4286,-4.9524) -- (3.4286,-4.5714);
+  \draw[node line, ->] (3.8095,-4.9524) -- (3.8095,-4.5714);
