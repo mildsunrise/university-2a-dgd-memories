@@ -6,7 +6,7 @@
 from os import path, listdir, stat, walk
 from sys import argv
 from runpy import run_path
-import bdf2tikz.main, bdf2tikz.render
+from bdf2tikz import bdf2tikz
 
 def escape(t):
   return bdf2tikz.render.render_tikz_text(t, {})
@@ -71,7 +71,7 @@ def render_block(name, block, imported=False):
   # Ports
   def render_port(t):
     name, direction, desc = t
-    name = bdf2tikz.render.render_node_name(name, bdf2tikz.main.default_options)[1:-1]
+    name = bdf2tikz.render.render_node_name(name, bdf2tikz.process.default_options)[1:-1]
     return u"\item[%s] %s" % (name, desc.strip())
   ports = map(render_port, get(block, "ports", []))
   if len(ports):

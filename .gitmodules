@@ -16,6 +16,9 @@
 [submodule "2-extra4/project"]
 	path = 2-extra4/project
 	url = https://github.com/jmendeth/university-2a-dgd-lab.git
+[submodule "vwf2tikz"]
+	path = vwf2tikz
+	url = https://github.com/jmendeth/vwf2tikz.git
 [submodule "3/project"]
 	path = 3/project
 	url = https://github.com/jmendeth/university-2a-dgd-lab.git
