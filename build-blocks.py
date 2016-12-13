@@ -7,6 +7,7 @@ from os import path, listdir, stat, walk
 from sys import argv
 from runpy import run_path
 from bdf2tikz import bdf2tikz
+from vwf2tikz import vwf2tikz
 
 def escape(t):
   return bdf2tikz.render.render_tikz_text(t, {})
@@ -24,25 +25,15 @@ project = argv[1]
 pdir = path.join(path.dirname(__file__), project)
 bdir = path.join(pdir, "blocks")
 adir = path.join(pdir, "assets")
-simulations = []
-if path.isdir(path.join(adir, "vwf")):
-  simulations = map(splitext, listdir(path.join(adir, "vwf")))
-
-def get_simulation_files(name, block):
-  # Search for exact match
-  matches = filter(lambda x: x[1] == name, simulations)
-  if len(matches):
-    if len(matches) >= 2: print "WARNING: Multiple matches: %s" % matches
-    return [matches[0][0]]
-
-  # Search for partial matches
-  def filter_func(n):
-    n, fname, ext = n
-    idx = fname.rfind("--")
-    if idx == -1: return False
-    return name == fname[:idx]
-  matches = filter(filter_func, simulations)
-  return map(lambda x: x[0], matches)
+simulations = {}
+for dirname, dirnames, basenames in walk(pdir):
+  for basename in basenames:
+    name, ext = path.splitext(basename)
+    if ext != ".vwf": continue
+    idx = name.rfind("--")
+    if idx != -1: name = name[:idx]
+    if name not in simulations: simulations[name] = []
+    simulations[name].append(path.join(dirname, basename))
 
 def render_block(name, block, imported=False):
   output = [unicode()]
@@ -155,36 +146,56 @@ def render_block(name, block, imported=False):
     ''', intro_text.strip(), implementation.strip())
 
   # Simulation
+  sim_files = sorted(simulations[name] if name in simulations else [])
+  timings = get(block, "timings", None)
+  if timings is None:
+    timings = [{ "slices": [(0,100000)] }] * len(sim_files)
+  if len(sim_files) != len(timings):
+    print "WARNING: found %d simulations, %d specified" % (len(sim_files), len(timings))
+
   simulation = get(block, "simulation", u"").strip()
-  sim_files = get_simulation_files(name, block)
+
   if (not imported) and (not get(block, "top_level", False)) and (not len(sim_files)):
     print "WARNING: block %s not simulated!" % name
   if (not imported) and (len(sim_files) or len(simulation)):
     assert len(sim_files)
-    ref = u"fig:sim-\\projectname-%s" % name
-    render_sim = lambda s: u"\includegraphics[scale=0.55]{../\\projectname/assets/vwf/%s}" % s
-    sim_files = u"\n\n\\vspace{1em}\n\n".join(map(render_sim, sim_files))
+    render_sim = u"\n\n".join(render_simulations(name, sim_files, timings))
     put(ur'''
 \paragraph{Simulació}
 
-\begin{contendfig}
-  \begin{center}
-    %s
-  \end{center}
-  \caption{\label{%s} Simulació per al bloc \textsf{%s}}
-\end{contendfig}
-
-La simulació del bloc es pot veure a la figura~\ref{%s} (pàgina~\pageref{%s}).
+\begin{center}
+  %s
+\end{center}
 
 %s
 
-  ''', sim_files, ref, escape(name), ref, ref, simulation or "% FIXME")
+  ''', render_sim, simulation or "% FIXME")
 
   put(ur'''
 \vspace{1cm}
   ''')
   return output[0]
 
+def render_simulations(name, sim_files, timings):
+  result = []
+  for i, timing in enumerate(timings):
+    file = open(sim_files[i], "rb")
+    vwf = file.read()
+    file.close()
+    vwf = vwf2tikz.parser.parse_vwf(vwf)
+    options = vwf2tikz.process.default_options.copy()
+    options["scale"] = vwf.header["GRID_PERIOD"] / (get(timing, "scale", 1.0) * 4.5)
+    
+    for start, length in timing["slices"]:
+      max_length = vwf.header["SIMULATION_TIME"] / vwf.header["GRID_PERIOD"] - start
+      length = min(length, max_length)
+      if length > 12 and not get(timing, "force", False):
+        print "WARNING: Simulation for %s too long (%d grids), cropping to %d" % (name, length, 12)
+        length = 12
+      options["viewport"] = (start * vwf.header["GRID_PERIOD"], (start + length) * vwf.header["GRID_PERIOD"])
+      result.append(vwf2tikz.process.render_vwf(vwf, options))
+  
+  return result
 
 def process_file(dirname, block):
   name, ext = path.splitext(basename)
