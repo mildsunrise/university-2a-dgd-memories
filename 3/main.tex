@@ -1,0 +1,44 @@
+\chapter{Pràctica 3: Disseny d'un joc}
+
+\section{Especificació}
+
+% TODO
+
+Es farà servir una placa DE2 on es carregarà el resultat. Es farà servir el Quartus 9.1 SP2 Web Edition per al desenvolupament.
+
+\section{Implementació}
+
+% TODO
+
+\section{Blocs importats}
+
+En aquesta secció es llisten els blocs que s'han importat de pràctiques
+anteriors i es fan servir sense modificar-los (ni modificar les seves
+dependències). Per aquest motiu, no s'inclou la implementació ni la
+simulació d'aquests.
+
+Un bloc importat només apareix si es fa servir directament en algun bloc
+no importat. Per tant, les seves dependències no apareixen necessàriament
+en aquesta memòria.
+
+\inputblock{imported/f_div}
+\inputblock{imported/keytest}
+\inputblock{imported/BCD7seg}
+\inputblock{imported/hex_disps}
+
+\section{Blocs del joc}
+\inputblock{joc/comptador}
+\inputblock{joc/registres}
+\inputblock{joc/comparador}
+\inputblock{joc/control}
+\inputblock{joc}
+
+\section{Blocs d'adaptació a la placa}
+\inputblock{leds}
+\inputblock{jocDE2}
+
+\section{Valoració general}
+
+L'únic problema rellevant era que el comptador feia l'overflow en les unitats
+però no en les desenes (passava de \texttt{0x99} a \texttt{0xA0}), i de vegades
+el joc quedava impossible de resoldre. Solucionat això, tot va funcionar correctament.
