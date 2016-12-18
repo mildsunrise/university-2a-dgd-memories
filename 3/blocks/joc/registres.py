@@ -9,11 +9,19 @@ ports = [
 ]
 
 description = ur'''
-% TODO
+\emph{Shift register} per a dues xifres BCD.
+
+Emmagatzema un nombre BCD de dues xifres, memoritzant les dues últimes
+xifres carregades. Quan s'habilita la càrrega ($eshft = 1$), la xifra
+BCD present a $keycode$ esdevé la xifra de menys pes del nombre
+emmagatzemat; la xifra anterior esdevé la de més pes, i aquesta es descarta.
+'''
+
+unspecs = ur'''
+La sortida no pertanyirà al seu codi si es carrega una xifra no BCD.
 '''
 
 implementation = ur'''
-% TODO
 Dos biestables D amb habilitació de càrrega encadenats, de forma similar a un \emph{shift
-register}. Les sortides dels biestables es retornen en ordre a $opA$ i $opB$.
+register} però on les sortides es concatenen per formar la sortida $num$.
 '''

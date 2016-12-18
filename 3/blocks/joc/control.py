@@ -15,7 +15,20 @@ ports = [
 ]
 
 description = ur'''
-% TODO
+Màquina de control del joc.
+
+Emmagatzema i actualitza l'estat del joc, habilitant el comptador o el registre segons convingui.
+La sortida $comp$ son tres bits (aproximadament, «major» / «igual» / «menor») que tenen
+combinacions amb diversos significats i que controlen els LEDs de la placa:
+
+\begin{description}
+\item[111] El joc s'acaba d'inicialitzar i es troba en espera (no s'ha jugat cap partida).
+\item[000] S'ha començat una nova partida, s'està esperant que es comprovi un nombre.
+\item[100] L'usuari ha comprovat un nombre que ha resultat ser major que la solució.
+\item[001] L'usuari ha comprovat un nombre que ha resultat ser menor que la solució.
+\item[010] L'usuari ha comprovat un nombre que ha resultat ser igual a la solució;
+s'ha acabat la partida i el joc es troba en espera.
+\end{description}
 '''
 
 unspecs = ur'''
