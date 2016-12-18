@@ -157,7 +157,7 @@ def render_block(name, block, imported=False):
 
   if (not imported) and (not get(block, "top_level", False)) and (not len(sim_files)):
     print "WARNING: block %s not simulated!" % name
-  if (not imported) and (len(sim_files) or len(simulation)):
+  if (not imported) and (len(timings) or len(simulation)):
     assert len(sim_files)
     render_sim = u"\n\n".join(render_simulations(name, sim_files, timings))
     put(ur'''

@@ -3,9 +3,9 @@
 ports = [
 ("numx[7..0]", "input", ur"Primer nombre (BCD, dos xifres)"),
 ("num[7..0]", "input", ur"Segon nombre (BCD, dos xifres)"),
-("ngtx", "output", ur"Indica que $num$ és major que $numx$ (actiu baix)"),
-("neqx", "output", ur"Indica que $num$ és igual que $numx$ (actiu baix)"),
-("nltx", "output", ur"Indica que $num$ és menor que $numx$ (actiu baix)"),
+("ngtx", "output", ur"Indica que $num$ és major que $numx$"),
+("neqx", "output", ur"Indica que $num$ és igual que $numx$"),
+("nltx", "output", ur"Indica que $num$ és menor que $numx$"),
 ]
 
 unspecs = ur'''
@@ -19,16 +19,16 @@ Compara el valor en BCD de les dues entrades i activa la sortida corresponent:
 %
 \begin{align*}
   ngtx &= \begin{cases}
-    0 & \text{si $num > numx$} \\
-    1 & \text{altrament}
+    1 & \text{si $num > numx$} \\
+    0 & \text{altrament}
   \end{cases} \\
   neqx &= \begin{cases}
-    0 & \text{si $num = numx$} \\
-    1 & \text{altrament}
+    1 & \text{si $num = numx$} \\
+    0 & \text{altrament}
   \end{cases} \\
   nltx &= \begin{cases}
-    0 & \text{si $num < numx$} \\
-    1 & \text{altrament}
+    1 & \text{si $num < numx$} \\
+    0 & \text{altrament}
   \end{cases}
 \end{align*}
 '''
