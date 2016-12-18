@@ -1,0 +1,68 @@
+\subsection{\label{sub:\projectname-comptador} \textsf{comptador}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{comptador} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{ecnt}] Habilitació del compte
+\item[\nodenamerange{numx}{11}{0}] Nombre de sortida (BCD, tres xifres)
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+Comptador BCD de tres xifres (ascendent cíclic).
+
+El valor BCD de la sortida, inicialitzada a zero, s'incrementa en cada cicle de rellotge que sempre que $ecnt = 1$.
+Quan la sortida arriba al valor 999, en el següent cicle s'estableix a 0 i es segueix incrementant de la mateixa forma.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\vhdlisting{comptador}
+
+
+
+Com que el codi es feia engorrós per a tres xifres, hem decidit implementar-lo
+encadenant tres comptadors d'una xifra (instàncies del bloc \textsf{comptador\_single}).
+
+Per consistència, el \emph{tail count} no s'exporta.
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 2.025L 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C \\
+  $\nodenamebit{nrst}$  &  [] 1.4175L 47.1825H \\
+  $\nodenamebit{ecnt}$  &  [] 48.6H \\
+  $\nodenamebit{numx}$  &  [] 2.047464D{} 4.05D{0x001} 0.003679D{} 4.046321D{0x002} 4.049873D{0x003} 0.000127D{} 0.003679D{} 4.046321D{0x004} 4.05D{0x005} 0.003679D{} 4.046321D{0x006} 4.049873D{0x007} 0.000127D{} 0.002897D{} 0.000782D{} 4.046321D{0x008} 4.049994D{0x009} 0.000006D{} 0.002897D{} 4.047103D{0x010} 4.05D{0x011} 0.003679D{} 1.998857D{} \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{2.025,6.075,10.125,14.175,18.225,22.275,26.325,30.375,34.425,38.475,42.525,46.575}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+
+\begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 2.025L 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C 2.025C \\
+  $\nodenamebit{nrst}$  &  [] 48.6H \\
+  $\nodenamebit{ecnt}$  &  [] 48.6H \\
+  $\nodenamebit{numx}$  &  [] 2.047464D{} 4.05D{0x695} 0.003679D{} 4.046321D{0x696} 4.049873D{0x697} 0.000127D{} 0.002897D{} 0.000782D{} 4.046321D{0x698} 4.049994D{0x699} 0.000006D{} 0.0017D{} 0.001196D{} 0.001475D{} 4.045628D{0x700} 4.05D{0x701} 0.003679D{} 4.046321D{0x702} 4.049873D{0x703} 0.000127D{} 0.003679D{} 4.046321D{0x704} 4.05D{0x705} 0.003679D{} 1.998857D{} \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{2.025,6.075,10.125,14.175,18.225,22.275,26.325,30.375,34.425,38.475,42.525,46.575}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+\end{center}
+
+% FIXME
+
+\vspace{1cm}

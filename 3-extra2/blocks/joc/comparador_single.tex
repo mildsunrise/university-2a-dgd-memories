@@ -1,0 +1,82 @@
+\subsection{\label{sub:\projectname-comparador_single} \textsf{comparador\_single}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{comparador_single} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{numx}{3}{0}] Primer nombre
+\item[\nodenamerange{num}{3}{0}] Segon nombre
+\item[\nodenamebit{ngtxi}] Entrada «major que» encadenada
+\item[\nodenamebit{neqxi}] Entrada «igual que» encadenada
+\item[\nodenamebit{nltxi}] Entrada «menor que» encadenada
+\item[\nodenamebit{ngtx}] Indica que $num$ és major que $numx$
+\item[\nodenamebit{neqx}] Indica que $num$ és igual que $numx$
+\item[\nodenamebit{nltx}] Indica que $num$ és menor que $numx$
+\end{where}
+
+\paragraph{Funció}
+
+Comparador de busos de 4~bits encadenable.
+
+Si $neqxi = 1$, compara el valor en binari natural de les dues entrades i activa la sortida corresponent:
+%
+\begin{align*}
+  ngtx &= \begin{cases}
+    1 & \text{si $num > numx$} \\
+    0 & \text{altrament}
+  \end{cases} \\
+  neqx &= \begin{cases}
+    1 & \text{si $num = numx$} \\
+    0 & \text{altrament}
+  \end{cases} \\
+  nltx &= \begin{cases}
+    1 & \text{si $num < numx$} \\
+    0 & \text{altrament}
+  \end{cases}
+\end{align*}
+
+En cas contrari, les entrades es porten directament a les sortides:
+%
+\begin{align*}
+  ngtx &= ngtxi \\
+  neqx &= neqxi \\
+  nltx &= nltxi
+\end{align*}
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\vhdlisting{comparador_single}
+
+
+
+Es fa servir el paquet \mintinline{vhdl}|std_logic_unsigned| i s'assigna cada sortida a la comparació que toca.
+
+Però en cas que $neqxi$ no estigui activat, les sortides reben el valor directament de les entrades, i no de les comparacions.
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{ngtxi}$  &  [] 8.1H 37.8L \\
+  $\nodenamebit{neqxi}$  &  [] 8.1L 37.8H \\
+  $\nodenamebit{nltxi}$  &  [] 45.9L \\
+  $\nodenamebit{numx}$  &  [] 0D{} 2.7D{7} 2.7D{8} 2.7D{9} 2.7D{0} 2.7D{1} 2.7D{2} 2.7D{3} 2.7D{4} 2.7D{5} 2.7D{6} 2.7D{7} 2.7D{8} 2.7D{9} 2.7D{0} 2.7D{1} 2.7D{2} 2.7D{3} \\
+  $\nodenamebit{num}$  &  [] 8.1D{9} 27D{0} 10.8D{1} \\
+  $\nodenamebit{ngtx}$  &  [] 8.544116H 26.976071L 2.690078H 7.689735L \\
+  $\nodenamebit{neqx}$  &  [] 8.42022L 0.115358H 0.037901L 2.672325H 24.3L 0.001181H 2.698819L 2.689875H 4.964321L \\
+  $\nodenamebit{nltx}$  &  [] 11.152181L 8.1H 0.010125L 10.8H 0.001856L 5.4H 5.377961L 5.057876H \\
+\extracode
+\end{tikztimingtable}
+
+\end{center}
+
+% FIXME
+
+\vspace{1cm}

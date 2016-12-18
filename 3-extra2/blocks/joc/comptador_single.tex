@@ -1,0 +1,61 @@
+\subsection{\label{sub:\projectname-comptador_single} \textsf{comptador\_single}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{comptador_single} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{ecnt}] Habilitació del compte
+\item[\nodenamerange{numx}{3}{0}] Nombre de sortida (BCD)
+\item[\nodenamebit{tc}] Sortida \emph{tail count}
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+Comptador BCD d'una xifra (ascendent cíclic).
+
+El valor BCD de la sortida, inicialitzada a zero, s'incrementa en cada cicle de rellotge que sempre que $ecnt = 1$.
+Quan la sortida arriba al valor 9, en el següent cicle s'estableix a 0 i es segueix incrementant de la mateixa forma.
+
+La sortida $tc$ s'usa per encadenar comptadors.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\vhdlisting{comptador_single}
+
+
+
+Com en el comptador anterior, es fa servir el paquet \mintinline{vhdl}|numeric_std| i es defineix una senyal intermèdia
+$n$ de tipus \mintinline{vhdl}|unsigned| de 4~bits. S'inicialitza en 0, i en arribar el flanc de rellotge i si $ecnt = 1$,
+s'incrementa (si el seu valor és diferent de 9) o es reinicialitza a zero (cas contrari).
+
+La senyal intermèdia es converteix a vector lògic i s'assigna a la sortida $numx$.
+S'activa $tc$ si $ecnt = 1$ i la senyal intermèdia té el valor 9.
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 1.575L 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C \\
+  $\nodenamebit{nrst}$  &  [] 44.1H \\
+  $\nodenamebit{ecnt}$  &  [] 1.1025L 42.9975H \\
+  $\nodenamebit{numx}$  &  [] 1.592472D{0} 3.15D{1} 0.002861D{} 3.147139D{2} 3.149901D{3} 0.000099D{} 0.002861D{} 3.147139D{4} 3.15D{5} 0.002861D{} 3.147139D{6} 3.149901D{7} 0.000099D{} 0.002253D{} 0.000608D{} 3.147139D{8} 3.15D{9} 0.002253D{} 3.147747D{0} 3.15D{1} 0.002861D{} 3.147139D{2} 3.149901D{3} 0.000099D{} 0.002861D{} 1.554667D{4} \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{1.575,4.725,7.875,11.025,14.175,17.325,20.475,23.625,26.775,29.925,33.075,36.225,39.375,42.525}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+\end{center}
+
+% FIXME
+
+\vspace{1cm}

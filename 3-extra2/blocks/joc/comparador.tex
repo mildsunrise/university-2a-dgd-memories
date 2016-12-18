@@ -1,0 +1,70 @@
+\subsection{\label{sub:\projectname-comparador} \textsf{comparador}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{comparador} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{numx}{11}{0}] Primer nombre (BCD, tres xifres)
+\item[\nodenamerange{num}{11}{0}] Segon nombre (BCD, tres xifres)
+\item[\nodenamebit{ngtx}] Indica que $num$ és major que $numx$
+\item[\nodenamebit{neqx}] Indica que $num$ és igual que $numx$
+\item[\nodenamebit{nltx}] Indica que $num$ és menor que $numx$
+\end{where}
+
+\paragraph{Funció}
+
+Comparador BCD de tres xifres.
+
+Compara el valor en BCD de les dues entrades i activa la sortida corresponent:
+%
+\begin{align*}
+  ngtx &= \begin{cases}
+    1 & \text{si $num > numx$} \\
+    0 & \text{altrament}
+  \end{cases} \\
+  neqx &= \begin{cases}
+    1 & \text{si $num = numx$} \\
+    0 & \text{altrament}
+  \end{cases} \\
+  nltx &= \begin{cases}
+    1 & \text{si $num < numx$} \\
+    0 & \text{altrament}
+  \end{cases}
+\end{align*}
+
+\paragraph{Inespecificacions}
+
+
+La sortida no està definida si alguna de les dues entrades no pertany al seu codi.
+
+
+\paragraph{Implementació}
+
+\vhdlisting{comparador}
+
+
+
+Es fan servir tres instàncies del bloc \textsf{comparador\_single} encadenades,
+comparant cadascuna de les tres xifres de $num$ i $numx$ (el bloc és un comparador binari
+genèric, per tant serveix per a BCD d'una xifra).
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{num}$  &  [] 4.5D{0} 4.5D{91} 4.5D{174} 9D{348} 4.5D{435} 4.5D{522} 4.5D{609} 4.5D{696} 4.5D{783} \\
+  $\nodenamebit{numx}$  &  [] 4.5D{0} 4.5D{87} 4.5D{182} 4.5D{273} 4.5D{364} 9D{435} 4.5D{637} 4.5D{696} 4.5D{819} \\
+  $\nodenamebit{ngtx}$  &  [] 4.54579L 4.499543H 4.504342L 4.499048H 4.485875L 0.010735H 4.503889L 4.499832H 4.485545L 0.010735H 8.954667L \\
+  $\nodenamebit{neqx}$  &  [] 4.532871H 0.00112L 0.002401H 18.006595L 4.485435H 9.011648L 4.488352H 4.471578L \\
+  $\nodenamebit{nltx}$  &  [] 4.534894L 0.000824H 4.501779L 0.000721H 0.00112L 4.486383H 0.001377L 0.012157H 4.500927L 4.485785H 0.010721L 0.005902H 4.480502L 0.014888H 4.502916L 4.485071H 0.010721L 0.002648H 4.483755L 0.002628H 0.001377L 0.012157H 0.00159L 4.459153H \\
+\extracode
+\end{tikztimingtable}
+
+\end{center}
+
+% FIXME
+
+\vspace{1cm}

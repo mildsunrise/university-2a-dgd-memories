@@ -1,0 +1,110 @@
+\subsection{\label{sub:\projectname-control} \textsf{control}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{control} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{bcd}] Senyal que s'activa si s'ha premut una xifra decimal
+\item[\nodenamebit{ast}] Senyal que s'activa si s'ha premut la tecla asterisc
+\item[\nodenamebit{coi}] Senyal que s'activa si s'ha premut la tecla coixinet
+\item[\nodenamebit{ngtx}] Indica que el nombre introduït és major que la solució
+\item[\nodenamebit{neqx}] Indica que el nombre introduït coincideix amb la solució
+\item[\nodenamebit{nltx}] Indica que el nombre introduït és menor que la solució
+\item[\nodenamebit{eshft}] Senyal que s'activa quan s'ha d'enregistrar la xifra premuda
+\item[\nodenamebit{ecnt}] Senyal que d'habilitació del comptador
+\item[\nodenamerange{comp}{2}{0}] Sortida per als indicadors de l'estat del joc
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+Màquina de control del joc.
+
+Emmagatzema i actualitza l'estat del joc, habilitant el comptador o el registre segons convingui.
+La sortida $comp$ son tres bits (aproximadament, «major» / «igual» / «menor») que tenen
+combinacions amb diversos significats i que controlen els LEDs de la placa:
+
+\begin{description}
+\item[111] El joc s'acaba d'inicialitzar i es troba en espera (no s'ha jugat cap partida).
+\item[000] S'ha començat una nova partida, s'està esperant que es comprovi un nombre.
+\item[100] L'usuari ha comprovat un nombre que ha resultat ser major que la solució.
+\item[001] L'usuari ha comprovat un nombre que ha resultat ser menor que la solució.
+\item[010] L'usuari ha comprovat un nombre que ha resultat ser igual a la solució;
+s'ha acabat la partida i el joc es troba en espera.
+\end{description}
+
+\paragraph{Inespecificacions}
+
+
+El comportament del bloc no està definit si més d'una de les entrades $bcd, ast, coi$ està activa a la vegada.
+El comportament del bloc no està definit si cap de les entrades $ngtx, neqx, nltx$ està activa, o més d'una ho està.
+
+
+\paragraph{Implementació}
+
+\vhdlisting{control}
+
+
+
+Hem pres una forma poc usual de dissenyar aquest bloc: en comptes d'assignar
+$comp$ de forma combinacional fora del \mintinline{vhdl}|process|, es fa dins
+i només en certs casos (\emph{latch}). Hem vist que això simplifica molt el
+codi i ens ha permés fer el disseny en només \textbf{2 estats} (repós, jugant)
+en comptes de 5.
+
+El diagrama de transició d'estats (només depen de les entrades $coi$, $neqx$; sortides $eshft$, $ecnt$) és el següent. Es tracta
+d'una màquina de Mealy, però es representa la sortida dins de l'estat per simplicitat:
+
+\begin{center} \begin{tikzpicture}[shorten >=1pt, node distance=2cm, >=stealth', auto]
+  \node[state with output, initial above, initial text=reset] (st_idle) at (0,0) {idle \nodepart{lower} $0,1$};
+  \node[state with output]          (st_playing) at (4,0) {playing \nodepart{lower} $bcd,0$};
+
+  \path[->]
+    (st_idle) edge [loop left, align=center] node {$0,-$} (st_idle)
+    (st_idle) edge [bend left, align=center] node {$1,-$} (st_playing)
+    
+    (st_playing) edge [loop right, align=center] node {$0,0$} (st_playing)
+    (st_playing) edge [bend left, align=center] node {$1,-$ \\ $-,1$} (st_idle)
+  ;
+\end{tikzpicture} \end{center}
+
+Respecte a $comp$, se li assigna un valor només en els següents casos:
+
+\begin{itemize}
+\item En reset: \mintinline{vhdl}|"111"|
+\item En estat \emph{idle}, $coi$ s'activa: \mintinline{vhdl}|"000"|
+\item En estat \emph{playing}, $bcd$ s'activa: \mintinline{vhdl}|"000"|
+\item En estat \emph{playing}, $ast$ s'activa: \mintinline{vhdl}|ngtx & neqx & nltx|
+\item En estat \emph{playing}, $coi$ s'activa: \mintinline{vhdl}|"111"|
+\end{itemize}
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 2.25L 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C \\
+  $\nodenamebit{nrst}$  &  [] 2.25L 42.75H \\
+  $\nodenamebit{coi}$  &  [] 9L 4.5H 27L 4.5H \\
+  $\nodenamebit{bcd}$  &  [] 4.5L 4.5H 4.5L 9H 4.5L 4.5H 13.5L \\
+  $\nodenamebit{ast}$  &  [] 22.5L 4.5H 4.5L 4.5H 9L \\
+  $\nodenamebit{ngtx}$  &  [] 18L 9H 18L \\
+  $\nodenamebit{neqx}$  &  [] 31.5L 13.5H \\
+  $\nodenamebit{nltx}$  &  [] 13.5L 4.5H 27L \\
+  $\nodenamebit{comp}$  &  [] 11.250022D{111} 0D{} 0.000005D{} 13.499995D{000} 4.5D{001} 4.5D{000} 9D{010} 2.249978D{000} \\
+  $\nodenamebit{ecnt}$  &  [] 11.250022H 22.5L 9H 2.249978L \\
+  $\nodenamebit{eshft}$  &  [] 13.500023L 9H 4.5L 4.5H 13.499977L \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{2.25,6.75,11.25,15.75,20.25,24.75,29.25,33.75,38.25,42.75}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+\end{center}
+
+En aquesta simulació comprovem que les sortides es comporten correctament. Ens basem en una situació real que es donaria en el joc (p.e. no posariem les sortides $ngtx$, $netx$ o $nltx$ alhora).
+
+\vspace{1cm}

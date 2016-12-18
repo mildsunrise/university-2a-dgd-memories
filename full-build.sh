@@ -3,7 +3,7 @@ set -e
 cd "$(dirname $0)"
 
 for p in 3 3-extra1 3-extra2 3-extra3; do
-  #./render-assets.sh $p
+  ./render-assets.sh $p
   ./build-blocks.py $p
 done
 

@@ -1,0 +1,62 @@
+\subsection{\label{sub:\projectname-registres} \textsf{registres}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{registres} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{eshft}] Habilitació d'emmagatzemament
+\item[\nodenamerange{keycode}{3}{0}] Xifra que s'està introduint (BCD)
+\item[\nodenamerange{num}{11}{0}] Nombre enmagatzemat (BCD, tres xifres)
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+\emph{Shift register} per a tres xifres BCD.
+
+Emmagatzema un nombre BCD de tres xifres, memoritzant les tres últimes
+xifres carregades. Quan s'habilita la càrrega ($eshft = 1$), la xifra
+BCD present a $keycode$ esdevé la xifra de menys pes del nombre
+emmagatzemat; les xifres existents es mouen cap a l'esquerra, descartant
+la de més pes.
+
+\paragraph{Inespecificacions}
+
+
+La sortida no pertanyirà al seu codi si es carrega una xifra no BCD.
+
+
+\paragraph{Implementació}
+
+\vhdlisting{registres}
+
+
+
+Implementació senzilla, s'utilitzen tres senyals intermèdies $c$, $b$ i $a$,
+per desar cada xifra. En el \mintinline{vhdl}|process| s'assignen condicionalment a $b$, $a$
+i $keycode$ respectivament, i fora d'aquest es concatenen per formar la sortida.
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 2.25L 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C \\
+  $\nodenamebit{nrst}$  &  [] 1.575L 43.425H \\
+  $\nodenamebit{eshft}$  &  [] 9H 4.5L 9H 9L 13.5H \\
+  $\nodenamebit{keycode}$  &  [] 4.5D{0000} 4.5D{0001} 4.5D{0010} 4.5D{0011} 4.5D{0100} 4.5D{0101} 4.5D{0110} 4.5D{0111} 4.5D{1000} 4.5D{1001} \\
+  $\nodenamebit{num}$  &  [] 6.781284D{0x000} 8.991374D{0x800} 0.008632D{} 4.490505D{0xC80} 0.000821D{} 0.008038D{} 0.000629D{} 0.000007D{} 13.491368D{0x2C8} 0.004538D{} 0.003459D{} 0.000038D{} 0.000591D{} 0.000007D{} 4.490505D{0xE2C} 0.000117D{} 0.000704D{} 0.000041D{} 0.007997D{} 0.000038D{} 0.000591D{} 0.000007D{} 4.490505D{0x1E2} 0.000862D{} 0.004538D{} 0.00337D{} 0.000089D{} 0.000038D{} 0.000591D{} 2.218716D{} \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{2.25,6.75,11.25,15.75,20.25,24.75,29.25,33.75,38.25,42.75}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+\end{center}
+
+% FIXME
+
+\vspace{1cm}

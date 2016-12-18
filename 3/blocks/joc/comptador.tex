@@ -1,0 +1,72 @@
+\subsection{\label{sub:\projectname-comptador} \textsf{comptador}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{comptador} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{ecnt}] Habilitació del compte
+\item[\nodenamerange{numx}{7}{0}] Nombre de sortida (BCD, dos xifres)
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+Comptador BCD de dues xifres (ascendent cíclic).
+
+El valor BCD de la sortida, inicialitzada a zero, s'incrementa en cada cicle de rellotge que sempre que $ecnt = 1$.
+Quan la sortida arriba al valor 99, en el següent cicle s'estableix a 0 i es segueix incrementant de la mateixa forma.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\vhdlisting{comptador}
+
+
+
+En aquest cas hem optat per a fer servir el paquet \mintinline{vhdl}|numeric_std|, l'ús del qual
+es recomana sobre \mintinline{vhdl}|std_logic_unsigned| i \mintinline{vhdl}|std_logic_signed|.
+
+Per conveniència es defineixen dos senyals intermèdies de tipus \mintinline{vhdl}|unsigned|
+de quatre bits, $n1$ i $n0$, on s'emmagatzemen les dues xifres del comptador.
+Dins el \mintinline{vhdl}|process| es comprova el valor de $ecnt$ i s'incrementa $n0$ si
+el seu valor és diferent a nou. En cas contari es posa a zero i s'incrementa $n1$ si el
+seu valor és diferent a nou (sino, es posa també a zero).
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 1.2375L 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C \\
+  $\nodenamebit{nrst}$  &  [] 4.95L 39.6H \\
+  $\nodenamebit{ecnt}$  &  [] 19.8H 4.95L 19.8H \\
+  $\nodenamebit{numx}$  &  [] 6.187526D{0x00} 2.474997D{0x01} 0.000003D{} 2.475D{0x02} 2.474997D{0x03} 0.000001D{} 0.000002D{} 2.475D{0x04} 2.474997D{0x05} 0.000003D{} 7.425D{0x06} 2.474997D{0x07} 0D{} 0.000001D{} 0.000002D{} 2.475D{0x08} 2.474997D{0x09} 0.000001D{} 0.000003D{} 2.475D{0x10} 2.474997D{0x11} 0.000003D{} 2.475D{0x12} 2.474997D{0x13} 0.000001D{} 0.000002D{} 1.237474D{} \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{1.2375,3.7125,6.1875,8.6625,11.1375,13.6125,16.0875,18.5625,21.0375,23.5125,25.9875,28.4625,30.9375,33.4125,35.8875,38.3625,40.8375,43.3125}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+
+\begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 1.2375L 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C 1.2375C \\
+  $\nodenamebit{nrst}$  &  [] 44.55H \\
+  $\nodenamebit{ecnt}$  &  [] 9.9H 4.95L 29.7H \\
+  $\nodenamebit{numx}$  &  [] 1.237526D{} 2.474997D{0x93} 0.000001D{} 0.000002D{} 2.475D{0x94} 2.474997D{0x95} 0.000003D{} 7.425D{0x96} 2.474997D{0x97} 0D{} 0.000001D{} 0.000002D{} 2.475D{0x98} 2.474997D{0x99} 0D{} 0.000001D{} 0.000003D{} 2.475D{0x00} 2.474997D{0x01} 0.000003D{} 2.475D{0x02} 2.474997D{0x03} 0.000001D{} 0.000002D{} 2.475D{0x04} 2.474997D{0x05} 0.000003D{} 2.475D{0x06} 2.474997D{0x07} 0D{} 0.000001D{} 0.000002D{} 1.237474D{} \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{1.2375,3.7125,6.1875,8.6625,11.1375,13.6125,16.0875,18.5625,21.0375,23.5125,25.9875,28.4625,30.9375,33.4125,35.8875,38.3625,40.8375,43.3125}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+\end{center}
+
+Ja que resultaria molt laboriós comprovar una simulació exhaustiva, agafem una mostra que ensenyi els canvis més significatius, que son els canvi de 9 a 0 de les unitats i el canvi de \texttt{0x99} a \texttt{0x00}. Per això hem agafat els nombres entre 85 i 11 del següent cicle. La sortida $numx$ es mostra en hexadecimal per simplicitat. També ens assegurem que el \emph{count enable} realitzi la seva funció.
+
+\vspace{1cm}

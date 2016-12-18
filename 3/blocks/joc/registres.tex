@@ -1,0 +1,48 @@
+\subsection{\label{sub:\projectname-registres} \textsf{registres}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{registres} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{eshft}] Habilitació d'emmagatzemament
+\item[\nodenamerange{keycode}{3}{0}] Xifra que s'està introduint (BCD)
+\item[\nodenamerange{num}{7}{0}] Nombre enmagatzemat (BCD, dos xifres)
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+\emph{Shift register} per a dues xifres BCD.
+
+Emmagatzema un nombre BCD de dues xifres, memoritzant les dues últimes
+xifres carregades. Quan s'habilita la càrrega ($eshft = 1$), la xifra
+BCD present a $keycode$ esdevé la xifra de menys pes del nombre
+emmagatzemat; la xifra anterior esdevé la de més pes, i aquesta es descarta.
+
+\paragraph{Inespecificacions}
+
+
+La sortida no pertanyirà al seu codi si es carrega una xifra no BCD.
+
+
+\paragraph{Implementació}
+
+\begin{contendfig}
+  \begin{center}
+    \adjustbox{max width=\textwidth, max height=\textheight}{
+      \bdfschematic{registres}
+    }
+  \end{center}
+  \caption{\label{fig:sch-\projectname-registres} Esquemàtic per al bloc \textsf{registres}}
+\end{contendfig}
+
+L'esquemàtic del bloc es pot veure a la figura~\ref{fig:sch-\projectname-registres} (pàgina~\pageref{fig:sch-\projectname-registres}).
+
+Dos biestables D amb habilitació de càrrega encadenats, de forma similar a un \emph{shift
+register} però on les sortides es concatenen per formar la sortida $num$.
+
+\vspace{1cm}

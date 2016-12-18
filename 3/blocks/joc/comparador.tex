@@ -1,0 +1,70 @@
+\subsection{\label{sub:\projectname-comparador} \textsf{comparador}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{comparador} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{numx}{7}{0}] Primer nombre (BCD, dos xifres)
+\item[\nodenamerange{num}{7}{0}] Segon nombre (BCD, dos xifres)
+\item[\nodenamebit{ngtx}] Indica que $num$ és major que $numx$
+\item[\nodenamebit{neqx}] Indica que $num$ és igual que $numx$
+\item[\nodenamebit{nltx}] Indica que $num$ és menor que $numx$
+\end{where}
+
+\paragraph{Funció}
+
+Comparador BCD de dues xifres.
+
+Compara el valor en BCD de les dues entrades i activa la sortida corresponent: 
+%
+\begin{align*}
+  ngtx &= \begin{cases}
+    1 & \text{si $num > numx$} \\
+    0 & \text{altrament}
+  \end{cases} \\
+  neqx &= \begin{cases}
+    1 & \text{si $num = numx$} \\
+    0 & \text{altrament}
+  \end{cases} \\
+  nltx &= \begin{cases}
+    1 & \text{si $num < numx$} \\
+    0 & \text{altrament}
+  \end{cases}
+\end{align*}
+
+\paragraph{Inespecificacions}
+
+
+La sortida no està definida si alguna de les dues entrades no pertany al seu codi.
+
+
+\paragraph{Implementació}
+
+\vhdlisting{comparador}
+
+
+
+Es fa servir el paquet \mintinline{vhdl}|std_logic_unsigned| i es duen a terme comparacions
+entre les xifres individuals d'ambdos termes, que s'assignen a les senyals
+intermèdies $a_1, a_0$ i $b_1, b_0$ respectivament.
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{num}$  &  [] 4.5D{1} 4.5D{15} 4.5D{29} 4.5D{43} 4.5D{57} 4.5D{71} 4.5D{85} 4.5D{99} \\
+  $\nodenamebit{numx}$  &  [] 9D{85} 4.5D{29} 9D{57} 4.5D{14} 9D{1} \\
+  $\nodenamebit{ngtx}$  &  [] 9.59913L 0.01962H 8.977095L 0.022905H 4.331655L 13.049595H \\
+  $\nodenamebit{neqx}$  &  [] 9.611325L 4.31775H 0.166095L 0.01287H 4.5L 4.28256H 13.1094L \\
+  $\nodenamebit{nltx}$  &  [] 9.636255H 4.31685L 4.627755H 4.34808L 0.03852H 0.166095L 0.012915H 12.85353L \\
+\extracode
+\end{tikztimingtable}
+
+\end{center}
+
+Aquesta simulació pot resultar liosa en el sentit que hem de tenir clar l'ordre de comparació. Per exemple, nosaltres hem interpretat el significat de $ngtx$ com «$num$ greater than $numx$» a l'hora de fer el codi del comparador (una interpretació semblant amb $neqx$ i $nltx$). Tenint compte això hem de verificar que el bloc funciona adequadament.
+
+\vspace{1cm}

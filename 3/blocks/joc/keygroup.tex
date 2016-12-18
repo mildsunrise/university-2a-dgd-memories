@@ -1,0 +1,43 @@
+\subsection{\label{sub:\projectname-keygroup} \textsf{keygroup}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{keygroup} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{nkey}] Senyal que s'activa si s'ha premut una tecla (actiu baix)
+\item[\nodenamerange{x}{3}{0}] Índex de la tecla que s'ha premut
+\item[\nodenamebit{bcd}] Senyal que s'activa si s'ha premut una xifra decimal
+\item[\nodenamebit{ast}] Senyal que s'activa si s'ha premut la tecla asterisc
+\item[\nodenamebit{coi}] Senyal que s'activa si s'ha premut la tecla coixinet
+\end{where}
+
+\paragraph{Funció}
+
+Evalua la tecla premuda $x$, si n'hi ha, i activa una (o cap) de les sortides següents,
+segons el tipus de tecla premuda:
+
+\begin{itemize}
+\item $bcd$ si és un dígit decimal. En aquest cas, $x$ és també
+el valor d'aquest dígit en BCD.
+\item $ast$ si és la tecla asterisc (\texttt{*}).
+\item $coi$ si és la tecla coixinet (\texttt{\#}).
+\end{itemize}
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\vhdlisting{keygroup}
+
+
+
+Cada sortida estarà activa només si $nkey$ està actiu i $x$ és el valor adequat.
+Per al cas de $bcd$ no és un valor únic sino un rang, però es pot escriure de
+forma compacta mitjançant una comparació.
+
+\vspace{1cm}

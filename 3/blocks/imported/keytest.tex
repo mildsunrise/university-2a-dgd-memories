@@ -1,0 +1,30 @@
+\subsection{\label{sub:\projectname-keytest} \textsf{keytest}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{keytest} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamerange{row}{3}{0}] Pins de fila del teclat
+\item[\nodenamerange{col}{3}{0}] Pins de columna del teclat
+\item[\nodenamebit{nkey}] Senyal que s'activa si s'ha premut una tecla (actiu baix)
+\item[\nodenamerange{keycode}{3}{0}] Índex de la tecla que s'ha premut
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+Escàner de pulsacions en un \emph{crossbar switch} de 4 per 4.
+
+Sondeja la matriu de tecles i activa la sortida $nkey$ quan una tecla es pulsa
+(la sortida es desactiva en el següent cicle de rellotge encara que la tecla
+segueixi premuda). La sortida $keycode$ indica l'index de la tecla.
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\vspace{1cm}
