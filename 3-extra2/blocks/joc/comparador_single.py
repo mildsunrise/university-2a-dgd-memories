@@ -49,8 +49,10 @@ Però en cas que $neqxi$ no estigui activat, les sortides reben el valor directa
 timings = [
   {
     "scale": 6,
-    "slices": [(9.7,1.7)],
+    "slices": [(9.7,1.7), (14.4,1.7)],
   }
 ]
 
-# TODO: simulation
+simulation = ur'''
+En aquest cas hem fet la simulació de totes les comparacions possibles, en funció de les entrades $ngtxi$, $neqxi$ i $nltxi$. Hem centrat la simulació en una de les parts clau del comparador, quan $neqxi = 1$. Hem de tenir en compte com interpretar la sortida. En el nostre cas comparem $num$ respecte a $numx$.
+'''

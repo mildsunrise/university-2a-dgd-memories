@@ -42,3 +42,4 @@ Els displays estan controlats per una instància de \textsf{hex\_disps} on porte
 tres xifres del resultat (entrades 2, 1, 0 respectivament). La resta d'entrades es
 forcen a 1111 per a apagar els displays.
 '''
+

@@ -34,4 +34,6 @@ timings = [
   }
 ]
 
-# TODO: simulation
+simulation = ur'''
+Ens centrem en el canvi més rellevant del bloc: el pas de 9 a 0. Hem d'assegurar-nos que $tc$ s'activi quan pertoqui.
+'''

@@ -27,5 +27,3 @@ timings = [
     "slices": [(0,12), (9694,12)],
   }
 ]
-
-# TODO: simulation

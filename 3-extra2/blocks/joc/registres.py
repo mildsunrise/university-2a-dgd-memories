@@ -28,4 +28,6 @@ per desar cada xifra. En el \mintinline{vhdl}|process| s'assignen condicionalmen
 i $keycode$ respectivament, i fora d'aquest es concatenen per formar la sortida.
 '''
 
-# TODO: simulation
+simulation = ur'''
+Comprovem que els registres emmagatzemen les xifres en l'ordre correcte.
+'''

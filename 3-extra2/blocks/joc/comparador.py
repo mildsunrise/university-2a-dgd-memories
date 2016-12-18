@@ -39,4 +39,6 @@ comparant cadascuna de les tres xifres de $num$ i $numx$ (el bloc és un compara
 genèric, per tant serveix per a BCD d'una xifra).
 '''
 
-# TODO: simulation
+simulation = ur'''
+Hem de comprovar que el bloc funciona correctament.
+'''

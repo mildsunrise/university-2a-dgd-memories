@@ -39,5 +39,5 @@ Finalment, s'exporten les sortides $num$ (de \textsf{registres}) i $comp$ (de \t
 '''
 
 simulation = ur'''
-Seria bastant complicat simular una partida real sencera del joc en una simulació així que hem agafat un valor molt alt i un altre molt baix per a comprovar que el bloc funciona com l'hem descrit.
+Per a fer la simulació, hem escollit valors de $keycode$ verosímils respecte a l'us real del bloc. Aprofitem que coneixem que la resposta és 01 (ja que el comptador que genera $numx$ funciona d'acord amb el clock, i només hem deixar passar-ne un abans de començar la partida) per a comprovar que una vegada encertat el resultat, el teclat es bloqueja. També comprovem que els dígits introduïts es posicionen correctament (de dreta a esquerra) i que s'il·luminen els LEDs corresponents. Mostrem la sortida $num$ en hexadecimal per comoditat.
 '''

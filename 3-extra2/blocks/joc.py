@@ -46,4 +46,6 @@ timings = [
   }
 ]
 
-# TODO: simulation
+simulation = ur'''
+Comprovem el funcionament aquesta vegada amb 3 digits.
+'''
