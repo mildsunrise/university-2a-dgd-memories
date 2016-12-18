@@ -16,3 +16,7 @@ description = ur'''
 implementation = ur'''
 % TODO
 '''
+
+simulation = ur'''
+Seria bastant complicat simular una partida real sencera del joc en una simulació així que hem agafat un valor molt alt i un altre molt baix per a comprovar que el bloc funciona com l'hem descrit.
+'''
