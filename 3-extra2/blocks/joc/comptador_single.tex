@@ -47,7 +47,12 @@ S'activa $tc$ si $ecnt = 1$ i la senyal intermèdia té el valor 9.
   $\nodenamebit{clk}$  &  [] 1.575L 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C 1.575C \\
   $\nodenamebit{nrst}$  &  [] 44.1H \\
   $\nodenamebit{ecnt}$  &  [] 1.1025L 42.9975H \\
-  $\nodenamebit{numx}$  &  [] 1.592472D{0} 3.15D{1} 0.002861D{} 3.147139D{2} 3.149901D{3} 0.000099D{} 0.002861D{} 3.147139D{4} 3.15D{5} 0.002861D{} 3.147139D{6} 3.149901D{7} 0.000099D{} 0.002253D{} 0.000608D{} 3.147139D{8} 3.15D{9} 0.002253D{} 3.147747D{0} 3.15D{1} 0.002861D{} 3.147139D{2} 3.149901D{3} 0.000099D{} 0.002861D{} 1.554667D{4} \\
+  $\nodenamebit{numx}$  &  [] 1.589721D{0} 3.15D{1} 0.000305D{} 3.149695D{2} 3.149993D{3} 0.000007D{} 0.000305D{} 3.149695D{4} 3.15D{5} 0.000305D{} 3.149695D{6} 3.149993D{7} 0.000007D{} 0.000305D{} 0.000365D{} 3.149329D{8} 3.15D{9} 0.000671D{} 3.149329D{0} 3.15D{1} 0.000305D{} 3.149695D{2} 3.149993D{3} 0.000007D{} 0.000305D{} 1.559974D{4} \\
+  $\nodenamesingle{numx}{3}$  &  [] 23.640392L 6.3H 14.159608L \\
+  $\nodenamesingle{numx}{2}$  &  [] 11.039714L 12.6H 18.9L 1.560286H \\
+  $\nodenamesingle{numx}{1}$  &  [] 4.740026L 6.3H 6.3L 6.3H 12.6L 6.3H 1.559974L \\
+  $\nodenamesingle{numx}{0}$  &  [] 1.589721L 3.15H 3.15L 3.15H 3.15L 3.15H 3.15L 3.15H 3.15L 3.15H 3.15L 3.15H 3.15L 3.15H 1.560279L \\
+  $\nodenamebit{tc}$  &  [] 26.793785L 3.15H 14.156215L \\
 \extracode
   \begin{pgfonlayer}{background}
     \vertlines[help lines]{1.575,4.725,7.875,11.025,14.175,17.325,20.475,23.625,26.775,29.925,33.075,36.225,39.375,42.525}
@@ -56,6 +61,6 @@ S'activa $tc$ si $ecnt = 1$ i la senyal intermèdia té el valor 9.
 
 \end{center}
 
-% FIXME
+Ens centrem en el canvi més rellevant del bloc: el pas de 9 a 0. Hem d'assegurar-nos que $tc$ s'activi quan pertoqui.
 
 \vspace{1cm}

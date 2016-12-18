@@ -1,0 +1,123 @@
+\subsection{\label{sub:\projectname-control} \textsf{control}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{control} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{bcd}] Senyal que s'activa si s'ha premut una xifra decimal
+\item[\nodenamebit{ast}] Senyal que s'activa si s'ha premut la tecla asterisc
+\item[\nodenamebit{coi}] Senyal que s'activa si s'ha premut la tecla coixinet
+\item[\nodenamebit{let}] Senyal que s'activa si s'ha premut una lletra
+\item[\nodenamebit{ngtx}] Indica que el nombre introduït és major que la solució
+\item[\nodenamebit{neqx}] Indica que el nombre introduït coincideix amb la solució
+\item[\nodenamebit{nltx}] Indica que el nombre introduït és menor que la solució
+\item[\nodenamebit{show}] Indica que s'ha de visualitzar la solució, no el nombre introduït
+\item[\nodenamebit{eshft}] Senyal que s'activa quan s'ha d'enregistrar la xifra premuda
+\item[\nodenamebit{ecnt}] Senyal que d'habilitació del comptador
+\item[\nodenamerange{comp}{2}{0}] Sortida per als indicadors de l'estat del joc
+\item[\nodenamebit{clk}] Rellotge, flanc de pujada
+\item[\nodenamebit{nrst}] Reset asíncron, actiu baix
+\end{where}
+
+\paragraph{Funció}
+
+Màquina de control del joc.
+
+Emmagatzema i actualitza l'estat del joc, habilitant el comptador o el registre segons convingui.
+La sortida $comp$ son tres bits (aproximadament, «major» / «igual» / «menor») que tenen
+combinacions amb diversos significats i que controlen els LEDs de la placa:
+
+\begin{description}
+\item[111] El joc s'acaba d'inicialitzar i es troba en espera (no s'ha jugat cap partida).
+\item[000] S'ha començat una nova partida, s'està esperant que es comprovi un nombre.
+\item[100] L'usuari ha comprovat un nombre que ha resultat ser major que la solució.
+\item[001] L'usuari ha comprovat un nombre que ha resultat ser menor que la solució.
+\item[010] L'usuari ha comprovat un nombre que ha resultat ser igual a la solució;
+s'ha acabat la partida i el joc es troba en espera.
+\end{description}
+
+Per a la funcionalitat de trampa, la sortida $show$ indica quan s'ha de visualitzar
+la solució en comptes del nombre introduït per l'usuari.
+
+\paragraph{Inespecificacions}
+
+
+El comportament del bloc no està definit si més d'una de les entrades $bcd, ast, coi, let$ està activa a la vegada.
+El comportament del bloc no està definit si cap de les entrades $ngtx, neqx, nltx$ està activa, o més d'una ho està.
+
+
+\paragraph{Implementació}
+
+\vhdlisting{control}
+
+
+
+Gràcies al \emph{latch} només cal un tercer estat, que anomenarem \emph{cheating},
+per a implementar la trampa. S'afegeix una sortida $show$ que s'activarà només
+en aquest estat, indicant a la resta del disseny que s'ha de visualitzar la solució
+en comptes del nombre introduït.
+
+El diagrama de transició d'estats (només depen de les entrades $coi$, $let$, $neqx$; sortides $show$, $eshft$, $ecnt$) és el següent. Es tracta
+d'una màquina de Mealy, però es representa la sortida dins de l'estat per simplicitat:
+
+\begin{center} \begin{tikzpicture}[shorten >=1pt, node distance=2cm, >=stealth', auto]
+  \node[state with output, initial above, initial text=reset] (st_idle) at (0,0) {idle \nodepart{lower} $0,0,1$};
+  \node[state with output]          (st_playing) at (5,0) {playing \nodepart{lower} $0,bcd,0$};
+  \node[state with output]          (st_cheating) at (5,-5) {cheating \nodepart{lower} $1,0,0$};
+
+  \path[->]
+    (st_idle) edge [loop left, align=center] node {$0,-,-$} (st_idle)
+    (st_idle) edge [bend left, align=center] node {$1,-,-$} (st_playing)
+    
+    (st_playing) edge [loop right, align=center] node {$0,0,0$} (st_playing)
+    (st_playing) edge [bend left, align=center] node {$1,-,-$ \\ $-,-,1$} (st_idle)
+    (st_playing) edge [bend left, align=center] node {$-,1,-$} (st_cheating)
+    
+    (st_cheating) edge [loop right, align=center] node {$0,0,-$} (st_cheating)
+    (st_cheating) edge [bend left, align=center] node {$-,1,-$} (st_playing)
+    
+    (st_cheating) edge [bend left, align=center] node {$1,-,-$} (st_idle)
+  ;
+\end{tikzpicture} \end{center}
+
+Respecte a $comp$, se li assigna un valor només en els següents casos:
+
+\begin{itemize}
+\item En reset: \mintinline{vhdl}|"111"|
+\item En estat \emph{idle}, $coi$ s'activa: \mintinline{vhdl}|"000"|
+\item En estat \emph{playing}, $bcd$ o $let$ s'activa: \mintinline{vhdl}|"000"|
+\item En estat \emph{playing}, $ast$ s'activa: \mintinline{vhdl}|ngtx & neqx & nltx|
+\item En estat \emph{playing} o \emph{cheating}, $coi$ s'activa: \mintinline{vhdl}|"111"|
+\end{itemize}
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{clk}$  &  [] 2.25L 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C 2.25C \\
+  $\nodenamebit{nrst}$  &  [] 1.575L 43.425H \\
+  $\nodenamebit{bcd}$  &  [] 4.5L 13.5H 9L 9H 4.5L 4.5H \\
+  $\nodenamebit{ast}$  &  [] 18L 4.5H 22.5L \\
+  $\nodenamebit{coi}$  &  [] 4.5H 40.5L \\
+  $\nodenamebit{let}$  &  [] 22.5L 4.5H 9L 4.5H 4.5L \\
+  $\nodenamebit{ngtx}$  &  [] 13.5L 27H 4.5L \\
+  $\nodenamebit{neqx}$  &  [] 45L \\
+  $\nodenamebit{nltx}$  &  [] 4.5L 9H 31.5L \\
+  $\nodenamebit{comp}$  &  [] 2.271889D{111} 0.000007D{} 0.000838D{} 18D{000} 4.5D{001} 20.227266D{000} \\
+  $\nodenamebit{ecnt}$  &  [] 2.278793H 42.721207L \\
+  $\nodenamebit{eshft}$  &  [] 4.526461L 13.5H 22.5L 4.473539H \\
+  $\nodenamebit{show}$  &  [] 24.781435L 13.5H 6.718565L \\
+\extracode
+  \begin{pgfonlayer}{background}
+    \vertlines[help lines]{2.25,6.75,11.25,15.75,20.25,24.75,29.25,33.75,38.25,42.75}
+  \end{pgfonlayer}
+\end{tikztimingtable}
+
+\end{center}
+
+Introduint comandes simulant una partida real del joc. En aquest cas ens centrem que el funcionament de la trampa sigui el correcte.
+
+\vspace{1cm}

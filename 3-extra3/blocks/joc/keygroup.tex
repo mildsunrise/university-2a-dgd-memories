@@ -1,0 +1,62 @@
+\subsection{\label{sub:\projectname-keygroup} \textsf{keygroup}}
+
+\paragraph{Símbol}
+
+\begin{center} \bsfsymbol{keygroup} \end{center}
+
+\paragraph{Entrades i sortides}
+
+\begin{where}
+\item[\nodenamebit{nkey}] Senyal que s'activa si s'ha premut una tecla (actiu baix)
+\item[\nodenamerange{x}{3}{0}] Índex de la tecla que s'ha premut
+\item[\nodenamebit{bcd}] Senyal que s'activa si s'ha premut una xifra decimal
+\item[\nodenamebit{ast}] Senyal que s'activa si s'ha premut la tecla asterisc
+\item[\nodenamebit{coi}] Senyal que s'activa si s'ha premut la tecla coixinet
+\item[\nodenamebit{let}] Senyal que s'activa si s'ha premut una lletra
+\end{where}
+
+\paragraph{Funció}
+
+Evalua la tecla premuda $x$, si n'hi ha, i activa una (o cap) de les sortides següents,
+segons el tipus de tecla premuda:
+
+\begin{itemize}
+\item $bcd$ si és un dígit decimal. En aquest cas, $x$ és també
+el valor d'aquest dígit en BCD.
+\item $ast$ si és la tecla asterisc (\texttt{*}).
+\item $coi$ si és la tecla coixinet (\texttt{\#}).
+\item $let$ si és una lletra.
+\end{itemize}
+
+\paragraph{Inespecificacions}
+
+Cap.
+
+\paragraph{Implementació}
+
+\vhdlisting{keygroup}
+
+
+
+Cada sortida estarà activa només si $nkey$ està actiu i $x$ és el valor adequat.
+Per al cas de $bcd$ i $let$ no és un valor únic sino un rang, però es pot escriure de
+forma compacta mitjançant una comparació.
+
+\paragraph{Simulació}
+
+\begin{center}
+  \begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{nkey}$  &  [] 45L \\
+  $\nodenamebit{x}$  &  [] 4.5D{1001} 4.5D{1111} 4.5D{0101} 4.5D{1010} 4.5D{0110} 4.5D{1011} 4.5D{1110} 4.5D{1101} 4.5D{0111} 4.5D{1111} \\
+  $\nodenamebit{bcd}$  &  [] 4.529106H 4.515345L 4.5H 4.5L 4.5H 13.5L 4.5H 4.45555L \\
+  $\nodenamebit{ast}$  &  [] 18.022933L 0.015293H 8.993724L 4.490849H 13.477201L \\
+  $\nodenamebit{coi}$  &  [] 4.523008L 4.499866H 18.000134L 0.009003H 8.990863L 0.015427H 4.5L 4.461698H \\
+  $\nodenamebit{let}$  &  [] 4.529277L 0.000148H 4.499852L 0.015441H 4.5L 4.484707H 4.515293L 4.484707H 4.499852L 4.5H 8.970723L \\
+\extracode
+\end{tikztimingtable}
+
+\end{center}
+
+Ens fixem que detecti les lletres activant la nova sortida.
+
+\vspace{1cm}

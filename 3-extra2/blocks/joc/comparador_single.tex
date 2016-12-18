@@ -75,8 +75,21 @@ Però en cas que $neqxi$ no estigui activat, les sortides reben el valor directa
 \extracode
 \end{tikztimingtable}
 
+
+\begin{tikztimingtable}[timing/rowdist=4ex]
+  $\nodenamebit{ngtxi}$  &  [] 45.9L \\
+  $\nodenamebit{neqxi}$  &  [] 45.9H \\
+  $\nodenamebit{nltxi}$  &  [] 45.9L \\
+  $\nodenamebit{numx}$  &  [] 2.7D{4} 2.7D{5} 2.7D{6} 2.7D{7} 2.7D{8} 2.7D{9} 2.7D{0} 2.7D{1} 2.7D{2} 2.7D{3} 2.7D{4} 2.7D{5} 2.7D{6} 2.7D{7} 2.7D{8} 2.7D{9} 2.7D{0} 0D{} \\
+  $\nodenamebit{num}$  &  [] 16.2D{4} 27D{5} 2.7D{6} \\
+  $\nodenamebit{ngtx}$  &  [] 0.399701H 10.8L 0.015458H 5.4L 13.495106H 8.089436L 0.015458H 5.4L 2.284841H \\
+  $\nodenamebit{neqx}$  &  [] 0.445804L 2.7H 24.289875L 0.010125H 2.7L 2.689875H 13.064321L \\
+  $\nodenamebit{nltx}$  &  [] 3.052181L 8.1H 0.011981L 5.4H 16.177961L 5.4H 0.022039L 5.4H 2.335838L \\
+\extracode
+\end{tikztimingtable}
+
 \end{center}
 
-% FIXME
+En aquest cas hem fet la simulació de totes les comparacions possibles, en funció de les entrades $ngtxi$, $neqxi$ i $nltxi$. Hem centrat la simulació en una de les parts clau del comparador, quan $neqxi = 1$. Hem de tenir en compte com interpretar la sortida. En el nostre cas comparem $num$ respecte a $numx$.
 
 \vspace{1cm}
