@@ -26,4 +26,12 @@ La senyal intermèdia es converteix a vector lògic i s'assigna a la sortida $nu
 S'activa $tc$ si $ecnt = 1$ i la senyal intermèdia té el valor 9.
 '''
 
+timings = [
+  {
+    "scale": .7,
+    "slices": [(0,14)],
+    "force": True,
+  }
+]
+
 # TODO: simulation

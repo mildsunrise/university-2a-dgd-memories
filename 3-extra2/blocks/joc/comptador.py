@@ -21,4 +21,11 @@ encadenant tres comptadors d'una xifra (instàncies del bloc \textsf{comptador\_
 Per consistència, el \emph{tail count} no s'exporta.
 '''
 
+timings = [
+  {
+    "scale": .9,
+    "slices": [(0,12), (9694,12)],
+  }
+]
+
 # TODO: simulation

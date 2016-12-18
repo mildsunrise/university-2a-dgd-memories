@@ -46,4 +46,11 @@ Es fa servir el paquet \mintinline{vhdl}|std_logic_unsigned| i s'assigna cada so
 Però en cas que $neqxi$ no estigui activat, les sortides reben el valor directament de les entrades, i no de les comparacions.
 '''
 
+timings = [
+  {
+    "scale": 6,
+    "slices": [(9.7,1.7)],
+  }
+]
+
 # TODO: simulation

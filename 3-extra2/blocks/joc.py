@@ -38,4 +38,12 @@ es porten de tornada a la instància de \textsf{control}.
 Finalment, s'exporten les sortides $num$ (de \textsf{registres}) i $comp$ (de \textsf{control}).
 '''
 
+timings = [
+  {
+    "scale": .7,
+    "force": True,
+    "slices": [(0,16)],
+  }
+]
+
 # TODO: simulation
