@@ -82,5 +82,5 @@ Respecte a $comp$, se li assigna un valor només en els següents casos:
 '''
 
 simulation = ur'''
-Introduint comandes simulant una partida real del joc. En aquest cas ens centrem que el funcionament de la trampa sigui el correcte.
+Introduïm comandes que simulen una partida real del joc. En aquest cas ens centrem en que el funcionament de la trampa sigui el correcte.
 '''
