@@ -31,8 +31,8 @@ combinacions amb diversos significats i que controlen els LEDs de la placa:
 \begin{description}
 \item[111] El joc s'acaba d'inicialitzar i es troba en espera (no s'ha jugat cap partida).
 \item[000] S'ha començat una nova partida, s'està esperant que es comprovi un nombre.
-\item[100] L'usuari ha comprovat un nombre que ha resultat ser major que la solució.
-\item[001] L'usuari ha comprovat un nombre que ha resultat ser menor que la solució.
+\item[100] L'usuari ha comprovat un nombre que ha resultat ser menor que la solució.
+\item[001] L'usuari ha comprovat un nombre que ha resultat ser major que la solució.
 \item[010] L'usuari ha comprovat un nombre que ha resultat ser igual a la solució;
 s'ha acabat la partida i el joc es troba en espera.
 \end{description}
@@ -78,7 +78,7 @@ Respecte a $comp$, se li assigna un valor només en els següents casos:
 \item En reset: \mintinline{vhdl}|"111"|
 \item En estat \emph{idle}, $coi$ s'activa: \mintinline{vhdl}|"000"|
 \item En estat \emph{playing}, $bcd$ s'activa: \mintinline{vhdl}|"000"|
-\item En estat \emph{playing}, $ast$ s'activa: \mintinline{vhdl}|ngtx & neqx & nltx|
+\item En estat \emph{playing}, $ast$ s'activa: \mintinline{vhdl}|nltx & neqx & ngtx|
 \item En estat \emph{playing}, $coi$ s'activa: \mintinline{vhdl}|"111"|
 \end{itemize}
 
