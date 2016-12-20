@@ -2,11 +2,15 @@
 
 \section{Especificació}
 
-% TODO
+Es demana modificar el sistema per tal que el nombre que es genera,
+i l'usuari ha d'endevinar sigui ara de 3 xifres.
 
 \section{Implementació}
 
-% TODO
+Hem de modificar els blocs \textsf{registres}, \textsf{comptador} i \textsf{comparador} perque siguin capaços d'operar amb 3 xifres.
+Aquests dos últims els farem encadenant blocs individuals que treballen amb una única xifra.
+
+També haurem de modificar la sortida perquè es mostrin tres xifres als displays.
 
 \section{Blocs del joc}
 \inputblock{joc/registres}
@@ -21,4 +25,4 @@
 
 \section{Valoració general}
 
-% TODO
+Les majors dificultats les hem trobat a l'hora d'encadenar els mòduls individuals perquè vam tenir una petita confusió a l'hora de cridar-los dins dels moduls més grans.

@@ -35,22 +35,115 @@ inicia una partida nova.
 Els patrons de LEDs son:
 
 \begin{center} \begin{tabular}{cl}
-\topline
+\toprule
 Patró & Significat \\
-\midline
+\midrule
 \ledeightpattern{X}{X}{X}{X}{X}{X}{X}{X} & Joc en estat de repós, cap partida iniciada. \\
 \ledeightpattern{ }{ }{ }{ }{ }{ }{ }{ } & Partida iniciada, s'està esperant a la comprovació d'un nombre. \\
 \ledeightpattern{X}{X}{X}{X}{ }{ }{ }{ } & El nombre introduït és menor a la solució. \\
-\ledeightpattern{ }{ }{ }{ }{X}{X}{X}{X} & El nombre introduït és major a la solució; partida acabada. Joc en estat de repós. \\
-\ledeightpattern{ }{ }{X}{X}{X}{X}{ }{ } & El nombre introduït és igual a la solució; partida acabada. Joc en estat de repós. \\
-\bottomline
+\ledeightpattern{ }{ }{ }{ }{X}{X}{X}{X} & El nombre introduït és major a la solució. \\
+\ledeightpattern{ }{ }{X}{X}{X}{X}{ }{ } & El nombre és la solució; partida acabada. Joc en estat de repós. \\
+\bottomrule
 \end{tabular} \end{center}
+
+\paragraph{Exemple de funcionament.}
+
+A continuació es mostra una partida d'exemple, on es veu l'estat dels dos displays
+set-segments i els LEDs verds de la placa. S'inicia una partida, es guanya i es torna
+a iniciar.
+
+\newcommand{\runrow}[3]{\sevenseg{#1}\sevenseg{#2} \hspace{1.5em} \raisebox{-2pt}{\ledeightpattern#3}}
+\newcommand{\keypress}[1]{$\rightarrow$ Tecla premuda: \texttt{#1}}
+
+\begin{multicols}{2}
+
+$\rightarrow$ Reset.
+
+\runrow{0}{0}{{X}{X}{X}{X}{X}{X}{X}{X}}
+
+\keypress{\#}
+
+\runrow{0}{0}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{3}
+
+\runrow{0}{3}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{6}
+
+\runrow{3}{6}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{3}{6}{{X}{X}{X}{X}{ }{ }{ }{ }}
+
+\keypress{5}
+
+\runrow{6}{5}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{1}
+
+\runrow{5}{1}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{5}{1}{{ }{ }{ }{ }{X}{X}{X}{X}}
+
+\keypress{4}
+
+\runrow{1}{4}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{8}
+
+\runrow{4}{8}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{4}{8}{{X}{X}{X}{X}{ }{ }{ }{ }}
+
+\keypress{4}
+
+\runrow{8}{4}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{9}
+
+\runrow{4}{9}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{4}{9}{{ }{ }{X}{X}{X}{X}{ }{ }}
+
+\keypress{\#}
+
+\runrow{4}{9}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{9}
+
+\runrow{9}{9}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{9}
+
+\runrow{9}{9}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{9}{9}{{ }{ }{ }{ }{X}{X}{X}{X}}
+
+\end{multicols}
+\vspace{1em}
 
 Es farà servir una placa DE2 on es carregarà el resultat. Es farà servir el Quartus 9.1 SP2 Web Edition per al desenvolupament.
 
 \section{Implementació}
 
-% TODO
+Es parteix d'una base similar a la anterior pràctica: un bloc gran (que anomenarem \textsf{joc}), implementa la funcionalitat del joc, i s'usa dins el disseny
+de més alt nivell per adaptar-lo als recursos de la placa que fem servir.
+
+Dins \textsf{joc}, s'usa en primer lloc un bloc \textsf{keygroup} per detectar el tipus de tecla que l'usuari està prement (si n'hi ha), i
+aquesta classificació es porta a una màquina de control (\textsf{control}) que emmagatzema i actualitza l'estat global del joc.
+
+Necessitem un comptador BCD per generar el nombre solució, i uns registres per emmagatzemar el nombre que l'usuari introdueix.
+Finalment, un comparador per comparar-los. La sortida del comparador torna a \textsf{control}.
 
 \section{Blocs importats}
 

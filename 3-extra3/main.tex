@@ -2,11 +2,83 @@
 
 \section{Especificació}
 
-% TODO
+Es demana modificar el sistema per incloure un «mode trampa» que ensenya temporalment el nombre que s'ha d'endevinar a través dels displays.
+
+En mig d'una partida, es pot premer una de les lletres del teclat (\texttt{A}, \texttt{B}, \texttt{C} o \texttt{D}) i els displays visualitzaran
+la solució. El nombre haurà de desaparèixer quan es tornir a prèmer una d'aquestes tecles, tornant a la funcionalitat de joc.
+
+\paragraph{Exemple de funcionament.}
+
+A continuació es mostra una partida d'exemple, on es veu l'estat dels dos displays
+set-segments i els LEDs verds de la placa. S'inicia una partida, es prova alguns nombres,
+es visualitza la trampa, es torna al funcionament normal i s'encerta la solució.
+
+\begin{multicols}{2}
+
+$\rightarrow$ Reset.
+
+\runrow{0}{0}{{X}{X}{X}{X}{X}{X}{X}{X}}
+
+\keypress{\#}
+
+\runrow{0}{0}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{3}
+
+\runrow{0}{3}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{6}
+
+\runrow{3}{6}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{3}{6}{{X}{X}{X}{X}{ }{ }{ }{ }}
+
+\keypress{5}
+
+\runrow{6}{5}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{1}
+
+\runrow{5}{1}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{5}{1}{{ }{ }{ }{ }{X}{X}{X}{X}}
+
+\keypress{B}
+
+\runrow{4}{4}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{B}
+
+\runrow{5}{1}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{4}
+
+\runrow{1}{4}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{4}
+
+\runrow{4}{4}{{ }{ }{ }{ }{ }{ }{ }{ }}
+
+\keypress{*}
+
+\runrow{4}{4}{{ }{ }{X}{X}{X}{X}{ }{ }}
+
+\end{multicols}
+
 
 \section{Implementació}
 
-% TODO
+D'entrada, haurem de modificar el bloc \textsf{keygroup} perquè sigui capaç de detectar el nou tipus de tecla premuda.
+S'inclourà una sortida nova $let$ que anirà també a \textsf{control} amb les altres.
+
+Llavors hem d'incloure un nou estat, que anomenarem \emph{cheating}, en la màquina de control.
+Aquesta tindrà una nova sortida ($show$) que indicarà si la trampa està activada.
+
+Finalment, només cal fer que $show$ seleccioni la sortida a visualitzar entre $num$ i $numx$.
 
 \section{Blocs del joc}
 \inputblock{joc/keygroup}
@@ -15,4 +87,4 @@
 
 \section{Valoració general}
 
-% TODO
+No ens vàrem trobar cap problema rellevant.

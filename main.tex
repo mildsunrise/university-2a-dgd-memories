@@ -15,6 +15,7 @@
 
 % ADD ANY SPECIFIC PACKAGES HERE
 % (CHEMISTRY, CODE, PUBLISHING)
+\usepackage{multicol}
 \usepackage{environ}
 \usepackage{enumitem}
 \usepackage{xcolor}
@@ -142,15 +143,15 @@
 
 % custom commands: inline LED pattern
 \newcommand{\ledeightpattern}[8]{%
-\tikz[LED/.style={line width=1pt, draw=black, minimum width=.6em, minimum height=.6em}, LEDX/.style={LED,fill=green}]{%
-  \node[LED#1] at (0,0);
-  \node[LED#2] at (1,0);
-  \node[LED#3] at (2,0);
-  \node[LED#4] at (3,0);
-  \node[LED#5] at (4,0);
-  \node[LED#6] at (5,0);
-  \node[LED#7] at (6,0);
-  \node[LED#8] at (7,0);
+\tikz[LED/.style={line width=1pt, draw=black, minimum width=.5em, minimum height=.5em}, LEDX/.style={LED,fill=green}, xscale=.4]{%
+  \node[LED#1] at (0,0) {};
+  \node[LED#2] at (1,0) {};
+  \node[LED#3] at (2,0) {};
+  \node[LED#4] at (3,0) {};
+  \node[LED#5] at (4,0) {};
+  \node[LED#6] at (5,0) {};
+  \node[LED#7] at (6,0) {};
+  \node[LED#8] at (7,0) {};
 }}
 
 % add PDF bookmark for index
