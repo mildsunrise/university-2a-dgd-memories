@@ -2,7 +2,49 @@
 
 \section{Especificació}
 
-% TODO
+Es demana implementar un petit joc en què l'objectiu del jugador és endevinar un
+nombre aleatori que la màquina manté ocult. Per fer-ho, introdueix un nombre i el
+sistema comprova si coincideix amb la solució. Si no coincideix, li comunica si
+aquest nombre és major o menor que aquesta. El jugador va fent aproximacions
+successives fins que encerta.
+
+En iniciar-se el sistema, aquest es troba en un estat de repós, amb tots els LEDs
+verds encesos i un comptador intern incrementant el seu valor de forma cíclica.
+En el moment que l'usuari prem la tecla \texttt{\#}, el comptador s'atura
+(determinant així la solució a encertar), els LEDs s'apaguen i comença la partida.
+
+Un cop començada la partida, l'usuari pot teclejar als dígits del teclat el
+nombre que desitja provar. Un cop introduïts, pitja \texttt{*} i el sistema
+mostra als LEDs verds el resultat de la comparació:
+
+\begin{itemize}
+\item Si ha encertat (comparació igual), el sistema passa immediatament a l'estat
+   de repós inicial (però sense encendre tots els LEDs, per no esborrar el resultat
+   de la comparació). Llavors només és necessari prèmer \texttt{\#} un cop per
+   començar una partida nova.
+
+\item Si no ha encertat (comparació major o menor), només s'actualitzen els LEDs
+   per mostrar el resultat de la comparació. Els LEDs es tornaran a apagar quan
+   l'usuari premi un dígit de nou.
+\end{itemize}
+
+Mentre la partida està activa, l'usuari pot premer \texttt{\#} en qualsevol moment;
+llavors s'encenen tots els LEDs de nou i es torna a l'estat de repós. Un segon \texttt{\#}
+inicia una partida nova.
+
+Els patrons de LEDs son:
+
+\begin{center} \begin{tabular}{cl}
+\topline
+Patró & Significat \\
+\midline
+\ledeightpattern{X}{X}{X}{X}{X}{X}{X}{X} & Joc en estat de repós, cap partida iniciada. \\
+\ledeightpattern{ }{ }{ }{ }{ }{ }{ }{ } & Partida iniciada, s'està esperant a la comprovació d'un nombre. \\
+\ledeightpattern{X}{X}{X}{X}{ }{ }{ }{ } & El nombre introduït és menor a la solució. \\
+\ledeightpattern{ }{ }{ }{ }{X}{X}{X}{X} & El nombre introduït és major a la solució; partida acabada. Joc en estat de repós. \\
+\ledeightpattern{ }{ }{X}{X}{X}{X}{ }{ } & El nombre introduït és igual a la solució; partida acabada. Joc en estat de repós. \\
+\bottomline
+\end{tabular} \end{center}
 
 Es farà servir una placa DE2 on es carregarà el resultat. Es farà servir el Quartus 9.1 SP2 Web Edition per al desenvolupament.
 
