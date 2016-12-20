@@ -4,7 +4,7 @@
 
 set -e
 cd "$(dirname $0)"
-git submodule update --init bdf2tikz
+git submodule update --init --recursive bdf2tikz vwf2tikz
 
 # Make sure project is checked out
 ORIG="$1/project"
