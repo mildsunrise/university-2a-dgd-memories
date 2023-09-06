@@ -36,7 +36,7 @@ for dirname, dirnames, basenames in walk(pdir):
     simulations[name].append(path.join(dirname, basename))
 
 def render_block(name, block, imported=False):
-  output = [unicode()]
+  output = [str()]
   def put(s, *k):
     assert(s.startswith(u"\n"))
     while s.endswith(u" "): s = s[:-1]
@@ -45,14 +45,14 @@ def render_block(name, block, imported=False):
     output[0] += s
 
   # Labeled subsection
-  put(ur'''
+  put(r'''
 \subsection{\label{sub:\projectname-%s} \textsf{%s}}
 
   ''', name, escape(name))
 
   # Symbol
   if not get(block, "top_level", False):
-    put(ur'''
+    put(r'''
 \paragraph{Símbol}
 
 \begin{center} \bsfsymbol{%s} \end{center}
@@ -64,12 +64,12 @@ def render_block(name, block, imported=False):
     name, direction, desc = t
     name = bdf2tikz.render.render_node_name(name, bdf2tikz.process.default_options)[1:-1]
     return u"\item[%s] %s" % (name, desc.strip())
-  ports = map(render_port, get(block, "ports", []))
+  ports = list(map(render_port, get(block, "ports", [])))
   if len(ports):
     ports = u"\\begin{where}\n%s\n\\end{where}" % "\n".join(ports)
   else:
     ports = "% FIXME\nNo hi ha ports definits."
-  put(ur'''
+  put(r'''
 \paragraph{Entrades i sortides}
 
 %s
@@ -78,7 +78,7 @@ def render_block(name, block, imported=False):
 
   # Description
   description = get(block, "description", u"% FIXME\nSense descripció.")
-  put(ur'''
+  put(r'''
 \paragraph{Funció}
 
 %s
@@ -87,7 +87,7 @@ def render_block(name, block, imported=False):
 
   # Unspecifications
   unspecs = get(block, "unspecs", u"Cap.")
-  put(ur'''
+  put(r'''
 \paragraph{Inespecificacions}
 
 %s
@@ -97,34 +97,34 @@ def render_block(name, block, imported=False):
   # Notes
   notes = get(block, "notes", [])
   if len(notes):
-    put(ur'''
+    put(r'''
 \paragraph{Notes}
 
 %s
 
-    ''', u"\n\n".join(map(unicode.strip, notes)))
+    ''', u"\n\n".join(map(str.strip, notes)))
 
   # Schematic / VHDL and implementation
   if not imported:
-    put(ur'''
+    put(r'''
 \paragraph{Implementació}
 
     ''')
 
     vhd_exists = path.isfile(path.join(adir, "vhdl", name + ".vhd"))
     bdf_exists = path.isfile(path.join(adir, "schematics", name + ".tex"))
-    if vhd_exists == bdf_exists: print "WARNING: Wrong assets for %s" % name
-    intro_text = unicode()
+    if vhd_exists == bdf_exists: print("WARNING: Wrong assets for %s" % name)
+    intro_text = str()
 
     if vhd_exists:
-      put(ur'''
+      put(r'''
 \vhdlisting{%s}
 
       ''', name)
 
     if bdf_exists:
       ref = u"fig:sch-\\projectname-%s" % name
-      put(ur'''
+      put(r'''
 \begin{contendfig}
   \begin{center}
     \adjustbox{max width=\textwidth, max height=\textheight}{
@@ -138,7 +138,7 @@ def render_block(name, block, imported=False):
       intro_text += u"L'esquemàtic del bloc es pot veure a la figura~\\ref{%s} (pàgina~\\pageref{%s}). " % (ref, ref)
 
     implementation = get(block, "implementation", "% FIXME")
-    put(ur'''
+    put(r'''
 %s
 
 %s
@@ -151,16 +151,16 @@ def render_block(name, block, imported=False):
   if timings is None:
     timings = [{ "slices": [(0,100000)] }] * len(sim_files)
   if len(sim_files) != len(timings):
-    print "WARNING: found %d simulations, %d specified" % (len(sim_files), len(timings))
+    print("WARNING: found %d simulations, %d specified" % (len(sim_files), len(timings)))
 
   simulation = get(block, "simulation", u"").strip()
 
   if (not imported) and (not get(block, "top_level", False)) and (not len(sim_files)):
-    print "WARNING: block %s not simulated!" % name
+    print("WARNING: block %s not simulated!" % name)
   if (not imported) and (len(timings) or len(simulation)):
     assert len(sim_files)
     render_sim = u"\n\n".join(render_simulations(name, sim_files, timings))
-    put(ur'''
+    put(r'''
 \paragraph{Simulació}
 
 \begin{center}
@@ -171,7 +171,7 @@ def render_block(name, block, imported=False):
 
   ''', render_sim, simulation or "% FIXME")
 
-  put(ur'''
+  put(r'''
 \vspace{1cm}
   ''')
   return output[0]
@@ -185,16 +185,16 @@ def render_simulations(name, sim_files, timings):
     vwf = vwf2tikz.parser.parse_vwf(vwf)
     options = vwf2tikz.process.default_options.copy()
     options["scale"] = vwf.header["GRID_PERIOD"] / (get(timing, "scale", 1.0) * 4.5)
-    
+
     for start, length in timing["slices"]:
       max_length = vwf.header["SIMULATION_TIME"] / vwf.header["GRID_PERIOD"] - start
       length = min(length, max_length)
       if length > 12 and not get(timing, "force", False):
-        print "WARNING: Simulation for %s too long (%d grids), cropping to %d" % (name, length, 12)
+        print("WARNING: Simulation for %s too long (%d grids), cropping to %d" % (name, length, 12))
         length = 12
       options["viewport"] = (start * vwf.header["GRID_PERIOD"], (start + length) * vwf.header["GRID_PERIOD"])
       result.append(vwf2tikz.process.render_vwf(vwf, options))
-  
+
   return result
 
 def process_file(dirname, block):
@@ -202,9 +202,8 @@ def process_file(dirname, block):
   if ext != ".py": return
   block = run_path(path.join(dirname, block))
   output = render_block(name, block, path.split(dirname)[1] == "imported")
-  file = open(path.join(dirname, name + ".tex"), "w")
-  file.write(output.encode("utf-8"))
-  file.close()
+  with open(path.join(dirname, name + ".tex"), "w") as file:
+    file.write(output)
 
 for dirname, dirnames, basenames in walk(bdir):
   for basename in basenames:

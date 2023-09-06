@@ -1,22 +1,22 @@
 # -*- coding: utf-8
 
 ports = [
-("bcd", "input", ur"Senyal que s'activa si s'ha premut una xifra decimal"),
-("ast", "input", ur"Senyal que s'activa si s'ha premut la tecla asterisc"),
-("coi", "input", ur"Senyal que s'activa si s'ha premut la tecla coixinet"),
-("let", "input", ur"Senyal que s'activa si s'ha premut una lletra"),
-("ngtx", "input", ur"Indica que el nombre introduït és major que la solució"),
-("neqx", "input", ur"Indica que el nombre introduït coincideix amb la solució"),
-("nltx", "input", ur"Indica que el nombre introduït és menor que la solució"),
-("show", "output", ur"Indica que s'ha de visualitzar la solució, no el nombre introduït"),
-("eshft", "output", ur"Senyal que s'activa quan s'ha d'enregistrar la xifra premuda"),
-("ecnt", "output", ur"Senyal que d'habilitació del comptador"),
-("comp[2..0]", "output", ur"Sortida per als indicadors de l'estat del joc"),
-("clk", "input", ur"Rellotge, flanc de pujada"),
-("nrst", "input", ur"Reset asíncron, actiu baix"),
+("bcd", "input", r"Senyal que s'activa si s'ha premut una xifra decimal"),
+("ast", "input", r"Senyal que s'activa si s'ha premut la tecla asterisc"),
+("coi", "input", r"Senyal que s'activa si s'ha premut la tecla coixinet"),
+("let", "input", r"Senyal que s'activa si s'ha premut una lletra"),
+("ngtx", "input", r"Indica que el nombre introduït és major que la solució"),
+("neqx", "input", r"Indica que el nombre introduït coincideix amb la solució"),
+("nltx", "input", r"Indica que el nombre introduït és menor que la solució"),
+("show", "output", r"Indica que s'ha de visualitzar la solució, no el nombre introduït"),
+("eshft", "output", r"Senyal que s'activa quan s'ha d'enregistrar la xifra premuda"),
+("ecnt", "output", r"Senyal que d'habilitació del comptador"),
+("comp[2..0]", "output", r"Sortida per als indicadors de l'estat del joc"),
+("clk", "input", r"Rellotge, flanc de pujada"),
+("nrst", "input", r"Reset asíncron, actiu baix"),
 ]
 
-description = ur'''
+description = r'''
 Màquina de control del joc.
 
 Emmagatzema i actualitza l'estat del joc, habilitant el comptador o el registre segons convingui.
@@ -36,12 +36,12 @@ Per a la funcionalitat de trampa, la sortida $show$ indica quan s'ha de visualit
 la solució en comptes del nombre introduït per l'usuari.
 '''
 
-unspecs = ur'''
+unspecs = r'''
 El comportament del bloc no està definit si més d'una de les entrades $bcd, ast, coi, let$ està activa a la vegada.
 El comportament del bloc no està definit si cap de les entrades $ngtx, neqx, nltx$ està activa, o més d'una ho està.
 '''
 
-implementation = ur'''
+implementation = r'''
 Gràcies al \emph{latch} només cal un tercer estat, que anomenarem \emph{cheating},
 per a implementar la trampa. S'afegeix una sortida $show$ que s'activarà només
 en aquest estat, indicant a la resta del disseny que s'ha de visualitzar la solució
@@ -58,14 +58,14 @@ d'una màquina de Mealy, però es representa la sortida dins de l'estat per simp
   \path[->]
     (st_idle) edge [loop left, align=center] node {$0,-,-$} (st_idle)
     (st_idle) edge [bend left, align=center] node {$1,-,-$} (st_playing)
-    
+
     (st_playing) edge [loop right, align=center] node {$0,0,0$} (st_playing)
     (st_playing) edge [bend left, align=center] node {$1,-,-$ \\ $-,-,1$} (st_idle)
     (st_playing) edge [bend left, align=center] node {$-,1,-$} (st_cheating)
-    
+
     (st_cheating) edge [loop right, align=center] node {$0,0,-$} (st_cheating)
     (st_cheating) edge [bend left, align=center] node {$-,1,-$} (st_playing)
-    
+
     (st_cheating) edge [bend left, align=center] node {$1,-,-$} (st_idle)
   ;
 \end{tikzpicture} \end{center}
@@ -81,6 +81,6 @@ Respecte a $comp$, se li assigna un valor només en els següents casos:
 \end{itemize}
 '''
 
-simulation = ur'''
+simulation = r'''
 Introduïm comandes que simulen una partida real del joc. En aquest cas ens centrem en que el funcionament de la trampa sigui el correcte.
 '''

@@ -1,14 +1,14 @@
 # -*- coding: utf-8
 
 ports = [
-("nkey", "input", ur"Senyal que s'activa si s'ha premut una tecla (actiu baix)"),
-("x[3..0]", "input", ur"Índex de la tecla que s'ha premut"),
-("bcd", "output", ur"Senyal que s'activa si s'ha premut una xifra decimal"),
-("ast", "output", ur"Senyal que s'activa si s'ha premut la tecla asterisc"),
-("coi", "output", ur"Senyal que s'activa si s'ha premut la tecla coixinet"),
+("nkey", "input", r"Senyal que s'activa si s'ha premut una tecla (actiu baix)"),
+("x[3..0]", "input", r"Índex de la tecla que s'ha premut"),
+("bcd", "output", r"Senyal que s'activa si s'ha premut una xifra decimal"),
+("ast", "output", r"Senyal que s'activa si s'ha premut la tecla asterisc"),
+("coi", "output", r"Senyal que s'activa si s'ha premut la tecla coixinet"),
 ]
 
-description = ur'''
+description = r'''
 Evalua la tecla premuda $x$, si n'hi ha, i activa una (o cap) de les sortides següents,
 segons el tipus de tecla premuda:
 
@@ -20,7 +20,7 @@ el valor d'aquest dígit en BCD.
 \end{itemize}
 '''
 
-implementation = ur'''
+implementation = r'''
 Cada sortida estarà activa només si $nkey$ està actiu i $x$ és el valor adequat.
 Per al cas de $bcd$ no és un valor únic sino un rang, però es pot escriure de
 forma compacta mitjançant una comparació.

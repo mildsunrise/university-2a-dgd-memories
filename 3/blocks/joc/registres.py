@@ -1,14 +1,14 @@
 # -*- coding: utf-8
 
 ports = [
-("eshft", "input", ur"Habilitació d'emmagatzemament"),
-("keycode[3..0]", "input", ur"Xifra que s'està introduint (BCD)"),
-("num[7..0]", "output", ur"Nombre enmagatzemat (BCD, dos xifres)"),
-("clk", "input", ur"Rellotge, flanc de pujada"),
-("nrst", "input", ur"Reset asíncron, actiu baix"),
+("eshft", "input", r"Habilitació d'emmagatzemament"),
+("keycode[3..0]", "input", r"Xifra que s'està introduint (BCD)"),
+("num[7..0]", "output", r"Nombre enmagatzemat (BCD, dos xifres)"),
+("clk", "input", r"Rellotge, flanc de pujada"),
+("nrst", "input", r"Reset asíncron, actiu baix"),
 ]
 
-description = ur'''
+description = r'''
 \emph{Shift register} per a dues xifres BCD.
 
 Emmagatzema un nombre BCD de dues xifres, memoritzant les dues últimes
@@ -17,11 +17,11 @@ BCD present a $keycode$ esdevé la xifra de menys pes del nombre
 emmagatzemat; la xifra anterior esdevé la de més pes, i aquesta es descarta.
 '''
 
-unspecs = ur'''
+unspecs = r'''
 La sortida no pertanyirà al seu codi si es carrega una xifra no BCD.
 '''
 
-implementation = ur'''
+implementation = r'''
 Dos biestables D amb habilitació de càrrega encadenats, de forma similar a un \emph{shift
 register} però on les sortides es concatenen per formar la sortida $num$.
 '''

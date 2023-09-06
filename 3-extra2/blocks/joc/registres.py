@@ -1,14 +1,14 @@
 # -*- coding: utf-8
 
 ports = [
-("eshft", "input", ur"Habilitació d'emmagatzemament"),
-("keycode[3..0]", "input", ur"Xifra que s'està introduint (BCD)"),
-("num[11..0]", "output", ur"Nombre enmagatzemat (BCD, tres xifres)"),
-("clk", "input", ur"Rellotge, flanc de pujada"),
-("nrst", "input", ur"Reset asíncron, actiu baix"),
+("eshft", "input", r"Habilitació d'emmagatzemament"),
+("keycode[3..0]", "input", r"Xifra que s'està introduint (BCD)"),
+("num[11..0]", "output", r"Nombre enmagatzemat (BCD, tres xifres)"),
+("clk", "input", r"Rellotge, flanc de pujada"),
+("nrst", "input", r"Reset asíncron, actiu baix"),
 ]
 
-description = ur'''
+description = r'''
 \emph{Shift register} per a tres xifres BCD.
 
 Emmagatzema un nombre BCD de tres xifres, memoritzant les tres últimes
@@ -18,16 +18,16 @@ emmagatzemat; les xifres existents es mouen cap a l'esquerra, descartant
 la de més pes.
 '''
 
-unspecs = ur'''
+unspecs = r'''
 La sortida no pertanyirà al seu codi si es carrega una xifra no BCD.
 '''
 
-implementation = ur'''
+implementation = r'''
 Implementació senzilla, s'utilitzen tres senyals intermèdies $c$, $b$ i $a$,
 per desar cada xifra. En el \mintinline{vhdl}|process| s'assignen condicionalment a $b$, $a$
 i $keycode$ respectivament, i fora d'aquest es concatenen per formar la sortida.
 '''
 
-simulation = ur'''
+simulation = r'''
 Comprovem que els registres emmagatzemen les xifres en l'ordre correcte.
 '''

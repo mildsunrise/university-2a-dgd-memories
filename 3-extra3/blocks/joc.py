@@ -1,15 +1,15 @@
 # -*- coding: utf-8
 
 ports = [
-("nkey", "input", ur"Senyal que s'activa si s'ha premut una tecla (actiu baix)"),
-("keycode[3..0]", "input", ur"Índex de la tecla que s'ha premut"),
-("comp[2..0]", "output", ur"Sortida per als indicadors de l'estat del joc"),
-("num[11..0]", "output", ur"Sortida pels displays (BCD)"),
-("clk", "input", ur"Rellotge, flanc de pujada"),
-("nrst", "input", ur"Reset asíncron, actiu baix"),
+("nkey", "input", r"Senyal que s'activa si s'ha premut una tecla (actiu baix)"),
+("keycode[3..0]", "input", r"Índex de la tecla que s'ha premut"),
+("comp[2..0]", "output", r"Sortida per als indicadors de l'estat del joc"),
+("num[11..0]", "output", r"Sortida pels displays (BCD)"),
+("clk", "input", r"Rellotge, flanc de pujada"),
+("nrst", "input", r"Reset asíncron, actiu baix"),
 ]
 
-description = ur'''
+description = r'''
 Implementa la funcionalitat del joc.
 
 Inicialment, el joc es troba en estat de repós. Quan l'usuari prem \texttt{\#},
@@ -26,7 +26,7 @@ com abans. És possible premer \texttt{\#} per reiniciar mentre s'està visualit
 la solució.
 '''
 
-implementation = ur'''
+implementation = r'''
 La implementació és la mateixa que en la secció anterior, però ara \textsf{keygroup} té
 una sortida més que es porta a l'entrada corresponent de \textsf{control}. Aquest bloc
 també té una sortida nova, $show$.
@@ -43,6 +43,6 @@ timings = [
   }
 ]
 
-simulation = ur'''
+simulation = r'''
 Introduïm comandes que simulen una partida real del joc. En aquest cas ens centrem en que el funcionament de la trampa sigui el correcte.
 '''

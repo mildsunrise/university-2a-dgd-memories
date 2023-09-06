@@ -71,14 +71,14 @@ d'una màquina de Mealy, però es representa la sortida dins de l'estat per simp
   \path[->]
     (st_idle) edge [loop left, align=center] node {$0,-,-$} (st_idle)
     (st_idle) edge [bend left, align=center] node {$1,-,-$} (st_playing)
-    
+
     (st_playing) edge [loop right, align=center] node {$0,0,0$} (st_playing)
     (st_playing) edge [bend left, align=center] node {$1,-,-$ \\ $-,-,1$} (st_idle)
     (st_playing) edge [bend left, align=center] node {$-,1,-$} (st_cheating)
-    
+
     (st_cheating) edge [loop right, align=center] node {$0,0,-$} (st_cheating)
     (st_cheating) edge [bend left, align=center] node {$-,1,-$} (st_playing)
-    
+
     (st_cheating) edge [bend left, align=center] node {$1,-,-$} (st_idle)
   ;
 \end{tikzpicture} \end{center}

@@ -1,13 +1,13 @@
 # -*- coding: utf-8
 
 ports = [
-("ecnt", "input", ur"Habilitació del compte"),
-("numx[7..0]", "output", ur"Nombre de sortida (BCD, dos xifres)"),
-("clk", "input", ur"Rellotge, flanc de pujada"),
-("nrst", "input", ur"Reset asíncron, actiu baix"),
+("ecnt", "input", r"Habilitació del compte"),
+("numx[7..0]", "output", r"Nombre de sortida (BCD, dos xifres)"),
+("clk", "input", r"Rellotge, flanc de pujada"),
+("nrst", "input", r"Reset asíncron, actiu baix"),
 ]
 
-description = ur'''
+description = r'''
 Comptador BCD de dues xifres (ascendent cíclic).
 
 El valor BCD de la sortida, inicialitzada a zero, s'incrementa en cada cicle de rellotge que sempre que $ecnt = 1$.
@@ -21,7 +21,7 @@ timings = [
   }
 ]
 
-implementation = ur'''
+implementation = r'''
 En aquest cas hem optat per a fer servir el paquet \mintinline{vhdl}|numeric_std|, l'ús del qual
 es recomana sobre \mintinline{vhdl}|std_logic_unsigned| i \mintinline{vhdl}|std_logic_signed|.
 
@@ -32,6 +32,6 @@ el seu valor és diferent a nou. En cas contari es posa a zero i s'incrementa $n
 seu valor és diferent a nou (sino, es posa també a zero).
 '''
 
-simulation = ur'''
+simulation = r'''
 Ja que resultaria molt laboriós comprovar una simulació exhaustiva, agafem una mostra que ensenyi els canvis més significatius, que son els canvi de 9 a 0 de les unitats i el canvi de \texttt{0x99} a \texttt{0x00}. Per això hem agafat els nombres entre 85 i 11 del següent cicle. La sortida $numx$ es mostra en hexadecimal per simplicitat. També ens assegurem que el \emph{count enable} realitzi la seva funció.
 '''
